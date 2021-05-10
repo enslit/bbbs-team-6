@@ -12,6 +12,7 @@ import WhereToGoPage from '../pages/where-to-go/WhereToGoPage';
 import ProtectedRoute from '../hocs/ProtectedRoute';
 import Login from '../pages/login/Login';
 import CurrentUserContext from '../contexts/CurrentUserContext';
+import { auth, checkToken } from '../utils/simulatedApi';
 
 function App() {
   const history = useHistory();
@@ -21,16 +22,27 @@ function App() {
     useContext(CurrentUserContext)
   );
 
-  const onSignIn = ({ username }) => {
-    console.log('user login data:', username);
-    localStorage.setItem('user', JSON.stringify({ username }));
-    setCurrentUser({ username });
-    setIsAuthorized(true);
-    history.push('/user-account');
+  const onSignIn = ({ username, password }, onEndSubmitting) => {
+    auth({ username, password })
+      .then(({ user, error }) => {
+        if (error) {
+          return onEndSubmitting(false, error);
+        }
+
+        onEndSubmitting();
+        localStorage.setItem('jwt', user.personalToken);
+        setCurrentUser(user);
+        setIsAuthorized(true);
+        history.push('/user-account');
+      })
+      .catch((error) => {
+        console.error(error);
+        onEndSubmitting(false, error);
+      });
   };
 
   const onSignOut = () => {
-    localStorage.removeItem('user');
+    localStorage.removeItem('jwt');
     setCurrentUser({ username: '' });
     setIsAuthorized(false);
     history.push('/');
@@ -38,15 +50,20 @@ function App() {
 
   useEffect(() => {
     if (!appReady) {
-      const userJson = localStorage.getItem('user');
+      const jwt = localStorage.getItem('jwt');
 
-      if (userJson) {
-        const user = JSON.parse(userJson);
-        setCurrentUser({ username: user.username });
-        setIsAuthorized(true);
+      if (jwt) {
+        checkToken(jwt)
+          .then(({ user }) => {
+            console.log(user);
+            setCurrentUser(user);
+            setIsAuthorized(true);
+          })
+          .catch((error) => console.error(error))
+          .finally(() => setAppReady(true));
+      } else {
+        setAppReady(true);
       }
-
-      setAppReady(true);
     }
 
     return () => null;
@@ -80,15 +97,9 @@ function App() {
             <Route path="/where-to-go">
               <WhereToGoPage />
             </Route>
-            {/* <Route path="/sign-in"> */}
-            {/*  <Login onLogin={onSignIn} /> */}
-            {/* </Route> */}
-            <ProtectedRoute
-              path="/sign-in"
-              authorized={!isAuthorized}
-              component={Login}
-              onLogin={onSignIn}
-            />
+            <Route path="/sign-in">
+              <Login onLogin={onSignIn} />
+            </Route>
             <ProtectedRoute
               path="/user-account"
               authorized={isAuthorized}

@@ -10,6 +10,8 @@ function Login({ onLogin }) {
     username: '',
     password: '',
   });
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleInput = (evt) => {
     setForm({
@@ -20,8 +22,17 @@ function Login({ onLogin }) {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    setSubmitting(true);
+    setError(null);
 
-    onLogin(form);
+    onLogin(form, onEndSubmitting);
+  };
+
+  const onEndSubmitting = (success = true, message = null) => {
+    setSubmitting(false);
+    if (message) {
+      setError(message);
+    }
   };
 
   return (
@@ -53,7 +64,10 @@ function Login({ onLogin }) {
           />
         </label>
       </div>
-      <button type="submit">login</button>
+      {error && <div style={{ color: 'red' }}>{error}</div>}
+      <button type="submit" disabled={submitting}>
+        {submitting ? 'Отправка...' : 'Войти'}
+      </button>
     </form>
   );
 }
