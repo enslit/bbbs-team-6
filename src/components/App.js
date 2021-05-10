@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Switch, Route, useHistory } from 'react-router-dom';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
@@ -15,52 +15,86 @@ import CurrentUserContext from '../contexts/CurrentUserContext';
 
 function App() {
   const history = useHistory();
+  const [appReady, setAppReady] = useState(false);
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [currentUser, setCurrentUser] = useState(
     useContext(CurrentUserContext)
   );
 
-  const onSignIn = (form) => {
-    console.log('user login data:', form);
-    setCurrentUser({ username: form.username });
+  const onSignIn = ({ username }) => {
+    console.log('user login data:', username);
+    localStorage.setItem('user', JSON.stringify({ username }));
+    setCurrentUser({ username });
     setIsAuthorized(true);
     history.push('/user-account');
   };
+
+  const onSignOut = () => {
+    localStorage.removeItem('user');
+    setCurrentUser({ username: '' });
+    setIsAuthorized(false);
+    history.push('/');
+  };
+
+  useEffect(() => {
+    if (!appReady) {
+      const userJson = localStorage.getItem('user');
+
+      if (userJson) {
+        const user = JSON.parse(userJson);
+        setCurrentUser({ username: user.username });
+        setIsAuthorized(true);
+      }
+
+      setAppReady(true);
+    }
+
+    return () => null;
+  }, [appReady]);
+
+  if (!appReady) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <div className="App">
       <CurrentUserContext.Provider value={{ isAuthorized, currentUser }}>
         <div className="page">
-          <Header />
+          <Header onSignOut={onSignOut} />
           <Switch>
             <Route path="/" exact>
               <HomePage />
             </Route>
-            <Route path="/about" exact>
+            <Route path="/about">
               <AboutPage />
             </Route>
-            <Route path="/calendar" exact>
+            <Route path="/calendar">
               <CalendarPage />
             </Route>
-            <Route path="/questions" exact>
+            <Route path="/questions">
               <QuestionsPage />
             </Route>
-            <Route path="/read-and-watch" exact>
+            <Route path="/read-and-watch">
               <ReadAndWatchPage />
             </Route>
+            <Route path="/where-to-go">
+              <WhereToGoPage />
+            </Route>
+            {/* <Route path="/sign-in"> */}
+            {/*  <Login onLogin={onSignIn} /> */}
+            {/* </Route> */}
+            <ProtectedRoute
+              path="/sign-in"
+              authorized={!isAuthorized}
+              component={Login}
+              onLogin={onSignIn}
+            />
             <ProtectedRoute
               path="/user-account"
-              exact
               authorized={isAuthorized}
               component={UserAccountPage}
               user={currentUser}
             />
-            <Route path="/where-to-go" exact>
-              <WhereToGoPage />
-            </Route>
-            <Route path="/sign-in" exact>
-              <Login onLogin={onSignIn} />
-            </Route>
             <Route path="/">
               <h2>404</h2>
             </Route>

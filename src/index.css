@@ -4,5 +4,16 @@ body {
     font-family: 'PTRootUI', sans-serif;
     font-size: 16px;
     line-height: 1.5;
-    color: #333;
+    color: #000;
+    background-color: #F3F2F2;
 }
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu__link_active {
+    font-weight: bold;
+}
+

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { func } from 'proptypes';
+import { func } from 'prop-types';
 
 Login.propTypes = {
   onLogin: func,
@@ -27,26 +27,32 @@ function Login({ onLogin }) {
   return (
     <form onSubmit={handleSubmit}>
       <h2>Please Login</h2>
-      <label htmlFor="username">
-        Username
-        <input
-          type="text"
-          id="username"
-          name="username"
-          value={form.username}
-          onInput={handleInput}
-        />
-      </label>
-      <label htmlFor="password">
-        Password
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={form.password}
-          onInput={handleInput}
-        />
-      </label>
+      <div>
+        <label htmlFor="username">
+          Username
+          <input
+            style={{ marginLeft: '15px' }}
+            type="text"
+            id="username"
+            name="username"
+            value={form.username}
+            onInput={handleInput}
+          />
+        </label>
+      </div>
+      <div style={{ marginTop: '15px', marginBottom: '15px' }}>
+        <label htmlFor="password">
+          Password
+          <input
+            style={{ marginLeft: '15px' }}
+            type="password"
+            id="password"
+            name="password"
+            value={form.password}
+            onInput={handleInput}
+          />
+        </label>
+      </div>
       <button type="submit">login</button>
     </form>
   );
