@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Histories() {
+function HistoriesPage() {
   return <h1>Истории</h1>;
 }
 
-export default Histories;
+export default HistoriesPage;

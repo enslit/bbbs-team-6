@@ -1,0 +1,31 @@
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth';
+import { element } from 'prop-types';
+
+PrivateRoute.propTypes = {
+  children: element,
+};
+
+function PrivateRoute({ children, ...rest }) {
+  const { user } = useAuth();
+  return (
+    <Route
+      {...rest}
+      render={({ location }) =>
+        user ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: '/sign-in',
+              state: { from: location },
+            }}
+          />
+        )
+      }
+    />
+  );
+}
+
+export default PrivateRoute;

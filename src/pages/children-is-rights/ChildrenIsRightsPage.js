@@ -1,7 +1,7 @@
 import React from 'react';
 
-function ChildrenIsRights() {
+function ChildrenIsRightsPage() {
   return <h1>Права детей</h1>;
 }
 
-export default ChildrenIsRights;
+export default ChildrenIsRightsPage;

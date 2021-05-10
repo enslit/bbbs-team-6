@@ -29,24 +29,26 @@ const users = [
 ];
 
 const getUserByAuthData = (username, password) => {
-  const user = users.filter(
-    (user) => user.username === username && user.password === password
+  const [user] = users.filter(
+    (u) => u.username === username && u.password === password
   );
 
-  if (user.length) {
-    delete user[0].password;
-    return user[0];
+  if (user) {
+    const userData = { ...user };
+    delete userData.password;
+    return userData;
   }
 
   return null;
 };
 
 const getUserByToken = (token) => {
-  const user = users.filter((user) => user.personalToken === token);
+  const [user] = users.filter((user) => user.personalToken === token);
 
-  if (user.length) {
-    delete user[0].password;
-    return user[0];
+  if (user) {
+    const userData = { ...user };
+    delete userData.password;
+    return userData;
   }
 
   return null;
