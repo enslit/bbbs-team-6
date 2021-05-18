@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "name": "Москва",
+    "isPrimary": true
+  },
+  {
+    "id": 2,
+    "name": "Воронеж",
+    "isPrimary": false
+  }
+]
