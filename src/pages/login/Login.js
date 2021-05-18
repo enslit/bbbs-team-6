@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { func } from 'prop-types';
+import { useHistory, useLocation } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 
-Login.propTypes = {
-  onLogin: func,
-};
+function Login() {
+  const history = useHistory();
+  const location = useLocation();
+  const auth = useAuth();
 
-function Login({ onLogin }) {
   const [form, setForm] = useState({
     username: '',
     password: '',
@@ -20,12 +21,17 @@ function Login({ onLogin }) {
     });
   };
 
+  const redirectToRequestedRoute = () => {
+    const { from } = location.state || { from: { pathname: '/user-account' } };
+    history.replace(from);
+  };
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     setSubmitting(true);
     setError(null);
 
-    onLogin(form, onEndSubmitting);
+    auth.signIn(form, onEndSubmitting, redirectToRequestedRoute);
   };
 
   const onEndSubmitting = (success = true, message = null) => {

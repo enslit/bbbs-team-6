@@ -1,15 +1,17 @@
-import React, { useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import CurrentUserContext from '../../contexts/CurrentUserContext';
+import React from 'react';
+import { Link, NavLink, useHistory } from 'react-router-dom';
 import { func } from 'prop-types';
 import Search from '../Search/Search';
+import { useAuth } from '../../hooks/useAuth';
 
 Header.propTypes = {
   onSignOut: func,
 };
 
-function Header({ onSignOut }) {
-  const { isAuthorized } = useContext(CurrentUserContext);
+function Header() {
+  const { user, signOut } = useAuth();
+  const history = useHistory();
+
   return (
     <header>
       <Link to="/">Логотип BBBS</Link>
@@ -94,10 +96,12 @@ function Header({ onSignOut }) {
       </nav>
       <div>
         <Search />
-        {isAuthorized ? (
+        {user ? (
           <>
             <Link to="/user-account">Личный кабинет</Link>
-            <button onClick={onSignOut}>Выйти</button>
+            <button onClick={() => signOut(() => history.push('/'))}>
+              Выйти
+            </button>
           </>
         ) : (
           <Link to="/sign-in">Войти</Link>
