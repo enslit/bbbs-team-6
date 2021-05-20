@@ -1,6 +1,7 @@
 /* eslint-disable react/display-name */
 import { memo } from 'react';
 import { object } from 'prop-types';
+import './movie.css';
 
 const Movie = memo(({ movie }) => {
   return (
