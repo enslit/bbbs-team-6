@@ -17,47 +17,45 @@ import HistoriesPage from '../pages/histories/HistoriesPage';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <ProvideAuth>
-        <div className="page">
-          <Header />
-          <Switch>
-            <Route path="/" exact>
-              <HomePage />
-            </Route>
-            <Route path="/about">
-              <AboutPage />
-            </Route>
-            <Route path="/calendar">
-              <CalendarPage />
-            </Route>
-            <Route path="/questions">
-              <QuestionsPage />
-            </Route>
-            <Route path="/read-and-watch">
-              <ReadAndWatchPage />
-            </Route>
-            <Route path="/where-to-go">
-              <WhereToGoPage />
-            </Route>
-            <Route path="/children-is-rights">
-              <ChildrenIsRightsPage />
-            </Route>
-            <Route path="/histories">
-              <HistoriesPage />
-            </Route>
-            <Route path="/sign-in">
-              <Login />
-            </Route>
-            <PrivateRoute path="/user-account">
-              <UserAccountPage />
-            </PrivateRoute>
-            <Route path="/">
-              <h2>404</h2>
-            </Route>
-          </Switch>
-          <Footer />
-        </div>
+        <Header />
+        <Switch>
+          <Route path="/" exact>
+            <HomePage />
+          </Route>
+          <Route path="/about">
+            <AboutPage />
+          </Route>
+          <Route path="/calendar">
+            <CalendarPage />
+          </Route>
+          <Route path="/questions">
+            <QuestionsPage />
+          </Route>
+          <Route path="/read-and-watch">
+            <ReadAndWatchPage />
+          </Route>
+          <Route path="/where-to-go">
+            <WhereToGoPage />
+          </Route>
+          <Route path="/children-is-rights">
+            <ChildrenIsRightsPage />
+          </Route>
+          <Route path="/histories">
+            <HistoriesPage />
+          </Route>
+          <Route path="/sign-in">
+            <Login />
+          </Route>
+          <PrivateRoute path="/user-account">
+            <UserAccountPage />
+          </PrivateRoute>
+          <Route path="/">
+            <h2>404</h2>
+          </Route>
+        </Switch>
+        <Footer />
       </ProvideAuth>
     </div>
   );

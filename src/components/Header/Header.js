@@ -1,111 +1,62 @@
-import React from 'react';
-import { Link, NavLink, useHistory } from 'react-router-dom';
-import { func } from 'prop-types';
-import Search from '../Search/Search';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-
-Header.propTypes = {
-  onSignOut: func,
-};
+import HeaderNavigation from '../HeaderMenu/HeaderNavigation';
+import HeaderMobileMenu from '../HeaderMenu/HeaderMobileMenu';
+import IconButton from '../IconButton/IconButton';
+import searchIcon from '../../assets/icons/search.svg';
+import userIcon from '../../assets/icons/login.svg';
+import authorizedUserIcon from '../../assets/icons/lk.svg';
+import { menuHeaderDesktop } from '../../menus';
+import './header.css';
 
 function Header() {
-  const { user, signOut } = useAuth();
-  const history = useHistory();
+  const [isMenuOpened, setIsMenuOpened] = useState(false);
+  const { user } = useAuth();
+
+  const handleClickOpenMenu = () => {
+    setIsMenuOpened(true);
+  };
+
+  const handleClickCloseMenu = () => {
+    setIsMenuOpened(false);
+  };
+
+  const handleClickSearch = () => {
+    console.log('search');
+  };
+
+  const handleClickUserIcon = () => {
+    console.log('user');
+  };
 
   return (
-    <header>
-      <Link to="/">Логотип BBBS</Link>
-      <nav>
-        <ul className="menu">
-          <li>
-            <NavLink activeClassName="menu__link_active" to="/calendar">
-              Календарь
-            </NavLink>
-          </li>
-          <li>
-            <NavLink activeClassName="menu__link_active" to="/where-to-go">
-              Куда пойти
-            </NavLink>
-          </li>
-          <li>
-            <NavLink activeClassName="menu__link_active" to="/questions">
-              Вопросы
-            </NavLink>
-          </li>
-          <li>
-            <NavLink activeClassName="menu__link_active" to="/read-and-watch">
-              Читать и смотреть
-            </NavLink>
-            <ul>
-              <li>
-                <NavLink
-                  activeClassName="menu__link_active"
-                  to="/read-and-watch/guide"
-                >
-                  Справочник
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  activeClassName="menu__link_active"
-                  to="/read-and-watch/video"
-                >
-                  Видео
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  activeClassName="menu__link_active"
-                  to="/read-and-watch/articles"
-                >
-                  Статьи
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  activeClassName="menu__link_active"
-                  to="/read-and-watch/films"
-                >
-                  Фильмы
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  activeClassName="menu__link_active"
-                  to="/read-and-watch/books"
-                >
-                  Книги
-                </NavLink>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <NavLink
-              activeClassName="menu__link_active"
-              to="/children-is-rights"
-            >
-              Права детей
-            </NavLink>
-          </li>
-          <li>
-            <NavLink activeClassName="menu__link_active" to="/histories">
-              Истории
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
-      <div>
-        <Search />
-        {user ? (
-          <>
-            <Link to="/user-account">Личный кабинет</Link>
-            <button onClick={() => signOut(() => history.push('/'))}>
-              Выйти
-            </button>
-          </>
-        ) : (
-          <Link to="/sign-in">Войти</Link>
-        )}
+    <header className="header">
+      <Link to="/" className="header__logo">
+        наставники.про
+      </Link>
+      <HeaderMobileMenu
+        onOpen={handleClickOpenMenu}
+        onClose={handleClickCloseMenu}
+        isOpened={isMenuOpened}
+      />
+      <HeaderNavigation list={menuHeaderDesktop} type={'desktop'} />
+      <div className="header__action">
+        <IconButton
+          type="button"
+          aria-label="Поиск"
+          icon={searchIcon}
+          handleClick={handleClickSearch}
+        />
+        <IconButton
+          type="button"
+          aria-label={user ? 'Личный кабинет' : 'Авторизация'}
+          className={`header__button-login ${
+            isMenuOpened ? 'header__button-login_show' : ''
+          }`}
+          icon={user ? authorizedUserIcon : userIcon}
+          handleClick={handleClickUserIcon}
+        />
       </div>
     </header>
   );
