@@ -4,10 +4,20 @@
     box-sizing: border-box;
 }
 
+.app_header-offset {
+    padding-top: 108px;
+}
+
 body {
     font-family: 'PTRootUI', sans-serif;
     font-size: 16px;
     line-height: 1.5;
     color: #000;
     background-color: #F3F2F2;
+}
+
+@media (max-width: 640px) {
+    .app_header-offset {
+        padding-top: 58px;
+    }
 }

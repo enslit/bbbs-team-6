@@ -8,9 +8,15 @@ import searchIcon from '../../assets/icons/search.svg';
 import userIcon from '../../assets/icons/login.svg';
 import authorizedUserIcon from '../../assets/icons/lk.svg';
 import { menuHeaderDesktop } from '../../menus';
+import { bool } from 'prop-types';
 import './header.css';
 
-function Header() {
+Header.propTypes = {
+  hidden: bool,
+  fixed: bool,
+};
+
+function Header({ hidden, fixed }) {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const { user } = useAuth();
 
@@ -31,7 +37,11 @@ function Header() {
   };
 
   return (
-    <header className="header">
+    <header
+      className={`header${hidden ? ' header_hidden' : ''}${
+        fixed ? ' header_fixed' : ''
+      }`}
+    >
       <Link to="/" className="header__logo">
         наставники.про
       </Link>

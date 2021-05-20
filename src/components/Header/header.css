@@ -2,11 +2,27 @@
     width: 100%;
     max-width: 1770px;
     margin: 0 auto;
-    padding: 39px 75px 0;
+    padding: 39px 75px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
+    transition: transform 200ms ease-in-out;
+}
+
+.header_fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    background-color: #F3F2F2;
+    transform: translateY(0);
+}
+
+.header_hidden {
+    transform: translateY(-100%);
 }
 
 .header__logo {
@@ -58,6 +74,7 @@
 @media (max-width: 1024px) {
     .header {
         padding: 44px 127px 0;
+        transition: all 200ms ease-in-out;
     }
 
     .header__logo {
@@ -86,6 +103,6 @@
 
 @media (max-width: 640px) {
     .header {
-        padding: 14px 16px 0;
+        padding: 14px 16px;
     }
 }

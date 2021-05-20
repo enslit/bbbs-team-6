@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
@@ -9,17 +9,46 @@ import QuestionsPage from '../pages/questions/QuestionsPage';
 import ReadAndWatchPage from '../pages/read-and-watch/ReadAndWatchPage';
 import WhereToGoPage from '../pages/where-to-go/WhereToGoPage';
 import Login from '../pages/login/Login';
-import { ProvideAuth } from '../hooks/useAuth';
 import PrivateRoute from '../hocs/PrivateRoute';
 import UserAccountPage from '../pages/user-account/UserAccountPage';
 import ChildrenIsRightsPage from '../pages/children-is-rights/ChildrenIsRightsPage';
 import HistoriesPage from '../pages/histories/HistoriesPage';
+import { ProvideAuth } from '../hooks/useAuth';
 
 function App() {
+  const [isHeaderHidden, setIsHeaderHidden] = useState(false);
+  const [isHeaderFixed, setIsHeaderFixed] = useState(false);
+  const offset = useRef(0);
+
+  const hideHeaderOnScroll = () => {
+    const { top } = document.documentElement.getBoundingClientRect();
+
+    if (top < -99 && top < offset.current) {
+      setIsHeaderHidden(true);
+    } else {
+      setIsHeaderHidden(false);
+    }
+
+    if (top < -199) {
+      setIsHeaderFixed(true);
+    } else {
+      setIsHeaderFixed(false);
+    }
+
+    offset.current = top;
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', hideHeaderOnScroll);
+    return () => {
+      window.removeEventListener('scroll', hideHeaderOnScroll);
+    };
+  }, []);
+
   return (
-    <div className="app">
+    <div className={`app ${isHeaderFixed ? 'app_header-offset' : ''}`}>
       <ProvideAuth>
-        <Header />
+        <Header hidden={isHeaderHidden} fixed={isHeaderFixed} />
         <Switch>
           <Route path="/" exact>
             <HomePage />
