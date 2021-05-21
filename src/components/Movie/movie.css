@@ -1,0 +1,133 @@
+/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/tag.css */
+.tag {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 15px;
+  padding: 2px 7px;
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 13px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #464646;
+  margin: 0;
+}
+/*! end @import */
+/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/movie.css */
+.movie {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 30px;
+  position: relative;
+}
+.movie__img {
+  border-radius: 30px 30px 0 0;
+  position: relative;
+}
+.movie__poster {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.movie__tags {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%);
+  list-style: none;
+}
+.movie__descriprion {
+  padding: 15px 30px;
+  min-height: 169px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.movie__name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 17px;
+}
+.movie__title {
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
+  font-weight: 300;
+  font-size: 23px;
+  line-height: 30px;
+  text-align: center;
+  margin: 0 0 5px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.movie__caption {
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.2px;
+  color: #464646;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.movie__link {
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  color: #224cff;
+  margin: 0;
+  text-decoration: none;
+  z-index: 4;
+}
+.movie__link:hover {
+  color: #2e2468;
+}
+@media screen and (max-width: 1024px) {
+  .movie__descriprion {
+    min-height: 147px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .movie__name {
+    margin-bottom: 15px;
+  }
+  .movie__title {
+    font-size: 19px;
+    line-height: 23px;
+  }
+  .movie__caption {
+    font-size: 12px;
+    line-height: 17px;
+  }
+  .movie__link {
+    font-size: 12px;
+    line-height: 17px;
+  }
+}
+/*! end @import */
+/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/mainlink.css */
+.mainlink {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+  z-index: 3;
+}
