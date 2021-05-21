@@ -22,7 +22,7 @@
   align-items: center;
 }
 .mainvideo__title {
-  font-family: 'Proto', Arial, sans-serif;
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
   font-weight: 300;
   font-size: 23px;
   line-height: 30px;
@@ -30,7 +30,7 @@
   margin: 0 0 5px 0;
 }
 .mainvideo__caption {
-  font-family: 'PT Proto', Arial, sans-serif;
+  font-family: 'PT-Root-UI', Arial, sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 19px;
@@ -40,7 +40,7 @@
   margin: 0;
 }
 .mainvideo__link {
-  font-family: 'Proto', Arial, sans-serif;
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
   font-weight: 300;
   font-size: 15px;
   line-height: 19px;
@@ -50,6 +50,7 @@
   text-decoration: none;
   z-index: 4;
 }
+
 .mainvideo__link:hover {
   color: #2e2468;
 }
