@@ -12,13 +12,13 @@ function Movie({ movie }) {
       <a className="mainlink" href={movie.link} />
       <div className="movie__img">
         <img className="movie__poster" src={movie.imageUrl} alt={movie.title} />
-        <div className="movie__tags">
+        <ul className="movie__tags">
           {movie.tags.map((tag) => (
-            <p key={tag.id} className="tag">
-              {tag.name}
-            </p>
+            <li key={tag.id}>
+              <p className="tag">{tag.name}</p>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
       <div className="movie__descriprion">
         <div className="movie__name">

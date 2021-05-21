@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Proto Grotesk-Light';
+  src: url('Proto Grotesk-Light-Web.eot');
+  src: url('Proto Grotesk-Light-Web.eot?#iefix') format('embedded-opentype'),
+    url('Proto Grotesk-Light-Web.woff2') format('woff2'),
+    url('Proto Grotesk-Light-Web.woff') format('woff'),
+    url('Proto Grotesk-Light-Web.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
