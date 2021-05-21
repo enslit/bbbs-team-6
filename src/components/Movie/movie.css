@@ -34,12 +34,14 @@
   display: block;
 }
 .movie__tags {
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
   position: absolute;
   bottom: 10px;
   left: 50%;
   transform: translate(-50%);
+  list-style: none;
 }
 .movie__descriprion {
   padding: 15px 30px;
