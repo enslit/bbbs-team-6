@@ -1,9 +1,9 @@
 import { bbbsApi } from '../utils/api';
 import React, { useState, createContext, useContext, useEffect } from 'react';
-import { element } from 'prop-types';
+import { any } from 'prop-types';
 
 ProvideAuth.propTypes = {
-  children: element,
+  children: any,
 };
 
 export const authContext = createContext({});

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
@@ -16,59 +16,85 @@ import HistoriesPage from '../pages/histories/HistoriesPage';
 import { useAuth } from '../hooks/useAuth';
 
 function App() {
+  const { authReady } = useAuth();
+  const [isHeaderHidden, setIsHeaderHidden] = useState(false);
+  const [isHeaderFixed, setIsHeaderFixed] = useState(false);
+  const offset = useRef(0);
+
+  const hideHeaderOnScroll = () => {
+    const { top } = document.documentElement.getBoundingClientRect();
+
+    if (top < -99 && top < offset.current) {
+      setIsHeaderHidden(true);
+    } else {
+      setIsHeaderHidden(false);
+    }
+
+    if (top < -199) {
+      setIsHeaderFixed(true);
+    } else {
+      setIsHeaderFixed(false);
+    }
+
+    offset.current = top;
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', hideHeaderOnScroll);
+    return () => {
+      window.removeEventListener('scroll', hideHeaderOnScroll);
+    };
+  }, []);
+
   /* Когда мы перезагружаем страницу на защищенном роуте, нас выбрасывает на страницу логина. Это происходит потому,
   что проверка JWT выполняется асинхронно и пока она не закончена, состояние loggedIn в значении false.
   Рендер страницы продолжается и защищенный роут нас отбрасывает согласно логике.
   Когда мы уже на странице логина, завершается проверка JWT и значение loggedIn меняется на true.
   Срабатывает хук useEffect на странице логина, чтобы не пускать авторизованного пользователя и снова происходит редирект.
   Чтобы не делать редиректы туда-сюда, так как это заметно, притормозим рендер приложения пока не прошла проверка авторизации */
-  const { authReady } = useAuth();
-
   if (!authReady) {
     return <h1>Выполняется проверка авторизации</h1>;
   }
 
   return (
-    <div className="App">
-      <div className="page">
-        <Header />
-        <Switch>
-          <Route path="/" exact>
-            <HomePage />
-          </Route>
-          <Route path="/about">
-            <AboutPage />
-          </Route>
-          <PrivateRoute path="/calendar">
-            <CalendarPage />
-          </PrivateRoute>
-          <Route path="/questions">
-            <QuestionsPage />
-          </Route>
-          <Route path="/read-and-watch">
-            <ReadAndWatchPage />
-          </Route>
-          <Route path="/where-to-go">
-            <WhereToGoPage />
-          </Route>
-          <Route path="/children-is-rights">
-            <ChildrenIsRightsPage />
-          </Route>
-          <Route path="/histories">
-            <HistoriesPage />
-          </Route>
-          <Route path="/sign-in">
-            <Login />
-          </Route>
-          <PrivateRoute path="/user-account">
-            <UserAccountPage />
-          </PrivateRoute>
-          <Route path="/">
-            <h2>404</h2>
-          </Route>
-        </Switch>
-        <Footer />
-      </div>
+    <div className={`app ${isHeaderFixed ? 'app_header-offset' : ''}`}>
+      <Header hidden={isHeaderHidden} fixed={isHeaderFixed} />
+      <Switch>
+        <Route path="/" exact>
+          <HomePage />
+        </Route>
+        <Route path="/about">
+          <AboutPage />
+        </Route>
+        <PrivateRoute path="/calendar">
+          <CalendarPage />
+        </PrivateRoute>
+        <Route path="/questions">
+          <QuestionsPage />
+        </Route>
+        <Route path="/read-and-watch">
+          <ReadAndWatchPage />
+        </Route>
+        <Route path="/where-to-go">
+          <WhereToGoPage />
+        </Route>
+        <Route path="/children-is-rights">
+          <ChildrenIsRightsPage />
+        </Route>
+        <Route path="/histories">
+          <HistoriesPage />
+        </Route>
+        <Route path="/sign-in">
+          <Login />
+        </Route>
+        <PrivateRoute path="/user-account">
+          <UserAccountPage />
+        </PrivateRoute>
+        <Route path="/">
+          <h2>404</h2>
+        </Route>
+      </Switch>
+      <Footer />
     </div>
   );
 }
