@@ -9,56 +9,66 @@ import QuestionsPage from '../pages/questions/QuestionsPage';
 import ReadAndWatchPage from '../pages/read-and-watch/ReadAndWatchPage';
 import WhereToGoPage from '../pages/where-to-go/WhereToGoPage';
 import Login from '../pages/login/Login';
-import { ProvideAuth } from '../hooks/useAuth';
 import PrivateRoute from '../hocs/PrivateRoute';
 import UserAccountPage from '../pages/user-account/UserAccountPage';
 import ChildrenIsRightsPage from '../pages/children-is-rights/ChildrenIsRightsPage';
 import HistoriesPage from '../pages/histories/HistoriesPage';
+import { useAuth } from '../hooks/useAuth';
 
 function App() {
+  /* Когда мы перезагружаем страницу на защищенном роуте, нас выбрасывает на страницу логина. Это происходит потому,
+  что проверка JWT выполняется асинхронно и пока она не закончена, состояние loggedIn в значении false.
+  Рендер страницы продолжается и защищенный роут нас отбрасывает согласно логике.
+  Когда мы уже на странице логина, завершается проверка JWT и значение loggedIn меняется на true.
+  Срабатывает хук useEffect на странице логина, чтобы не пускать авторизованного пользователя и снова происходит редирект.
+  Чтобы не делать редиректы туда-сюда, так как это заметно, притормозим рендер приложения пока не прошла проверка авторизации */
+  const { authReady } = useAuth();
+
+  if (!authReady) {
+    return <h1>Выполняется проверка авторизации</h1>;
+  }
+
   return (
     <div className="App">
-      <ProvideAuth>
-        <div className="page">
-          <Header />
-          <Switch>
-            <Route path="/" exact>
-              <HomePage />
-            </Route>
-            <Route path="/about">
-              <AboutPage />
-            </Route>
-            <Route path="/calendar">
-              <CalendarPage />
-            </Route>
-            <Route path="/questions">
-              <QuestionsPage />
-            </Route>
-            <Route path="/read-and-watch">
-              <ReadAndWatchPage />
-            </Route>
-            <Route path="/where-to-go">
-              <WhereToGoPage />
-            </Route>
-            <Route path="/children-is-rights">
-              <ChildrenIsRightsPage />
-            </Route>
-            <Route path="/histories">
-              <HistoriesPage />
-            </Route>
-            <Route path="/sign-in">
-              <Login />
-            </Route>
-            <PrivateRoute path="/user-account">
-              <UserAccountPage />
-            </PrivateRoute>
-            <Route path="/">
-              <h2>404</h2>
-            </Route>
-          </Switch>
-          <Footer />
-        </div>
-      </ProvideAuth>
+      <div className="page">
+        <Header />
+        <Switch>
+          <Route path="/" exact>
+            <HomePage />
+          </Route>
+          <Route path="/about">
+            <AboutPage />
+          </Route>
+          <PrivateRoute path="/calendar">
+            <CalendarPage />
+          </PrivateRoute>
+          <Route path="/questions">
+            <QuestionsPage />
+          </Route>
+          <Route path="/read-and-watch">
+            <ReadAndWatchPage />
+          </Route>
+          <Route path="/where-to-go">
+            <WhereToGoPage />
+          </Route>
+          <Route path="/children-is-rights">
+            <ChildrenIsRightsPage />
+          </Route>
+          <Route path="/histories">
+            <HistoriesPage />
+          </Route>
+          <Route path="/sign-in">
+            <Login />
+          </Route>
+          <PrivateRoute path="/user-account">
+            <UserAccountPage />
+          </PrivateRoute>
+          <Route path="/">
+            <h2>404</h2>
+          </Route>
+        </Switch>
+        <Footer />
+      </div>
     </div>
   );
 }

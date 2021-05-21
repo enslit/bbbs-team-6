@@ -1,12 +1,12 @@
-import { auth, checkToken } from '../utils/fakeApi';
-import React, { useState, useEffect, createContext, useContext } from 'react';
+import { bbbsApi } from '../utils/api';
+import React, { useState, createContext, useContext, useEffect } from 'react';
 import { element } from 'prop-types';
 
 ProvideAuth.propTypes = {
   children: element,
 };
 
-export const authContext = createContext();
+export const authContext = createContext({});
 
 export function ProvideAuth({ children }) {
   const auth = useProvideAuth();
@@ -18,47 +18,47 @@ export const useAuth = () => {
 };
 
 const useProvideAuth = () => {
+  const JWT_LS_KEY = 'bbbs-jwt';
+  const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
+  const [authReady, setAuthReady] = useState(false);
 
-  const signIn = ({ username, password }, onEndSubmitting, cb) => {
-    auth({ username, password })
-      .then(({ user, error }) => {
-        if (error) {
-          return onEndSubmitting(false, error);
-        }
-
-        onEndSubmitting();
-        localStorage.setItem('jwt', user.personalToken);
-        setUser(user);
-        cb();
+  const signIn = ({ username, password }) => {
+    return bbbsApi
+      .login({ username, password })
+      .then((tokens) => {
+        localStorage.setItem(JWT_LS_KEY, JSON.stringify(tokens));
+        return bbbsApi.getUserProfile();
       })
-      .catch((error) => {
-        console.error(error);
-        onEndSubmitting(false, error);
+      .then((userData) => {
+        setUser(userData);
+        setLoggedIn(true);
       });
   };
 
   const signOut = (cb) => {
-    localStorage.removeItem('jwt');
+    localStorage.removeItem(JWT_LS_KEY);
     setUser(null);
+    setLoggedIn(false);
     cb();
   };
 
   useEffect(() => {
-    const jwt = localStorage.getItem('jwt');
+    const jwt = localStorage.getItem(JWT_LS_KEY);
 
     if (jwt) {
-      checkToken(jwt)
-        .then(({ user }) => {
-          if (user) {
-            setUser(user);
-          } else {
-            localStorage.removeItem('jwt');
-          }
+      bbbsApi
+        .getUserProfile()
+        .then((userData) => {
+          setUser(userData);
+          setLoggedIn(true);
         })
-        .catch((error) => console.error(error));
+        .catch((error) => console.log(error))
+        .finally(() => setAuthReady(true));
+    } else {
+      setAuthReady(true);
     }
   }, []);
 
-  return { user, signIn, signOut };
+  return { authReady, loggedIn, user, signIn, signOut };
 };
