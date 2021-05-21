@@ -1,9 +1,9 @@
 import { auth, checkToken } from '../utils/fakeApi';
 import React, { useState, useEffect, createContext, useContext } from 'react';
-import { element } from 'prop-types';
+import { any } from 'prop-types';
 
 ProvideAuth.propTypes = {
-  children: element,
+  children: any,
 };
 
 export const authContext = createContext();
