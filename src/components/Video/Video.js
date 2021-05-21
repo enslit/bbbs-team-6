@@ -1,9 +1,12 @@
-/* eslint-disable react/display-name */
 import { memo } from 'react';
 import { object } from 'prop-types';
 import './video.css';
 
-const Video = memo(({ video }) => {
+Video.propTypes = {
+  video: object,
+};
+
+function Video({ video }) {
   return (
     <div className="mainvideo">
       <div className="mainvideo__description">
@@ -23,10 +26,6 @@ const Video = memo(({ video }) => {
       />
     </div>
   );
-});
+}
 
-Video.propTypes = {
-  video: object,
-};
-
-export default Video;
+export default memo(Video);
