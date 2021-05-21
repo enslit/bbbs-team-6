@@ -1,9 +1,12 @@
-/* eslint-disable react/display-name */
 import { memo } from 'react';
 import { object } from 'prop-types';
 import './movie.css';
 
-const Movie = memo(({ movie }) => {
+Movie.propTypes = {
+  movie: object,
+};
+
+function Movie({ movie }) {
   return (
     <li className="movie">
       <a className="mainlink" href={movie.link} />
@@ -33,10 +36,6 @@ const Movie = memo(({ movie }) => {
       </div>
     </li>
   );
-});
+}
 
-Movie.propTypes = {
-  movie: object,
-};
-
-export default Movie;
+export default memo(Movie);
