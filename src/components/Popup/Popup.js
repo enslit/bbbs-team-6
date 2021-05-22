@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { element, func, object, bool, oneOfType } from 'prop-types';
+import './popup.css';
 
 Popup.propTypes = {
   children: element,

@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { func, object } from 'prop-types';
 import Popup from '../Popup/Popup';
+import './video-popup.css';
 
 VideoPopup.propTypes = {
   video: object,
