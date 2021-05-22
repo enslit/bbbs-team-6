@@ -1,14 +1,19 @@
 import { memo } from 'react';
-import { object } from 'prop-types';
+import { func, object } from 'prop-types';
 import './video.css';
 
 Video.propTypes = {
   video: object,
+  onClick: func,
 };
 
-function Video({ video }) {
+function Video({ video, onClick }) {
+  function handleClick() {
+    onClick(video);
+  }
+
   return (
-    <div className="mainvideo">
+    <div className="mainvideo" onClick={handleClick}>
       <div className="mainvideo__description">
         <a className="mainlink" href={video.link} />
         <div className="mainvideo__name">

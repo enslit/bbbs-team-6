@@ -14,11 +14,22 @@ import UserAccountPage from '../pages/user-account/UserAccountPage';
 import ChildrenIsRightsPage from '../pages/children-is-rights/ChildrenIsRightsPage';
 import HistoriesPage from '../pages/histories/HistoriesPage';
 import { ProvideAuth } from '../hooks/useAuth';
+import VideoPopup from '../components/VideoPopup/VideoPopup';
 
 function App() {
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
   const [isHeaderFixed, setIsHeaderFixed] = useState(false);
   const offset = useRef(0);
+
+  const [selectedPopupVideo, setSelectedPopupVideo] = useState(false);
+
+  function handleMainVideoClick(video) {
+    setSelectedPopupVideo(video);
+  }
+
+  function closeAllPopups() {
+    setSelectedPopupVideo(false);
+  }
 
   const hideHeaderOnScroll = () => {
     const { top } = document.documentElement.getBoundingClientRect();
@@ -51,7 +62,7 @@ function App() {
         <Header hidden={isHeaderHidden} fixed={isHeaderFixed} />
         <Switch>
           <Route path="/" exact>
-            <HomePage />
+            <HomePage videoClick={handleMainVideoClick} />
           </Route>
           <Route path="/about">
             <AboutPage />
@@ -86,6 +97,7 @@ function App() {
         </Switch>
         <Footer />
       </ProvideAuth>
+      <VideoPopup video={selectedPopupVideo} onClose={closeAllPopups} />
     </div>
   );
 }
