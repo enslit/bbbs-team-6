@@ -66,9 +66,10 @@ function App() {
         <Route path="/about">
           <AboutPage />
         </Route>
-        <PrivateRoute path="/calendar">
+        {/* Вернуть приватный роут по окончанию работы */}
+        <Route path="/calendar">
           <CalendarPage />
-        </PrivateRoute>
+        </Route>
         <Route path="/questions">
           <QuestionsPage />
         </Route>

@@ -1,0 +1,121 @@
+.calendar-element {
+  display: flex;
+  padding: 30px;
+  max-width: 570px;
+  box-sizing: border-box;
+  flex-direction: column;
+  border-radius: 30px;
+  background: #ffffff;
+  margin-bottom: 30px;
+
+}
+
+.calendar-element__header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.calendar-element__title {
+  max-width: 320px;
+  margin: 0;
+}
+
+.calendar-element__date {
+  font-weight: 300;
+  font-size: 100px;
+  line-height: 100px;
+  justify-self: flex-end;
+  flex-basis: 154px;
+}
+
+.calendar-element__main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.calendar-element__details {
+  margin-bottom: 43px;
+}
+.calendar-element__paragraph {
+  margin: 0;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: 1px solid black;
+}
+.calendar-element__paragraph:last-child {
+  border-bottom: none;
+}
+.calendar-element__menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.join {
+  display: flex;
+  align-items: center;
+}
+
+.join__button {
+  width: 127px;
+  height: 48px;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 19px;
+  color: #224cff;
+  border-radius: 100px;
+  border: 1px solid #224cff;
+  box-sizing: border-box;
+  padding: 13px 20px 8px;
+  text-align: center;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.menu-button {
+  width: 48px;
+  height: 48px;
+  border: 1px solid #224cff;
+  box-sizing: border-box;
+  padding-bottom: 13px;
+  border-radius: 50%;
+  font-size: 25px;
+  text-align: center;
+  color: #224cff;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+  .calendar-element {
+    padding: 15px;
+    max-width: 370px;
+  }
+
+  .calendar-element__title {
+    max-width: 246px;
+  }
+
+  .calendar-element__date {
+    font-size: 60px;
+    line-height: 60px;
+  }
+
+  .calendar-element__details {
+    margin-bottom: 41px;
+  }
+
+  .join__button {
+    width: 100px;
+    height: 40px;
+    padding: 11px 15px 8px;
+    margin-right: 10px;
+  }
+
+  .menu-button {
+    width: 40px;
+    height: 40px;
+  }
+}
