@@ -1,0 +1,58 @@
+/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/question.css */
+.question {
+  background: #ffffff;
+  border-radius: 30px;
+  padding: 50px 50px 47px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+.question__title {
+  max-width: 770px;
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
+  font-weight: 300;
+  font-size: 23px;
+  line-height: 30px;
+  max-width: 770px;
+  font-weight: 300;
+  font-size: 23px;
+  line-height: 30px;
+  color: #000000;
+  margin: 0 0 15px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.question__tags {
+  display: flex;
+}
+@media (max-width: 1024px) {
+  .question {
+    padding: 30px 15px;
+  }
+  .question__title {
+    font-size: 19px;
+    line-height: 23px;
+    -webkit-line-clamp: 4;
+  }
+}
+@media (max-width: 640px) {
+  .question__title {
+    font-size: 19px;
+    line-height: 23px;
+  }
+}
+/*! end @import */
+/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/mainlink.css */
+.mainlink {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+  z-index: 3;
+}
