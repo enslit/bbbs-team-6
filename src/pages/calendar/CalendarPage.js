@@ -39,8 +39,8 @@ function CalendarPage() {
     setCalendarElements(testArray);
   }, []);
   return (
-    <>
-      <h1>Calendar Page</h1>;
+    <section className="calendar">
+      <h1 className="calendar__title">Календарь</h1>;
       <ul className="calendar__list">
         {calendarElements.map((item) => (
           <CalendarElement
@@ -55,7 +55,7 @@ function CalendarPage() {
           />
         ))}
       </ul>
-    </>
+    </section>
   );
 }
 
