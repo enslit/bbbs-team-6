@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 
 function Login() {
   const history = useHistory();
   const location = useLocation();
-  const auth = useAuth();
+  const { signIn, loggedIn } = useAuth();
 
   const [form, setForm] = useState({
     username: '',
@@ -21,25 +21,33 @@ function Login() {
     });
   };
 
-  const redirectToRequestedRoute = () => {
-    const { from } = location.state || { from: { pathname: '/user-account' } };
-    history.replace(from);
-  };
-
+  // Пока функционал авторизации весь будет здесь. Позже его вынесем в App
   const handleSubmit = (evt) => {
     evt.preventDefault();
     setSubmitting(true);
     setError(null);
 
-    auth.signIn(form, onEndSubmitting, redirectToRequestedRoute);
+    signIn(form)
+      .then(() => {
+        const { from } = location.state || {
+          from: { pathname: '/user-account' },
+        };
+        history.replace(from);
+      })
+      .catch((error) => {
+        setSubmitting(false);
+        setError(error.response?.data?.message || error.message);
+      });
   };
 
-  const onEndSubmitting = (success = true, message = null) => {
-    setSubmitting(false);
-    if (message) {
-      setError(message);
+  useEffect(() => {
+    if (loggedIn) {
+      const { from } = location.state || {
+        from: { pathname: '/user-account' },
+      };
+      history.replace(from);
     }
-  };
+  }, [loggedIn, history, location.state]);
 
   return (
     <form onSubmit={handleSubmit}>

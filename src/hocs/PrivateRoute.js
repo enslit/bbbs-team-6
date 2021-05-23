@@ -8,12 +8,12 @@ PrivateRoute.propTypes = {
 };
 
 function PrivateRoute({ children, ...rest }) {
-  const { user } = useAuth();
+  const { loggedIn } = useAuth();
   return (
     <Route
       {...rest}
       render={({ location }) =>
-        user ? (
+        loggedIn ? (
           children
         ) : (
           <Redirect

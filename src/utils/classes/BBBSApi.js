@@ -1,15 +1,26 @@
-import axios from 'axios';
+import { Fetch } from './Fetch';
 import MockAdapter from 'axios-mock-adapter';
 
-class Api {
+export class BBBSApi extends Fetch {
   constructor(baseURL, options = {}) {
-    this._instance = axios.create({
-      baseURL,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    super(baseURL, options);
 
     if (Object.prototype.hasOwnProperty.call(options, 'mock') && options.mock) {
       this._initMock();
+    }
+
+    this._checkAuth();
+  }
+
+  async _checkAuth() {
+    const jwtJson = localStorage.getItem('bbbs-jwt');
+
+    if (jwtJson) {
+      const { access } = await JSON.parse(jwtJson);
+
+      if (access) {
+        this._setAuthHeader(access);
+      }
     }
   }
 
@@ -17,13 +28,13 @@ class Api {
     this._mock = new MockAdapter(this._instance, { delayResponse: 1500 });
 
     // Главная страница
-    this._mock.onGet('/main').reply(200, require('./mock/mainPage.json'));
+    this._mock.onGet('/main').reply(200, require('../mock/mainPage.json'));
 
     // Авторизация. Проверяется логин и пароль
     this._mock.onPost('/api/v1/token').reply(async (config) => {
       const { username, password } = await JSON.parse(config.data);
       if (username === 'admin' && password === 'admin') {
-        return [200, require('./mock/token.json')];
+        return [200, require('../mock/token.json')];
       } else {
         return [400, { message: 'Неверный логин или пароль' }];
       }
@@ -32,39 +43,28 @@ class Api {
     // Получение списка городов
     this._mock
       .onGet('/api/v1/cities')
-      .reply(200, require('./mock/cities.json'));
+      .reply(200, require('../mock/cities.json'));
 
     // Получение - обновление профайла пользователя, текущего города пользователя и т.д.
     this._mock.onGet('/api/v1/profile').reply(async (config) => {
-      const { access } = require('./mock/token.json');
-      console.log({ config });
+      const { access } = require('../mock/token.json');
 
       if (!config.headers.Authorization) {
         return [401, { message: 'Не авторизован' }];
       } else if (config.headers.Authorization !== `Bearer ${access}`) {
         return [403, { message: 'Нет доступа' }];
       } else {
-        return [200, require('./mock/cities.json')];
+        return [200, require('../mock/userData.json')];
       }
     });
 
     // Работа с календарем
     this._mock
       .onGet('/api/v1/afisha/events/', { params: { city: 1 } })
-      .reply(200, require('./mock/calendar.json'));
+      .reply(200, require('../mock/calendar.json'));
   }
 
-  _setAuthHeader(token) {
-    this._instance.defaults.headers.common.Authorization = `Bearer ${token}`;
-  }
-
-  _returnResponse({ data, status }) {
-    return (
-      data || Promise.reject(new Error(`Нет поля data. Код ответа ${status}`))
-    );
-  }
-
-  auth({ username, password }) {
+  login({ username, password }) {
     return this._instance
       .post('/api/v1/token', { username, password })
       .then(this._returnResponse)
@@ -94,5 +94,3 @@ class Api {
     return this._instance.get(`/api/v1/afisha/events/${cityId}`);
   }
 }
-
-export const api = new Api('http://127.0.0.1:8000', { mock: true });
