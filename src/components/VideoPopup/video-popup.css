@@ -1,0 +1,101 @@
+/*! CSS Used from: https://charity-project-bbbs.github.io/bbbs-project/pages/index.css */
+/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/apivideo.css */
+.apivideo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 30px 50px;
+  background-color: #fff;
+  border-radius: 30px;
+  width: calc(100% - 150px);
+  max-width: 1770px;
+  box-sizing: border-box;
+}
+.apivideo__title {
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
+  font-weight: 300;
+  font-size: 23px;
+  line-height: 30px;
+  color: #000;
+  margin: 0 0 5px 0;
+  text-align: center;
+}
+.apivideo__text {
+  font-family: 'PT-Root-UI', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #464646;
+  margin: 0;
+  text-align: center;
+}
+.apivideo__video {
+  width: 100%;
+  max-width: 1710px;
+  height: 70vh;
+  max-height: 962px;
+  border: 0;
+  margin-bottom: 30px;
+  border-radius: 30px;
+}
+@media screen and (max-width: 1820px) {
+  .apivideo__video {
+    height: 750px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .apivideo {
+    width: calc(100% - 270px);
+  }
+  .apivideo__video {
+    max-width: 1110px;
+    height: 625px;
+  }
+}
+@media screen and (max-width: 1380px) {
+  .apivideo__video {
+    height: 500px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .apivideo {
+    width: calc(100% - 254px);
+  }
+  .apivideo__video {
+    max-width: 700px;
+    height: 394px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .apivideo__video {
+    height: 300px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .apivideo {
+    width: calc(100% - 30px);
+    padding: 20px 15px 40px;
+  }
+  .apivideo__video {
+    max-width: 400px;
+    height: 225px;
+  }
+  .apivideo__title {
+    font-size: 15px;
+    line-height: 21px;
+  }
+  .apivideo__text {
+    font-size: 12px;
+    line-height: 17px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .apivideo__video {
+    height: 200px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .apivideo__video {
+    height: 160px;
+  }
+}
