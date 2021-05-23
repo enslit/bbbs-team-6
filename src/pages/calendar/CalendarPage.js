@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import CalendarElement from '../../components/Calendar/CalendarElement/CalendarElement';
 import './calenderPage.css';
 const testArray = [
@@ -34,11 +34,15 @@ const testArray = [
   },
 ];
 function CalendarPage() {
+  const [calendarElements, setCalendarElements] = useState([]);
+  useEffect(() => {
+    setCalendarElements(testArray);
+  }, []);
   return (
     <>
       <h1>Calendar Page</h1>;
       <ul className="calendar__list">
-        {testArray.map((item) => (
+        {calendarElements.map((item) => (
           <CalendarElement
             key={item.id}
             day={item.day}
