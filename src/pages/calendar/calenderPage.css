@@ -1,0 +1,15 @@
+.calendar__list{
+  display: grid;
+  max-width: 1900px;
+  width: 100%;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 570px);
+  grid-gap: 30px 30px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .calendar__list {
+    grid-template-columns: repeat(auto-fit, 370px);
+  }
+}
