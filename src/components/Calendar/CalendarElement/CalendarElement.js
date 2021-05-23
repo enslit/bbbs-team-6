@@ -29,12 +29,12 @@ function CalendarElement({
       </div>
       <div className="calendar-element__menu">
         <div className="join">
-          <button type={'button'} className="join__button">
+          <button type="button" className="join__button">
             Записаться
           </button>
           <p className="join__places-left">Осталось {places} мест</p>
         </div>
-        <button type={'button'} className="menu-button">
+        <button type="button" className="menu-button">
           ...
         </button>
       </div>
