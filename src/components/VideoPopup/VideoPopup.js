@@ -10,7 +10,7 @@ VideoPopup.propTypes = {
 
 function VideoPopup({ video, onClose }) {
   return (
-    <Popup isOpen={!!video} onClose={onClose}>
+    <Popup onClose={onClose} mod="_type_video">
       <div className="apivideo">
         <iframe
           className="apivideo__video"

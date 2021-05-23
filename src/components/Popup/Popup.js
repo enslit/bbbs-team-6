@@ -1,14 +1,14 @@
 import { memo } from 'react';
-import { element, func, bool } from 'prop-types';
+import { element, func, string } from 'prop-types';
 import './popup.css';
 
 Popup.propTypes = {
   children: element,
-  isOpen: bool,
   onClose: func,
+  mod: string,
 };
 
-function Popup({ children, isOpen, onClose }) {
+function Popup({ children, onClose, mod }) {
   function handleClose(evt) {
     if (
       evt.target.classList.contains('popup') ||
@@ -19,10 +19,7 @@ function Popup({ children, isOpen, onClose }) {
   }
 
   return (
-    <div
-      className={`popup ${isOpen ? 'popup_opened' : ''}`}
-      onClick={handleClose}
-    >
+    <div className={`popup${mod ? ' popup' + mod : ''}`} onClick={handleClose}>
       {children}
     </div>
   );

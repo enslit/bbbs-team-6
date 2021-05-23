@@ -29,7 +29,7 @@ function App() {
   }
 
   function closeAllPopups() {
-    setSelectedPopupVideo(false);
+    setSelectedPopupVideo(null);
   }
 
   const hideHeaderOnScroll = () => {

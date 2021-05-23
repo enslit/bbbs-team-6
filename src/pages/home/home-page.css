@@ -1,3 +1,42 @@
+/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/root.css */
+.root__section {
+  margin: 80px auto 120px;
+}
+@media (max-width: 1024px) {
+  .root__section {
+    margin-top: 45px;
+    margin-bottom: 100px;
+  }
+}
+@media (max-width: 640px) {
+  .root__section {
+    margin-top: 25px;
+    margin-bottom: 50px;
+  }
+}
+/*! end @import */
+/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/content.css */
+.content {
+  flex: 1;
+  width: calc(100% - 150px);
+  max-width: 1770px;
+}
+@media (max-width: 1440px) {
+  .content {
+    width: calc(100% - 270px);
+  }
+}
+@media (max-width: 1024px) {
+  .content {
+    width: calc(100% - 254px);
+  }
+}
+@media (max-width: 640px) {
+  .content {
+    width: calc(100% - 30px);
+  }
+}
+/*! end @import */
 /*! CSS Used from: https://charity-project-bbbs.github.io/bbbs-project/pages/index.css */
 /*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/tag.css */
 .tag {
@@ -383,63 +422,6 @@
 @media (max-width: 860px) {
   .questions {
     width: 100%;
-  }
-}
-/*! end @import */
-/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/question.css */
-.question {
-  background: #ffffff;
-  border-radius: 30px;
-  padding: 50px 50px 47px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 100%;
-  box-sizing: border-box;
-}
-.question__title {
-  max-width: 770px;
-  font-family: 'Proto', Arial, sans-serif;
-  font-weight: 300;
-  font-size: 23px;
-  line-height: 30px;
-  max-width: 770px;
-  font-weight: 300;
-  font-size: 23px;
-  line-height: 30px;
-  color: #000000;
-  margin: 0 0 15px 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.question__tags {
-  display: flex;
-}
-@media (max-width: 1024px) {
-  .question {
-    padding: 30px 15px;
-  }
-  .question:last-child {
-    display: none;
-  }
-  .question__title {
-    font-size: 19px;
-    line-height: 23px;
-    -webkit-line-clamp: 4;
-  }
-}
-@media (max-width: 640px) {
-  .questions {
-    width: 100%;
-  }
-  .question:last-child {
-    display: flex;
-  }
-  .question__title {
-    font-size: 19px;
-    line-height: 23px;
   }
 }
 /*! end @import */

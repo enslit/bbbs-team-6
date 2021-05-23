@@ -3,6 +3,7 @@
   display: flex;
   border-radius: 30px;
   width: 100%;
+  cursor: pointer;
 }
 .mainvideo__description {
   background: #f8d162;
@@ -57,7 +58,6 @@
   border-radius: 30px;
   width: 67.74%;
   height: auto;
-  cursor: pointer;
 }
 @media (max-width: 1440px) {
   .mainvideo__video {

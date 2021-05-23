@@ -11,7 +11,7 @@
 }
 .question__title {
   max-width: 770px;
-  font-family: 'Proto', Arial, sans-serif;
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
   font-weight: 300;
   font-size: 23px;
   line-height: 30px;
@@ -27,7 +27,9 @@
   overflow: hidden;
 }
 .question__tags {
+  padding: 0;
   display: flex;
+  list-style: none;
 }
 @media (max-width: 1024px) {
   .question {

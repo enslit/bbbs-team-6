@@ -17,4 +17,10 @@
 .tag_theme_white {
   background: #f3f2f2;
 }
+
+.tag_place_event {
+  max-width: 130px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.3);
+}
 /*! end @import */
