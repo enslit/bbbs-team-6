@@ -1,10 +1,10 @@
 import { memo } from 'react';
-import { element, func, object, bool, oneOfType } from 'prop-types';
+import { element, func, bool } from 'prop-types';
 import './popup.css';
 
 Popup.propTypes = {
   children: element,
-  isOpen: oneOfType([bool, object]),
+  isOpen: bool,
   onClose: func,
 };
 

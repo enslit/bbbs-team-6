@@ -21,7 +21,7 @@ function App() {
   const [isHeaderFixed, setIsHeaderFixed] = useState(false);
   const offset = useRef(0);
 
-  const [selectedPopupVideo, setSelectedPopupVideo] = useState(false);
+  const [selectedPopupVideo, setSelectedPopupVideo] = useState(null);
 
   function handleMainVideoClick(video) {
     setSelectedPopupVideo(video);
@@ -97,7 +97,10 @@ function App() {
         </Switch>
         <Footer />
       </ProvideAuth>
-      <VideoPopup video={selectedPopupVideo} onClose={closeAllPopups} />
+
+      {selectedPopupVideo && (
+        <VideoPopup video={selectedPopupVideo} onClose={closeAllPopups} />
+      )}
     </div>
   );
 }
