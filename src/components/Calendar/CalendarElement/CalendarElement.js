@@ -34,7 +34,7 @@ function CalendarElement({
           </button>
           <p className="join__places-left">Осталось {places} мест</p>
         </div>
-        <button className="menu-button">...</button>
+        <button type={'button'} className="menu-button">...</button>
       </div>
     </li>
   );
