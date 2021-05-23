@@ -29,7 +29,9 @@ function CalendarElement({
       </div>
       <div className="calendar-element__menu">
         <div className="join">
-          <button className="join__button">Записаться</button>
+          <button type={'submit'} className="join__button">
+            Записаться
+          </button>
           <p className="join__places-left">Осталось {places} мест</p>
         </div>
         <button className="menu-button">...</button>
