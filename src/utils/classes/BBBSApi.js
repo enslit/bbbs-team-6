@@ -60,7 +60,7 @@ export class BBBSApi extends Fetch {
 
     // Работа с календарем
     this._mock
-      .onGet('/api/v1/afisha/events/', { params: { city: 1 } })
+      .onGet('/api/v1/afisha/events/2')
       .reply(200, require('../mock/calendar.json'));
   }
 
@@ -91,6 +91,8 @@ export class BBBSApi extends Fetch {
   }
 
   getEvents(cityId) {
-    return this._instance.get(`/api/v1/afisha/events/${cityId}`);
+    return this._instance
+      .get(`/api/v1/afisha/events/${cityId}`)
+      .then(this._returnResponse);
   }
 }
