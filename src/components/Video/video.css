@@ -108,13 +108,3 @@
   }
 }
 /*! end @import */
-/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/mainlink.css */
-.mainlink {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  text-decoration: none;
-  z-index: 3;
-}

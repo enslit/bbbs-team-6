@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { object } from 'prop-types';
 import './article.css';
 
-Article.Page.propTypes = {
+Article.propTypes = {
   article: object,
 };
 
