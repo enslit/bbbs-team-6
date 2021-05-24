@@ -56,7 +56,14 @@ function AboutPage() {
                 (профессиональные психологи/социальные работники), которые
                 поддерживают дружбу между ребенком и наставником.
               </p>
-              <a className="rectangle__link">сделать пожертвование</a>
+              <a
+                href={'#'}
+                rel="noreferrer"
+                target="_blank"
+                className="rectangle__link"
+              >
+                Сделать пожертвование
+              </a>
             </div>
           </div>
 
@@ -70,7 +77,14 @@ function AboutPage() {
                 открывает для ребенка дверь в большой мир и дарит ему надежду на
                 более счастливое и успешное будущее.
               </p>
-              <a className="rectangle__link">Подробнее</a>
+              <a
+                href={'#'}
+                rel="noreferrer"
+                target="_blank"
+                className="rectangle__link"
+              >
+                Подробнее
+              </a>
             </div>
           </div>
 
@@ -84,7 +98,14 @@ function AboutPage() {
                 корпоративное волонтерство, мастер-классы, лекции, учебные
                 программы
               </p>
-              <a className="rectangle__link">подробнее</a>
+              <a
+                href={'#'}
+                rel="noreferrer"
+                target="_blank"
+                className="rectangle__link"
+              >
+                Подробнее
+              </a>
             </div>
           </div>
         </div>

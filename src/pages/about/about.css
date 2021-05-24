@@ -130,6 +130,7 @@
 }
 .rectangle__link {
   color: #224cff;
+  text-decoration: none;
   text-align: center;
 }
 
