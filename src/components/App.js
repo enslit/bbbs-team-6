@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useHistory } from 'react-router-dom';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import HomePage from '../pages/home/HomePage';
@@ -17,6 +17,7 @@ import { useAuth } from '../hooks/useAuth';
 import VideoPopup from '../components/VideoPopup/VideoPopup';
 
 function App() {
+  const history = useHistory();
   const { authReady } = useAuth();
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
   const [isHeaderFixed, setIsHeaderFixed] = useState(false);
@@ -26,6 +27,7 @@ function App() {
 
   function handleMainVideoClick(video) {
     setSelectedPopupVideo(video);
+    history.push('/read-and-watch/video');
   }
 
   function closeAllPopups() {

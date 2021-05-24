@@ -1,0 +1,33 @@
+/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/facebook.css */
+.facebook {
+  width: 420px;
+  height: 627px;
+  border: 0;
+  overflow: hidden;
+  margin-right: 30px;
+  border-radius: 30px;
+}
+@media (max-width: 1440px) {
+  .facebook {
+    width: 370px;
+  }
+}
+@media (max-width: 1024px) {
+  .facebook {
+    height: 545px;
+  }
+}
+@media (max-width: 860px) {
+  .facebook {
+    margin-right: 0;
+    margin-bottom: 30px;
+    align-self: center;
+    height: 427.5px;
+  }
+}
+@media (max-width: 400px) {
+  .facebook {
+    width: 100%;
+  }
+}
+/*! end @import */
