@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../../assets/icons/big-logo.svg';
 import './about.css';
+
 function AboutPage() {
   return (
     <>
@@ -11,7 +12,7 @@ function AboutPage() {
             «Старшие Братья Старшие Сестры». Созданная для поддержки наставников
             программы.
           </h1>
-          <img className="about__logo" src={logo} />
+          <img className="about__logo" src={logo} alt="logo" />
           <div className="about__info">
             <div className="about__ellipse">
               <p className="about__ellipse-text">Об организации</p>
