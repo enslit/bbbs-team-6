@@ -5,16 +5,8 @@ import classnames from 'classnames';
 import './calendarElement.css';
 
 function CalendarElement({ event }) {
-  const {
-    booked,
-    address,
-    contact,
-    title,
-    startAt,
-    endAt,
-    seats,
-    takenSeats,
-  } = event;
+  const { booked, address, contact, title, startAt, endAt, seats, takenSeats } =
+    event;
 
   const dateStart = new Date(startAt);
   const dateEnd = new Date(endAt);

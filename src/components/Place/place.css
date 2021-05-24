@@ -57,6 +57,7 @@
 .event-soon__description_size_big {
   max-height: 629px;
   overflow: hidden;
+  position: relative;
 }
 .event-soon__tags {
   margin: 0;
@@ -71,6 +72,7 @@
   font-weight: 400;
 }
 .event-soon__title {
+  margin: 0;
   font-family: 'Proto Grotesk-Light', Arial, Helvetica, sans-serif;
   font-size: 23px;
   line-height: 30px;
@@ -79,6 +81,7 @@
   color: #000000;
 }
 .event-soon__subtitle {
+  margin: 5px 0 0;
   font-family: 'PT-Root-UI', Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 19px;
@@ -86,7 +89,6 @@
   text-align: center;
   letter-spacing: 0.2px;
   color: #464646;
-  margin-top: 5px;
 }
 .event-soon__img {
   object-fit: cover;
@@ -102,6 +104,7 @@
   letter-spacing: 0.2px;
   color: #224cff;
   text-decoration: none;
+  z-index: 1;
 }
 .event-soon__link:hover {
   color: #2e2468;

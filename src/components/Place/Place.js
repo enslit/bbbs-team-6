@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { Link } from 'react-router-dom';
 import { object } from 'prop-types';
 import TagLabel from '../TagLabel/TagLabel';
 import './place.css';
@@ -14,18 +15,21 @@ function Place({ place }) {
         <div className="event-soon__content-wrapper">
           <section className="profile-grid">
             <div className="profile-grid__column profile-grid__column_size_wide event-soon__description event-soon__description_size_big">
+              <Link className="mainlink" to="where-to-go" />
               <ul className="event-soon__tags">
                 <TagLabel name="Выбор наставника" mod="_place_event" />
               </ul>
               <div className="event-soon__caption">
-                <div className="event-soon__title">{place.title}</div>
-                <div className="event-soon__subtitle">{place.name}</div>
+                <h3 className="event-soon__title">{place.title}</h3>
+                <p className="event-soon__subtitle">{place.name}</p>
               </div>
+
               <img
                 src={place.imageUrl}
                 className="event-soon__img"
                 alt="Локация"
               />
+
               <a
                 href={place.link}
                 target="_blank"

@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { Link } from 'react-router-dom';
 import { object } from 'prop-types';
 import './article.css';
 
@@ -9,11 +10,11 @@ Article.propTypes = {
 function Article({ article }) {
   return (
     <article className="preview-article" style={{ background: article.color }}>
-      <a className="mainlink" href="#" />
+      <Link className="mainlink" to="/read-and-watch/articles" />
       <h2 className="preview-article__title">{article.title}</h2>
-      <a className="preview-article__link" href="#">
+      <Link className="preview-article__link" to="/read-and-watch/articles">
         читать статью
-      </a>
+      </Link>
     </article>
   );
 }

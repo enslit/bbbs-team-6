@@ -8,8 +8,8 @@ Video.propTypes = {
 };
 
 function Video({ video, onClick }) {
-  function handleClick() {
-    onClick(video);
+  function handleClick(e) {
+    e.target.className !== 'mainvideo__link' && onClick(video);
   }
 
   return (

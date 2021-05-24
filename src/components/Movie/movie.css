@@ -78,7 +78,6 @@
   color: #224cff;
   margin: 0;
   text-decoration: none;
-  z-index: 4;
 }
 .movie__link:hover {
   color: #2e2468;
