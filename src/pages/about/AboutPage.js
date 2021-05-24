@@ -49,7 +49,7 @@ function AboutPage() {
         </blockquote>
         <div className="about__tabs">
           <div className="about__tab">
-            <div className="rectangle rectangle_light-blue">Пожертвования</div>
+            <h2 className="rectangle rectangle_light-blue">Пожертвования</h2>
             <div className="rectangle__information">
               <p className="about__paragraph about__paragraph_height_rectangle-light-blue">
                 Деньги пойдут на оплату работы кураторов программы
@@ -61,7 +61,7 @@ function AboutPage() {
           </div>
 
           <div className="about__tab">
-            <div className="rectangle rectangle_red">Наставничество</div>
+            <h2 className="rectangle rectangle_red">Наставничество</h2>
             <div className="rectangle__information">
               <p className="about__paragraph about__paragraph_height_rectangle-red">
                 Наставник «Старшие Братья Старшие Сестры» — значимый взрослый,
@@ -75,7 +75,7 @@ function AboutPage() {
           </div>
 
           <div className="about__tab">
-            <div className="rectangle rectangle_green">Партнерство</div>
+            <h2 className="rectangle rectangle_green">Партнерство</h2>
             <div className="rectangle__information">
               <p className="about__paragraph about__paragraph_height_rectangle-green">
                 Компании поддерживают нас не только деньгами, но и делами. Мы

@@ -100,7 +100,10 @@
 }
 .rectangle {
   width: 568px;
+  margin: 0;
   height: 120px;
+  font-size: 23px;
+  line-height: 30px;
   padding: 45px 196px 45px 196px;
   border-radius: 70px;
   text-align: center;
@@ -158,6 +161,8 @@
   }
   .rectangle {
     max-width: 370px;
+    font-size: 19px;
+    line-height: 23px;
     padding: 45px 100px 45px 100px;
   }
 
@@ -289,7 +294,8 @@
     max-width: 290px;
     min-width: 250px;
     height: 70px;
-    padding: 24px 84px 24px 85px;
+    padding: 23px 84px 23px 85px;
+    text-align: center;
   }
 
   .rectangle__information {
