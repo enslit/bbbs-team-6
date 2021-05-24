@@ -1,16 +1,11 @@
 import React from 'react';
-import { shape, string } from 'prop-types';
+import { useAuth } from '../../hooks/useAuth';
 
-UserAccountPage.propTypes = {
-  user: shape({
-    username: string,
-  }),
-};
-
-function UserAccountPage({ user }) {
+function UserAccountPage() {
+  const { user } = useAuth();
   return (
     <div>
-      <h1>User Account Page</h1>
+      <h1>Личный кабинет</h1>
       <pre>{JSON.stringify(user, null, 2)}</pre>
     </div>
   );

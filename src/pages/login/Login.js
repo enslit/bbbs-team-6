@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
-import { func } from 'proptypes';
+import React, { useEffect, useState } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 
-Login.propTypes = {
-  onLogin: func,
-};
+function Login() {
+  const history = useHistory();
+  const location = useLocation();
+  const { signIn, loggedIn } = useAuth();
 
-function Login({ onLogin }) {
   const [form, setForm] = useState({
     username: '',
     password: '',
   });
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleInput = (evt) => {
     setForm({
@@ -18,36 +21,67 @@ function Login({ onLogin }) {
     });
   };
 
+  // Пока функционал авторизации весь будет здесь. Позже его вынесем в App
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    setSubmitting(true);
+    setError(null);
 
-    onLogin(form);
+    signIn(form)
+      .then(() => {
+        const { from } = location.state || {
+          from: { pathname: '/user-account' },
+        };
+        history.replace(from);
+      })
+      .catch((error) => {
+        setSubmitting(false);
+        setError(error.response?.data?.message || error.message);
+      });
   };
+
+  useEffect(() => {
+    if (loggedIn) {
+      const { from } = location.state || {
+        from: { pathname: '/user-account' },
+      };
+      history.replace(from);
+    }
+  }, [loggedIn, history, location.state]);
 
   return (
     <form onSubmit={handleSubmit}>
       <h2>Please Login</h2>
-      <label htmlFor="username">
-        Username
-        <input
-          type="text"
-          id="username"
-          name="username"
-          value={form.username}
-          onInput={handleInput}
-        />
-      </label>
-      <label htmlFor="password">
-        Password
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={form.password}
-          onInput={handleInput}
-        />
-      </label>
-      <button type="submit">login</button>
+      <div>
+        <label htmlFor="username">
+          Username
+          <input
+            style={{ marginLeft: '15px' }}
+            type="text"
+            id="username"
+            name="username"
+            value={form.username}
+            onInput={handleInput}
+          />
+        </label>
+      </div>
+      <div style={{ marginTop: '15px', marginBottom: '15px' }}>
+        <label htmlFor="password">
+          Password
+          <input
+            style={{ marginLeft: '15px' }}
+            type="password"
+            id="password"
+            name="password"
+            value={form.password}
+            onInput={handleInput}
+          />
+        </label>
+      </div>
+      {error && <div style={{ color: 'red' }}>{error}</div>}
+      <button type="submit" disabled={submitting}>
+        {submitting ? 'Отправка...' : 'Войти'}
+      </button>
     </form>
   );
 }

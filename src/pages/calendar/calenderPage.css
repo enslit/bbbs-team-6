@@ -1,0 +1,28 @@
+.calendar {
+  width: 100%;
+}
+
+.calendar__title {
+  max-width: 384px;
+  margin: 0 auto 40px;
+  text-align: center;
+  font-weight: 300;
+  font-size: 74px;
+  line-height: 80px;
+}
+
+.calendar__list {
+  display: grid;
+  padding: 0;
+  max-width: 1900px;
+  width: 100%;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 570px);
+  grid-gap: 30px 30px;
+}
+
+@media screen and (max-width: 1024px) {
+  .calendar__list {
+    grid-template-columns: repeat(auto-fit, 370px);
+  }
+}
