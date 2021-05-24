@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { object } from 'prop-types';
+import TagLabel from '../TagLabel/TagLabel';
 import './movie.css';
 
 Movie.propTypes = {
@@ -14,9 +15,7 @@ function Movie({ movie }) {
         <img className="movie__poster" src={movie.imageUrl} alt={movie.title} />
         <ul className="movie__tags">
           {movie.tags.map((tag) => (
-            <li key={tag.id}>
-              <p className="tag">{tag.name}</p>
-            </li>
+            <TagLabel key={tag.id} name={tag.name} />
           ))}
         </ul>
       </div>
