@@ -1,51 +1,63 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import logo from '../../assets/images/logo.svg';
+import FooterNavigation from './FooterNavigation';
+import { menuFooter, menuExternal } from '../../menus';
+import './footer.css';
 
 function Footer() {
   return (
-    <footer>
-      <Link to="https://www.nastavniki.org/campaign/pomoch-dengami/">
-        Помочь деньгами
-      </Link>
-      <nav>
-        <ul className="menu">
-          <li>
-            <NavLink to="/about">О проекте</NavLink>
-          </li>
-          <li>
-            <NavLink to="/calendar">Календарь</NavLink>
-          </li>
-          <li>
-            <NavLink to="/where-to-go">Куда пойти</NavLink>
-          </li>
-          <li>
-            <NavLink to="/questions">Вопросы</NavLink>
-          </li>
-          <li>
-            <NavLink to="/read-and-watch">Читать и смотреть</NavLink>
-          </li>
-          <li>
-            <NavLink to="/children-is-rights">Права детей</NavLink>
-          </li>
-          <li>
-            <NavLink to="/histories">Истории</NavLink>
-          </li>
-        </ul>
-      </nav>
-      <ul className="menu">
-        <li>
-          <Link to="https://facebook.com">Facebook</Link>
-        </li>
-        <li>
-          <Link to="https://vk.com">VKontakte</Link>
-        </li>
-        <li>
-          <Link to="https://instagram.com">Instagram</Link>
-        </li>
-        <li>
-          <Link to="https://youtube.com">Уoutube</Link>
-        </li>
-      </ul>
+    <footer className="footer">
+      <div className="footer__wrapper">
+        <Link className="logo logo_place_footer" to="/">
+          <img
+            className="logo__img"
+            src={logo}
+            alt="Логотип Старшие Братья Старшие Сестры"
+          />
+        </Link>
+        <a
+          className="footer__money"
+          href="https://www.nastavniki.org/campaign/pomoch-dengami/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Помочь деньгами
+        </a>
+        <div className="footer__navigation">
+          <FooterNavigation list={menuFooter} modList="type_nav" />
+          <FooterNavigation list={menuExternal} modList="type_social" />
+        </div>
+        <div className="footer__about">
+          <p className="footer__copyright">
+            &#169; Старшие Братья Старшие Сестры
+          </p>
+          <div className="footer__develop">
+            <p className="footer__develop-text">
+              Разработка &mdash; студенты{' '}
+              <a
+                className="footer__develop-accent"
+                href="https://praktikum.yandex.ru/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Яндекс.Практикум
+              </a>
+            </p>
+            <p className="footer__develop-text">
+              Концепция и дизайн &mdash;{' '}
+              <a
+                className="footer__develop-accent"
+                href="https://krkr.design/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                krkr.design
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
     </footer>
   );
 }
