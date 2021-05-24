@@ -4,7 +4,7 @@ import { bool, number, shape, string } from 'prop-types';
 import classnames from 'classnames';
 import './calendarElement.css';
 
-function CalendarElement({ item }) {
+function CalendarElement({ event }) {
   const {
     booked,
     address,
@@ -14,7 +14,7 @@ function CalendarElement({ item }) {
     endAt,
     seats,
     takenSeats,
-  } = item;
+  } = event;
 
   const dateStart = new Date(startAt);
   const dateEnd = new Date(endAt);
@@ -66,7 +66,7 @@ function CalendarElement({ item }) {
 }
 
 CalendarElement.propTypes = {
-  item: shape({
+  event: shape({
     id: number,
     booked: bool,
     address: string,

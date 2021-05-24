@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import CalendarElement from '../../components/Calendar/CalendarElement/CalendarElement';
 import { bbbsApi } from '../../utils/api';
 import { useAuth } from '../../hooks/useAuth';
+import CalendarList from '../../components/Calendar/CalendarList';
 import './calenderPage.css';
 
 function CalendarPage() {
@@ -14,7 +14,6 @@ function CalendarPage() {
     bbbsApi
       .getEvents(user.city)
       .then((events) => {
-        console.log({ events });
         setCalendarElements(events);
       })
       .finally(() => setIsFetching(false));
@@ -26,11 +25,7 @@ function CalendarPage() {
       {isFetching ? (
         <h2>Loading...</h2>
       ) : (
-        <ul className="calendar__list">
-          {calendarElements.map((item) => (
-            <CalendarElement key={item.id} item={item} />
-          ))}
-        </ul>
+        <CalendarList events={calendarElements} />
       )}
     </section>
   );
