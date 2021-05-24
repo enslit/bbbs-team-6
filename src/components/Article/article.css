@@ -1,0 +1,62 @@
+/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/preview-article.css */
+.preview-article {
+  padding: 120px 22.6% 30px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: #c8d1ff;
+  border-radius: 30px;
+  position: relative;
+  text-decoration: none;
+}
+.preview-article__title {
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
+  font-weight: 300;
+  font-size: 44px;
+  line-height: 50px;
+  text-align: center;
+  color: #1a1a1a;
+  margin: 0 0 71px 0;
+}
+.preview-article__link {
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  color: #224cff;
+  text-decoration: none;
+}
+.preview-article__link:hover {
+  color: #2e2468;
+}
+@media (max-width: 1440px) {
+  .preview-article {
+    padding-right: 8.548%;
+    padding-left: 8.548%;
+  }
+}
+@media (max-width: 1024px) {
+  .preview-article {
+    padding: 30px 39.83px 15px;
+    min-height: 312px;
+  }
+  .preview-article__title {
+    font-size: 19px;
+    line-height: 23px;
+    margin-bottom: 66px;
+  }
+  .preview-article__link {
+    font-size: 12px;
+    line-height: 17px;
+  }
+}
+@media (max-width: 640px) {
+  .preview-article {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+/*! end @import */

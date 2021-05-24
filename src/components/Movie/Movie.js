@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { Link } from 'react-router-dom';
 import { object } from 'prop-types';
 import TagLabel from '../TagLabel/TagLabel';
 import './movie.css';
@@ -10,7 +11,7 @@ Movie.propTypes = {
 function Movie({ movie }) {
   return (
     <li className="movie">
-      <a className="mainlink" href={movie.link} />
+      <Link className="mainlink" to="/read-and-watch/films" />
       <div className="movie__img">
         <img className="movie__poster" src={movie.imageUrl} alt={movie.title} />
         <ul className="movie__tags">

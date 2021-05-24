@@ -8,14 +8,13 @@ Video.propTypes = {
 };
 
 function Video({ video, onClick }) {
-  function handleClick() {
-    onClick(video);
+  function handleClick(e) {
+    e.target.className !== 'mainvideo__link' && onClick(video);
   }
 
   return (
     <div className="mainvideo" onClick={handleClick}>
       <div className="mainvideo__description">
-        <a className="mainlink" href={video.link} />
         <div className="mainvideo__name">
           <h3 className="mainvideo__title">{video.title}</h3>
           <p className="mainvideo__caption">{video.info}</p>
