@@ -108,16 +108,11 @@
 
 @media (max-width: 600px) {
   .auth-popup {
-    padding: 15px 15px 15px;
     width: calc(100% - 30px);
-    max-width: 620px;
   }
 
   .auth-popup__information {
     max-width: 260px;
-    font-size: 15px;
-    line-height: 21px;
-    margin-bottom: 32px;
   }
 
   .auth-popup__title {
