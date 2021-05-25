@@ -15,14 +15,14 @@ import ChildrenIsRightsPage from '../pages/children-is-rights/ChildrenIsRightsPa
 import HistoriesPage from '../pages/histories/HistoriesPage';
 import { useAuth } from '../hooks/useAuth';
 import VideoPopup from '../components/VideoPopup/VideoPopup';
-
+import AuthPopup from './AuthPopup/AuthPopup';
 function App() {
   const history = useHistory();
   const { authReady } = useAuth();
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
   const [isHeaderFixed, setIsHeaderFixed] = useState(false);
   const offset = useRef(0);
-
+  const [isAuthModalOpen, setAuthModalOpen] = useState(false);
   const [selectedPopupVideo, setSelectedPopupVideo] = useState(null);
 
   function handleMainVideoClick(video) {
@@ -30,8 +30,13 @@ function App() {
     history.push('/read-and-watch/video');
   }
 
+  function handleAuthModalOpen() {
+    setAuthModalOpen(true);
+  }
+
   function closeAllPopups() {
     setSelectedPopupVideo(null);
+    setAuthModalOpen(false);
   }
 
   const hideHeaderOnScroll = () => {
@@ -71,7 +76,11 @@ function App() {
 
   return (
     <div className={`app ${isHeaderFixed ? 'app_header-offset' : ''}`}>
-      <Header hidden={isHeaderHidden} fixed={isHeaderFixed} />
+      <Header
+        hidden={isHeaderHidden}
+        fixed={isHeaderFixed}
+        handleAuthModalOpen={handleAuthModalOpen}
+      />
       <Switch>
         <Route path="/" exact>
           <HomePage videoClick={handleMainVideoClick} />
@@ -113,6 +122,7 @@ function App() {
       {selectedPopupVideo && (
         <VideoPopup video={selectedPopupVideo} onClose={closeAllPopups} />
       )}
+      {isAuthModalOpen && <AuthPopup onClose={closeAllPopups}></AuthPopup>}
     </div>
   );
 }
