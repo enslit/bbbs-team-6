@@ -23,6 +23,7 @@ function AuthPopup({ onClose }) {
           from: { pathname: '/user-account' },
         };
         history.replace(from);
+        onClose();
       })
       .catch((error) => {
         console.log(error);
