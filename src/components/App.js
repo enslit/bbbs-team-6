@@ -8,7 +8,6 @@ import CalendarPage from '../pages/calendar/CalendarPage';
 import QuestionsPage from '../pages/questions/QuestionsPage';
 import ReadAndWatchPage from '../pages/read-and-watch/ReadAndWatchPage';
 import WhereToGoPage from '../pages/where-to-go/WhereToGoPage';
-import Login from '../pages/login/Login';
 import PrivateRoute from '../hocs/PrivateRoute';
 import UserAccountPage from '../pages/user-account/UserAccountPage';
 import ChildrenIsRightsPage from '../pages/children-is-rights/ChildrenIsRightsPage';
@@ -106,9 +105,6 @@ function App() {
         </Route>
         <Route path="/histories">
           <HistoriesPage />
-        </Route>
-        <Route path="/sign-in">
-          <Login />
         </Route>
         <PrivateRoute path="/user-account">
           <UserAccountPage />
