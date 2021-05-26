@@ -1,17 +1,42 @@
-import { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import { func } from 'prop-types';
 import Popup from '../Popup/Popup';
 import './authPopup.css';
 import close from '../../assets/icons/close.svg';
 import { Formik } from 'formik';
+import { useHistory, useLocation } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
+
 AuthPopup.propTypes = {
   onClose: func,
 };
 
 function AuthPopup({ onClose }) {
-  function handleLogin(login, password) {
-    return console.log(login, password);
+  const { signIn, loggedIn } = useAuth();
+  const history = useHistory();
+  const location = useLocation();
+
+  function handleLogin(form) {
+    signIn(form)
+      .then(() => {
+        const { from } = location.state || {
+          from: { pathname: '/user-account' },
+        };
+        history.replace(from);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
+
+  useEffect(() => {
+    if (loggedIn) {
+      const { from } = location.state || {
+        from: { pathname: '/user-account' },
+      };
+      history.replace(from);
+    }
+  }, [loggedIn, history, location.state]);
 
   return (
     <Popup onClose={onClose}>
@@ -46,8 +71,8 @@ function AuthPopup({ onClose }) {
             return errors;
           }}
           onSubmit={(values, { setSubmitting }) => {
-            // setSubmitting - флаг отправления формы для блокирования кнопки.
-            handleLogin(values.login, values.password);
+            const form = { username: values.login, password: values.password };
+            handleLogin(form);
           }}
         >
           {({
@@ -61,27 +86,31 @@ function AuthPopup({ onClose }) {
             isValid,
           }) => (
             <form onSubmit={handleSubmit} className="auth-popup__form">
-              <input
-                name="login"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.login}
-                placeholder="Логин"
-                type="text"
-                className="auth-popup__input"
-              ></input>
+              <label htmlFor="login">
+                <input
+                  name="login"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.login}
+                  placeholder="Логин"
+                  type="text"
+                  className="auth-popup__input"
+                ></input>
+              </label>
               <span className="auth-popup__error_visible">
                 {errors.login && touched.login && errors.login}
               </span>
-              <input
-                name="password"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.password}
-                placeholder="Пароль"
-                type="password"
-                className="auth-popup__input"
-              ></input>
+              <label htmlFor="password">
+                <input
+                  name="password"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.password}
+                  placeholder="Пароль"
+                  type="password"
+                  className="auth-popup__input"
+                ></input>
+              </label>
               <span className="auth-popup__error_visible">
                 {errors.password && touched.password && errors.password}
               </span>
