@@ -1,0 +1,141 @@
+.auth-popup {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 30px 50px;
+  background-color: #fff;
+  border-radius: 30px;
+  width: calc(100% - 150px);
+  max-width: 770px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.auth-popup__close {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.auth-popup__information {
+  max-width: 547px;
+  text-align: center;
+  font-family: PT Root UI, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.auth-popup__title {
+  font-family: Proto Grotesk Web Light, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 23px;
+  line-height: 30px;
+}
+
+.auth-popup__paragraph {
+  margin: 0 0 15px;
+}
+
+.auth-popup__paragraph:last-child {
+  margin: 0 0 0;
+}
+
+.auth-popup__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-popup__input {
+  min-width: 570px;
+  height: 48px;
+  margin-bottom: 20px;
+  padding: 13px 20px 8px;
+  background: #f3f2f2;
+  border-radius: 30px;
+  border: transparent;
+}
+
+.auth-popup__button {
+  width: 85px;
+  height: 48px;
+  border: 1px solid #a7a6a6;
+  box-sizing: border-box;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.auth-popup__restore-password {
+  margin-bottom: 31px;
+  cursor: pointer;
+}
+
+.auth-popup__error_visible {
+  font-style: normal;
+  font-family: PT Root UI, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  padding-bottom: 15px;
+  color: #ff0000;
+}
+
+.auth-popup__error_visible:last-child {
+  padding-bottom: 0;
+}
+
+@media (max-width: 780px) {
+  .auth-popup {
+    padding: 15px 15px 15px;
+    max-width: 620px;
+  }
+
+  .auth-popup__information {
+    max-width: 340px;
+    font-size: 15px;
+    line-height: 21px;
+    margin-bottom: 32px;
+  }
+
+  .auth-popup__input {
+    min-width: 350px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .auth-popup {
+    width: calc(100% - 30px);
+  }
+
+  .auth-popup__information {
+    max-width: 260px;
+  }
+
+  .auth-popup__title {
+    font-size: 19px;
+    line-height: 23px;
+  }
+
+  .auth-popup__paragraph {
+    margin: 0 0 15px;
+  }
+
+  .auth-popup__paragraph:last-child {
+    margin: 0 0 0;
+  }
+
+  .auth-popup__input {
+    min-width: 260px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+
+  .auth-popup__button {
+    width: 66px;
+    height: 40px;
+  }
+}
