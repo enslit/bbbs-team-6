@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
 import CalendarElement from './CalendarElement/CalendarElement';
-import CalendarFilterButton from './CalendarFilterButton';
+import Button from '../Button/Button';
 
 CalendarList.propTypes = {
   events: PropTypes.array,
@@ -45,12 +45,15 @@ function CalendarList({ events }) {
       <div className="grid-calendar__buttons">
         {filterButtonsArray &&
           filterButtonsArray.map((label, index) => (
-            <CalendarFilterButton
+            <Button
               key={index}
-              label={label}
-              onClick={onClickFilter}
               isActive={selectedMonth === label}
-            />
+              style="dark"
+              type="default"
+              onClickAction={() => onClickFilter(label)}
+            >
+              {label}
+            </Button>
           ))}
       </div>
       <ul className="calendar__list">
