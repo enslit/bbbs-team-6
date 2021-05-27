@@ -21,6 +21,11 @@
   width: calc(100% - 150px);
   max-width: 1770px;
 }
+
+.content_loading {
+  text-align: center;
+}
+
 @media (max-width: 1440px) {
   .content {
     width: calc(100% - 270px);
@@ -74,7 +79,6 @@
 /*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/mainpage.css */
 .mainpage {
   display: grid;
-  grid-template-columns: 1;
   gap: 30px;
   box-sizing: border-box;
 }
@@ -492,20 +496,25 @@
   scrollbar-color: #e8e6e6 transparent;
   scrollbar-width: thin;
 }
+
 .event-article::-webkit-scrollbar {
   width: 3px;
-  background-color: cover;
+  background-size: cover;
 }
+
 .event-article::-webkit-scrollbar-thumb {
   background-color: #e8e6e6;
   border-radius: 5px;
 }
+
 .event-article::-webkit-scrollbar-button {
   height: 15px;
 }
+
 .event-article_size_big {
   margin: 47px 15px 69px 30px;
 }
+
 .event-article__title {
   font-family: 'PT Root', Arial, Helvetica, sans-serif;
   font-size: 14px;
