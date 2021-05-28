@@ -15,6 +15,7 @@ import HistoriesPage from '../pages/histories/HistoriesPage';
 import { useAuth } from '../hooks/useAuth';
 import VideoPopup from '../components/VideoPopup/VideoPopup';
 import AuthPopup from './AuthPopup/AuthPopup';
+
 function App() {
   const history = useHistory();
   const { authReady } = useAuth();
@@ -118,7 +119,7 @@ function App() {
       {selectedPopupVideo && (
         <VideoPopup video={selectedPopupVideo} onClose={closeAllPopups} />
       )}
-      {isAuthModalOpen && <AuthPopup onClose={closeAllPopups}></AuthPopup>}
+      {isAuthModalOpen && <AuthPopup onClose={closeAllPopups} />}
     </div>
   );
 }
