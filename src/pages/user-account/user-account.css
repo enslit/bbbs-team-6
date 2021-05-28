@@ -73,195 +73,10 @@
   margin-bottom: 50px;
 }
 
-
 /*---------------------------*/
-.personal-account__form {
-  width: 100%;
-  height: 472px;
-  margin: 0 0 80px 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(1, 40% 60%);
-}
-
-.personal-account__photo {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #fff;
-  border-radius: 30px;
-  overflow: hidden;
-}
-
-.personal-account__upload {
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 0;
-  line-height: 0;
-  opacity: 0;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.personal-account__photo-text {
-  margin: 0;
-  padding: 0;
-  font-family: 'Proto Grotesk-Light', sans-serif;
-  font-weight: 300;
-  font-size: 15px;
-  line-height: 19px;
-  color: #a7a6a6;
-  cursor: pointer;
-  position: relative;
-}
-
-.personal-account__upload-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 100px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.personal-account__inputs {
-  margin: 0;
-  padding: 30px;
-  background-color: #fff;
-  border-radius: 30px;
-  display: grid;
-  grid-template-columns: auto 30px auto;
-  grid-template-rows: 1fr 286px;
-  font-size: 0;
-  line-height: 0;
-}
-
-.personal-account__input {
-  margin-bottom: 20px;
-  padding: 13px 20px 16px 20px;
-  background-color: #f3f2f2;
-  border: none;
-  border-radius: 30px;
-  color: #000;
-  font-family: 'Proto Grotesk-Light', sans-serif;
-  font-weight: 300;
-  font-size: 15px;
-  line-height: 19px;
-  text-align: left;
-}
-
-.personal-account__input_type_place {
-  grid-column: 1/2;
-}
-
-.personal-account__input_type_date {
-  grid-column: 3/4;
-}
-
-.personal-account__textarea {
-  display: block;
-  margin: 0;
-  padding: 13px 20px 16px 20px;
-  background-color: #f3f2f2;
-  border: none;
-  border-radius: 30px;
-  color: #000;
-  font-family: 'Proto Grotesk-Light', sans-serif;
-  font-weight: 300;
-  font-size: 15px;
-  line-height: 19px;
-  text-align: left;
-  grid-column: 1/4;
-}
-
-
-/*---------------------------*/
-.personal-account__feedback {
-  margin: 30px 0 0 0;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  grid-column: 1/2;
-}
-
-.personal-account__radio {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-}
-
-.personal-account__feedback-button {
-  width: 26px;
-  height: 26px;
-  margin: 0 15px 0 0;
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  cursor: pointer;
-}
 
 .personal-account__feedback-button_closed {
   display: none;
-}
-
-.personal-account__feedback-text {
-  margin: 0;
-  padding: 0;
-  font-family: 'PT-Root-UI', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #a7a6a6;
-  text-align: left;
-}
-
-.personal-account__feedback-text_type_good {
-  color: #8cdd94;
-}
-
-.personal-account__feedback-text_type_normal {
-  color: #464646;
-}
-
-.personal-account__feedback-text_type_bad {
-  color: #ff8585;
-}
-
-.personal-account__feedback-btn {
-  margin: 0 20px 0 0;
-  padding: 0;
-  font-family: 'Proto Grotesk-Light', sans-serif;
-  font-weight: 300;
-  font-size: 15px;
-  line-height: 19px;
-  color: #a7a6a6;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.personal-account__feedback-btn_type_active {
-  color: #000000;
-}
-
-.personal-account__feedback-btn:hover {
-  color: #000000;
 }
 
 .personal-account__share::before {
@@ -274,19 +89,8 @@
   display: none;
 }
 
-.personal-account__submit {
-  margin: 30px 0 0 0;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  grid-column: 3/4;
-}
-
 
 /*------------PERSONAL-ACCOUNT-ADDED PROFILE----------------*/
-
 .personal-account__event {
   margin: 30px 0 0;
   padding: 0;
@@ -310,7 +114,6 @@
   max-width: 270px;
   box-sizing: border-box;
 }
-/* overflow f js */
 
 .personal-account__event-wrapper:last-of-type {
   margin-right: 0;
@@ -457,30 +260,6 @@
 }
 
 @media (max-width: 1150px) {
-  
-  .personal-account__form {
-    height: 100%;
-    grid-template-columns: 70%;
-    grid-template-rows: 400px 600px;
-    justify-content: center;
-    margin-bottom: 50px;
-  }
-  
-  .personal-account__inputs {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .personal-account__textarea {
-    height: 286px;
-  }
-  
-  .personal-account__submit {
-    max-width: 100%;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-  }
-  
   .personal-account__event-head {
     margin-top: -20px;
   }
@@ -490,24 +269,6 @@
     margin-top: 20px;
     row-gap: 10px;
     grid-template-columns: 70% 30%;
-  }
-  
-  .personal-account__feedback-btn:nth-of-type(1) {
-    grid-column: 1/2;
-    margin-right: 0;
-    justify-self: start;
-    position: relative;
-  }
-  
-  .personal-account__feedback-btn:nth-of-type(2) {
-    grid-column: 2/3;
-    justify-self: end;
-  }
-  
-  .personal-account__feedback-btn:nth-of-type(3) {
-    grid-column: 2/3;
-    grid-row: 2/3;
-    justify-self: right;
   }
 }
 
@@ -563,22 +324,6 @@
     height: 80px;
   }
   
-  .personal-account__photo-text::before {
-    left: 16px;
-    width: 80px;
-    height: 80px;
-  }
-  
-  .personal-account__feedback-text {
-    font-size: 12px;
-    line-height: 17px;
-  }
-  
-  .personal-account__feedback-btn {
-    font-size: 12px;
-    line-height: 17px;
-  }
-  
   .personal-account__subtitle-month_place_form {
     font-size: 12px;
     line-height: 17px;
@@ -597,68 +342,13 @@
     line-height: 23px;
   }
   
-  .personal-account__feedback-button {
-    width: 23px;
-    height: 23px;
-  }
-  
   .personal-account__share::before {
     display: block;
   }
 }
 
 @media (max-width: 490px) {
-  
   .personal-account {
-    margin-top: 10px;
-  }
-  
-  .personal-account__form {
-    grid-template-columns: 290px;
-    grid-template-rows: 291px 404px;
-    justify-content: center;
-    margin-bottom: 50px;
-  }
-  
-  .personal-account__textarea {
-    height: 120px;
-    padding: 10px 20px 10px 20px;
-    font-size: 12px;
-    line-height: 17px;
-  }
-  
-  .personal-account__inputs {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  
-  .personal-account__input {
-    margin-bottom: 10px;
-  }
-  
-  .personal-account__feedback {
-    margin-top: 20px;
-  }
-  
-  .personal-account__feedback-button {
-    margin-right: 10px;
-  }
-  
-  .personal-account__photo-text {
-    font-size: 12px;
-    line-height: 17px;
-  }
-  
-  .personal-account__input {
-    font-size: 12px;
-    line-height: 17px;
-  }
-  
-  .personal-account__feedback-btn:nth-of-type(2) {
-    margin-top: 10px;
-  }
-  
-  .personal-account__feedback-btn:nth-of-type(3) {
     margin-top: 10px;
   }
 }
