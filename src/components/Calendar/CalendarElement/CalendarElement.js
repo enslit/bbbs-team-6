@@ -3,6 +3,7 @@ import { format } from 'date-fns';
 import { bool, number, shape, string } from 'prop-types';
 import classnames from 'classnames';
 import './calendarElement.css';
+import Button from '../../Button/Button';
 
 function CalendarElement({ event }) {
   const {
@@ -21,10 +22,6 @@ function CalendarElement({ event }) {
 
   const elementClasses = classnames('calendar-element', {
     'calendar-element_booked': booked,
-  });
-
-  const buttonClasses = classnames('calendar-element__join-button', {
-    'calendar-element__join-button_booked': booked,
   });
 
   return (
@@ -50,16 +47,21 @@ function CalendarElement({ event }) {
       </div>
       <div className="calendar-element__menu">
         <div className="calendar-element__join">
-          <button type="button" className={buttonClasses}>
+          <Button
+            style="light"
+            disabled={seats - takenSeats === 0}
+            isActive={booked}
+            addClassName="calendar-element__join-button"
+          >
             {booked ? 'Отменить запись' : 'Записаться'}
-          </button>
+          </Button>
           <p className="join__places-left">
-            Осталось {seats - takenSeats} мест
+            {seats - takenSeats === 0
+              ? 'Запись закрыта'
+              : `Осталось ${seats - takenSeats} мест`}
           </p>
         </div>
-        <button type="button" className="menu-button">
-          ...
-        </button>
+        <Button type="round">...</Button>
       </div>
     </li>
   );

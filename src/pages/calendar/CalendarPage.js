@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { bbbsApi } from '../../utils/api';
 import { useAuth } from '../../hooks/useAuth';
 import CalendarList from '../../components/Calendar/CalendarList';
-import './calenderPage.css';
+import './calendarPage.css';
 
 function CalendarPage() {
   const { user } = useAuth();
