@@ -34,7 +34,7 @@ function Header({ hidden, fixed, handleAuthModalOpen }) {
   };
 
   const handleClickUserIcon = () => {
-    console.log('user');
+    setIsMenuOpened(false);
     handleAuthModalOpen();
   };
 
@@ -44,7 +44,11 @@ function Header({ hidden, fixed, handleAuthModalOpen }) {
         fixed ? ' header_fixed' : ''
       }`}
     >
-      <Link to="/" className="header__logo">
+      <Link
+        to="/"
+        className="header__logo"
+        onClick={() => setIsMenuOpened(false)}
+      >
         наставники.про
       </Link>
       <HeaderMobileMenu
