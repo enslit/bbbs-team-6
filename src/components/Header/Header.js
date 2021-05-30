@@ -56,7 +56,11 @@ function Header({ hidden, fixed, handleAuthModalOpen }) {
         onClose={handleClickCloseMenu}
         isOpened={isMenuOpened}
       />
-      <HeaderNavigation list={menuHeaderDesktop} type={'desktop'} />
+      <HeaderNavigation
+        list={menuHeaderDesktop}
+        handleClickUserIcon={handleAuthModalOpen}
+        type={'desktop'}
+      />
       <div className="header__action">
         <IconButton
           type="button"
