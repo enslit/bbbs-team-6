@@ -6,6 +6,7 @@
   align-items: center;
   font-family: 'Proto', Arial, sans-serif;
 }
+
 .error__image-container {
   width: 570px;
   height: 199px;
@@ -14,6 +15,7 @@
   background-size: cover;
   margin-bottom: 36px;
 }
+
 .error__title {
   margin: 0 0 30px 0;
   font-weight: 300;
@@ -30,15 +32,18 @@
   line-height: 30px;
   text-align: center;
 }
+
 .error__link {
   text-decoration: none;
 }
+
 @media screen and (max-width: 768px) {
   .error__image-container {
     width: 290px;
     height: 101px;
     margin-bottom: 21px;
   }
+
   .error__title {
     max-width: 290px;
     margin-bottom: 10px;
