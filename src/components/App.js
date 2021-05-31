@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Switch, Route, useHistory } from 'react-router-dom';
-
+import { Switch, Route, useHistory, useLocation } from 'react-router-dom';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import HomePage from '../pages/home/HomePage';
@@ -19,6 +18,7 @@ import AuthPopup from './AuthPopup/AuthPopup';
 import Error from '../pages/Error/Error';
 function App() {
   const history = useHistory();
+  const location = useLocation();
   const { authReady } = useAuth();
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
   const [isHeaderFixed, setIsHeaderFixed] = useState(false);
@@ -38,6 +38,12 @@ function App() {
   function closeAllPopups() {
     setSelectedPopupVideo(null);
     setAuthModalOpen(false);
+    if (
+      location.pathname === '/calendar' ||
+      location.pathname === '/user-account'
+    ) {
+      history.push('/');
+    }
   }
 
   const hideHeaderOnScroll = () => {
@@ -90,9 +96,12 @@ function App() {
           <AboutPage />
         </Route>
         {/* Вернуть приватный роут по окончанию работы */}
-        <Route path="/calendar">
+        <PrivateRoute
+          handleAuthModalOpen={handleAuthModalOpen}
+          path="/calendar"
+        >
           <CalendarPage />
-        </Route>
+        </PrivateRoute>
         <Route path="/questions">
           <QuestionsPage />
         </Route>
@@ -108,7 +117,10 @@ function App() {
         <Route path="/histories">
           <HistoriesPage />
         </Route>
-        <PrivateRoute path="/user-account">
+        <PrivateRoute
+          handleAuthModalOpen={handleAuthModalOpen}
+          path="/user-account"
+        >
           <UserAccountPage />
         </PrivateRoute>
         <Route path="*">

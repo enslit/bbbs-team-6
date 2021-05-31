@@ -13,16 +13,16 @@ function PrivateRoute({ children, ...rest }) {
     <Route
       {...rest}
       render={({ location }) =>
-        loggedIn ? (
-          children
-        ) : (
-          <Redirect
-            to={{
-              pathname: '/sign-in',
-              state: { from: location },
-            }}
-          />
-        )
+        loggedIn
+          ? children
+          : (
+              <Redirect
+                to={{
+                  pathname: '/',
+                  state: { from: location },
+                }}
+              />
+            ) && rest.handleAuthModalOpen()
       }
     />
   );
