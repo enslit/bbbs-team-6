@@ -5,6 +5,7 @@
   border-radius: 30px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 .bbbs__logo {
   width: 61.5%;
@@ -20,7 +21,7 @@
   padding: 122px 17.24%;
 }
 .bbbs__text {
-  font-family: 'Proto', Arial, sans-serif;
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
   font-weight: 300;
   font-size: 23px;
   line-height: 30px;
