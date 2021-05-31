@@ -15,7 +15,7 @@ import HistoriesPage from '../pages/histories/HistoriesPage';
 import { useAuth } from '../hooks/useAuth';
 import VideoPopup from '../components/VideoPopup/VideoPopup';
 import AuthPopup from './AuthPopup/AuthPopup';
-
+import Error from '../pages/Error/Error';
 function App() {
   const history = useHistory();
   const location = useLocation();
@@ -123,8 +123,8 @@ function App() {
         >
           <UserAccountPage />
         </PrivateRoute>
-        <Route path="/">
-          <h2>404</h2>
+        <Route path="*">
+          <Error />
         </Route>
       </Switch>
       <Footer />

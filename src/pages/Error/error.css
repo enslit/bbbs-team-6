@@ -1,0 +1,59 @@
+.error {
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+  font-family: 'Proto', Arial, sans-serif;
+}
+
+.error__image-container {
+  width: 570px;
+  height: 199px;
+  background-image: url('../../assets/images/figures-404.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 36px;
+}
+
+.error__title {
+  margin: 0 0 30px 0;
+  font-weight: 300;
+  font-size: 100px;
+  line-height: 100px;
+  font-family: 'Proto', Arial, sans-serif;
+}
+
+.error__subtitle {
+  max-width: 770px;
+  margin: 0 0 50px 0;
+  font-weight: 300;
+  font-size: 23px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.error__link {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .error__image-container {
+    width: 290px;
+    height: 101px;
+    margin-bottom: 21px;
+  }
+
+  .error__title {
+    max-width: 290px;
+    margin-bottom: 10px;
+    font-size: 60px;
+    line-height: 60px;
+    font-family: 'Proto', Arial, sans-serif;
+  }
+
+  .error__subtitle {
+    font-size: 19px;
+    line-height: 23px;
+  }
+}
