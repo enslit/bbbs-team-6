@@ -6,8 +6,17 @@ import './calendarElement.css';
 import Button from '../../Button/Button';
 
 function CalendarElement({ event }) {
-  const { booked, address, contact, title, startAt, endAt, seats, takenSeats } =
-    event;
+  const {
+    booked,
+    address,
+    contact,
+    title,
+    startAt,
+    endAt,
+    seats,
+    takenSeats,
+    remainSeats,
+  } = event;
 
   const dateStart = new Date(startAt);
   const dateEnd = new Date(endAt);
@@ -50,7 +59,9 @@ function CalendarElement({ event }) {
           <p className="join__places-left">
             {seats - takenSeats === 0
               ? 'Запись закрыта'
-              : `Осталось ${seats - takenSeats} мест`}
+              : `Осталось ${
+                  !remainSeats ? seats - takenSeats : remainSeats
+                } мест`}
           </p>
         </div>
         <Button type="round">...</Button>
