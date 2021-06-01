@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import HeaderNavigation from '../HeaderMenu/HeaderNavigation';
@@ -20,7 +20,7 @@ Header.propTypes = {
 function Header({ hidden, fixed, handleAuthModalOpen }) {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const { user } = useAuth();
-
+  console.log('header');
   const handleClickOpenMenu = () => {
     setIsMenuOpened(true);
   };
@@ -37,6 +37,10 @@ function Header({ hidden, fixed, handleAuthModalOpen }) {
     setIsMenuOpened(false);
     handleAuthModalOpen();
   };
+
+  useEffect(() => {
+    hidden && handleClickCloseMenu();
+  }, [hidden]);
 
   return (
     <header
