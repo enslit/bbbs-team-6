@@ -20,7 +20,7 @@ Header.propTypes = {
 function Header({ hidden, fixed, handleAuthModalOpen }) {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const { user } = useAuth();
-  console.log('header');
+
   const handleClickOpenMenu = () => {
     setIsMenuOpened(true);
   };
