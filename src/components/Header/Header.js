@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import HeaderNavigation from '../HeaderMenu/HeaderNavigation';
 import HeaderMobileMenu from '../HeaderMenu/HeaderMobileMenu';
@@ -20,6 +20,7 @@ Header.propTypes = {
 function Header({ hidden, fixed, handleAuthModalOpen }) {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const { user } = useAuth();
+  const history = useHistory();
 
   const handleClickOpenMenu = () => {
     setIsMenuOpened(true);
@@ -35,7 +36,9 @@ function Header({ hidden, fixed, handleAuthModalOpen }) {
 
   const handleClickUserIcon = () => {
     setIsMenuOpened(false);
-    handleAuthModalOpen();
+    user
+      ? location.pathname !== '/user-account' && history.push('/user-account')
+      : handleAuthModalOpen();
   };
 
   return (
