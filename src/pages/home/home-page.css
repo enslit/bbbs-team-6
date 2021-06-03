@@ -98,7 +98,7 @@
     flex-direction: column;
   }
 }
-@media (max-width: 740px) {
+@media (max-width: 980px) {
   .mainpage__intro {
     grid-template-columns: 1fr;
   }
