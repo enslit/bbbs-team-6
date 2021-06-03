@@ -42,7 +42,8 @@ function Header({ hidden, fixed, handleAuthModalOpen }) {
   };
 
   useEffect(() => {
-    hidden && handleClickCloseMenu();
+    hidden && isMenuOpened && handleClickCloseMenu();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hidden]);
 
   return (

@@ -76,17 +76,21 @@
   .header {
     padding: 44px 127px 0;
     transition: all 200ms ease-in-out;
+    display: grid;
+    grid-template: 1fr / max-content 1fr max-content;
   }
 
   .header__logo {
     margin: auto;
     font-size: 17px;
-    line-height: 1;
+    line-height: 1.7;
+    grid-column: 1 / 4;
+    grid-row: 1;
   }
 
   .header__button-login {
     display: none;
-    margin-left: 20px;
+    margin-left: 10px;
   }
 
   .header__button-login_show {
@@ -99,6 +103,8 @@
 
   .header__action {
     order: -1;
+    grid-column: 1 / 2;
+    grid-row: 1;
   }
 }
 
