@@ -88,45 +88,47 @@ function App() {
         fixed={isHeaderFixed}
         handleAuthModalOpen={handleAuthModalOpen}
       />
-      <Switch>
-        <Route path="/" exact>
-          <HomePage videoClick={handleMainVideoClick} />
-        </Route>
-        <Route path="/about">
-          <AboutPage />
-        </Route>
-        {/* Вернуть приватный роут по окончанию работы */}
-        <PrivateRoute
-          handleAuthModalOpen={handleAuthModalOpen}
-          path="/calendar"
-        >
-          <CalendarPage />
-        </PrivateRoute>
-        <Route path="/questions">
-          <QuestionsPage />
-        </Route>
-        <Route path="/read-and-watch">
-          <ReadAndWatchPage />
-        </Route>
-        <Route path="/where-to-go">
-          <WhereToGoPage />
-        </Route>
-        <Route path="/children-is-rights">
-          <ChildrenIsRightsPage />
-        </Route>
-        <Route path="/histories">
-          <HistoriesPage />
-        </Route>
-        <PrivateRoute
-          handleAuthModalOpen={handleAuthModalOpen}
-          path="/user-account"
-        >
-          <UserAccountPage />
-        </PrivateRoute>
-        <Route path="*">
-          <Error />
-        </Route>
-      </Switch>
+      <main className="main">
+        <Switch>
+          <Route path="/" exact>
+            <HomePage videoClick={handleMainVideoClick} />
+          </Route>
+          <Route path="/about">
+            <AboutPage />
+          </Route>
+          {/* Вернуть приватный роут по окончанию работы */}
+          <PrivateRoute
+            handleAuthModalOpen={handleAuthModalOpen}
+            path="/calendar"
+          >
+            <CalendarPage />
+          </PrivateRoute>
+          <Route path="/questions">
+            <QuestionsPage />
+          </Route>
+          <Route path="/read-and-watch">
+            <ReadAndWatchPage />
+          </Route>
+          <Route path="/where-to-go">
+            <WhereToGoPage />
+          </Route>
+          <Route path="/children-is-rights">
+            <ChildrenIsRightsPage />
+          </Route>
+          <Route path="/histories">
+            <HistoriesPage />
+          </Route>
+          <PrivateRoute
+            handleAuthModalOpen={handleAuthModalOpen}
+            path="/user-account"
+          >
+            <UserAccountPage />
+          </PrivateRoute>
+          <Route path="*">
+            <Error />
+          </Route>
+        </Switch>
+      </main>
       <Footer />
 
       {selectedPopupVideo && (

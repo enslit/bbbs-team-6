@@ -20,7 +20,7 @@ function CalendarPage() {
   }, [user]);
 
   return (
-    <section className="calendar">
+    <section className="main__section">
       <h1 className="calendar__title">Календарь</h1>
       {isFetching ? (
         <h2>Loading...</h2>

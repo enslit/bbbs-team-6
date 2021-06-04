@@ -14,7 +14,7 @@
 }
 .about__title {
   max-width: 1170px;
-  font-family: 'Proto', Arial, Helvetica, sans-serif;
+  font-family: 'Proto Grotesk-Light', Arial, Helvetica, sans-serif;
   font-size: 44px;
   line-height: 50px;
   font-weight: 300;
@@ -89,7 +89,6 @@
   display: flex;
   justify-content: center;
   max-width: 1800px;
-  margin-bottom: 120px;
 }
 .about__tab {
   margin-right: 30px;

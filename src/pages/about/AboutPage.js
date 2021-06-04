@@ -5,7 +5,7 @@ import './about.css';
 function AboutPage() {
   return (
     <>
-      <section className="about">
+      <section className="about main__section">
         <div className="about__wrapper">
           <h1 className="about__title">
             Наставники.про — цифровая информационная платформа огрганизации

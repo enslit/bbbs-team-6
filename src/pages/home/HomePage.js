@@ -35,58 +35,56 @@ function HomePage({ videoClick }) {
 
   if (isFetching) {
     return (
-      <div className="content root__section content_loading">
+      <div className="main__section content_loading">
         <Loader />
       </div>
     );
   }
 
   return (
-    <main className="content root__section">
-      <section className="mainpage">
-        <section className="mainpage__intro">
-          {user && mainData ? (
-            <CalendarElement event={mainData.event} />
-          ) : (
-            <Intro />
-          )}
-          {mainData && <History history={mainData.history} />}
-        </section>
-
-        <section className="mainpage__blocks">
-          {mainData && <Place place={mainData.place} />}
-        </section>
-
-        <section className="mainpage__block">
-          {mainData && <Article article={mainData.articles[0]} />}
-        </section>
-
-        <section className="mainpage__block">
-          <ul className="movies">
-            {mainData?.movies.map((movie) => (
-              <Movie key={movie.id} movie={movie} />
-            ))}
-          </ul>
-        </section>
-
-        <section className="mainpage__blocks">
-          {mainData && <Video video={mainData.video} onClick={videoClick} />}
-        </section>
-
-        <section className="mainpage__blocks-col">
-          <FacebookWidget />
-          <ul className="questions questions_place_maipage">
-            {mainData?.questions.map((question) => (
-              <Question key={question.id} question={question} />
-            ))}
-          </ul>
-        </section>
-
-        <section className="mainpage__block">
-          {mainData && <Article article={mainData.articles[1]} />}
-        </section>
+    <section className="main__section">
+      <section className="mainpage__intro">
+        {user && mainData ? (
+          <CalendarElement event={mainData.event} />
+        ) : (
+          <Intro />
+        )}
+        {mainData && <History history={mainData.history} />}
       </section>
-    </main>
+
+      <section className="mainpage__blocks">
+        {mainData && <Place place={mainData.place} />}
+      </section>
+
+      <section className="mainpage__block">
+        {mainData && <Article article={mainData.articles[0]} />}
+      </section>
+
+      <section className="mainpage__block">
+        <ul className="movies">
+          {mainData?.movies.map((movie) => (
+            <Movie key={movie.id} movie={movie} />
+          ))}
+        </ul>
+      </section>
+
+      <section className="mainpage__blocks">
+        {mainData && <Video video={mainData.video} onClick={videoClick} />}
+      </section>
+
+      <section className="mainpage__blocks-col">
+        <FacebookWidget />
+        <ul className="questions questions_place_maipage">
+          {mainData?.questions.map((question) => (
+            <Question key={question.id} question={question} />
+          ))}
+        </ul>
+      </section>
+
+      <section className="mainpage__block">
+        {mainData && <Article article={mainData.articles[1]} />}
+      </section>
+    </section>
   );
 }
 
