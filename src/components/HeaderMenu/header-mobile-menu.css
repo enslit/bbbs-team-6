@@ -1,3 +1,10 @@
+.mobile-menu {
+  display: flex;
+  align-items: center;
+  grid-column: 3 / 4;
+  grid-row: 1;
+}
+
 .mobile-menu__icon {
   display: none;
   width: 30px;

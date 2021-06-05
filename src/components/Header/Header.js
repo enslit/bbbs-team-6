@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import HeaderNavigation from '../HeaderMenu/HeaderNavigation';
@@ -40,6 +40,11 @@ function Header({ hidden, fixed, handleAuthModalOpen }) {
       ? location.pathname !== '/user-account' && history.push('/user-account')
       : handleAuthModalOpen();
   };
+
+  useEffect(() => {
+    hidden && isMenuOpened && handleClickCloseMenu();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hidden]);
 
   return (
     <header
