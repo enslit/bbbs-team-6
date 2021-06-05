@@ -1,94 +1,200 @@
-.calendar-element {
-  display: flex;
+/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/calendar.css */
+.calendar {
+  margin: 0;
   padding: 30px;
-  min-width: 290px;
-  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
   flex-direction: column;
+  color: black;
   border-radius: 30px;
-  background: #ffffff;
+  position: relative;
+  box-sizing: border-box;
 }
-
-.calendar-element_booked {
-  background-color: #c8d1ff;
-}
-
-.calendar-element__header {
+.calendar__about {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
   width: 100%;
+}
+.calendar__participants {
+  width: 50%;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+  color: #464646;
+  font-family: 'PT-Root-UI', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: left;
+  align-self: flex-start;
+}
+.calendar__date {
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+  font-family: 'PT-Root-UI', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: right;
+}
+.calendar__event {
+  max-width: 320px;
+  margin: 0;
+  padding: 0;
+  font-family: 'Proto Grotesk-Light', sans-serif;
+  font-weight: 300;
+  font-size: 23px;
+  line-height: 30px;
+  text-align: left;
+}
+.calendar__day {
+  margin: 0;
+  padding: 0;
+  font-family: 'Proto Grotesk-Light', sans-serif;
+  font-weight: 300;
+  font-size: 100px;
+  line-height: 100px;
+  letter-spacing: -2px;
+  text-align: right;
+}
+.calendar__contacts {
+  min-width: 100%;
+  margin: 0;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  padding: 0;
+  font-family: 'PT-Root-UI', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  list-style-type: none;
+}
+.calendar__contacts-item {
+  margin: 0;
+  padding: 0;
+  color: #1a1a1a;
+  border-bottom: 1px solid rgba(167, 166, 166, 1);
+}
+.calendar__contacts-item:last-child {
+  margin-bottom: 0;
+  border: none;
+}
+.calendar__time {
+  max-width: 100%;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+  text-align: left;
+}
+.calendar__adress {
+  max-width: 100%;
+  margin: 0;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 0;
+  text-align: left;
+}
+.calendar__phone {
+  margin: 0;
+  margin-top: 10px;
+  padding: 0;
+  text-align: left;
+  color: black;
+}
+.calendar__sign-up {
+  min-width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
 }
-
-.calendar-element__title {
-  width: 320px;
+.calendar__sign-up__type_text {
   margin: 0;
+  margin-left: 15px;
+  padding: 0;
+  font-family: 'PT-Root-UI', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
 }
-
-.calendar-element__date {
-  font-weight: 300;
-  font-size: 100px;
-  line-height: 100px;
-  justify-self: flex-end;
-  flex-basis: 154px;
-  text-align: end;
-}
-
-.calendar-element__main {
-  display: flex;
-  justify-content: space-between;
-}
-
-.calendar-element__details {
-  margin-bottom: 43px;
-}
-
-.calendar-element__paragraph {
+.calendar__sign-up_flex {
   margin: 0;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  border-bottom: 1px solid black;
-}
-
-.calendar-element__paragraph:last-child {
-  border-bottom: none;
-}
-
-.calendar-element__menu {
+  padding: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 }
-
-.calendar-element__join {
-  display: flex;
-  align-items: center;
+.calendar__btn {
+  width: 48px;
+  height: 48px;
+  padding: 0;
 }
-
-.calendar-element__join-button {
-  margin-right: 15px;
+.calendar_onclick {
+  background-color: #c8d1ff;
 }
-
-@media screen and (max-width: 1280px) {
-  .calendar-element {
-    padding: 15px;
+@media (max-width: 1620px) {
+  .calendar__event {
+    max-width: 320px;
   }
-
-  .calendar-element__title {
+}
+@media (max-width: 1250px) {
+  .calendar {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .calendar__participants {
+    font-size: 12px;
+    line-height: 17px;
+  }
+  .calendar__date {
+    font-size: 12px;
+    line-height: 17px;
+  }
+  .calendar__event {
     max-width: 246px;
+    font-size: 19px;
+    line-height: 23px;
   }
-
-  .calendar-element__date {
+  .calendar__day {
     font-size: 60px;
     line-height: 60px;
   }
-
-  .calendar-element__details {
-    margin-bottom: 41px;
+  .calendar__contacts {
+    font-size: 12px;
+    line-height: 17px;
   }
-
-  .calendar-element__join-button {
-    margin-right: 10px;
+  .calendar__sign-up__type_text {
+    font-size: 12px;
+    line-height: 17px;
+  }
+  .calendar__sign-up__type_text {
+    margin-left: 10px;
+  }
+  .calendar__time {
+    margin-bottom: 5px;
+  }
+  .calendar__adress {
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+  .calendar__phone {
+    margin-top: 5px;
+  }
+  .calendar__btn {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (max-width: 440px) {
+  .calendar__event {
+    max-width: 166px;
   }
 }

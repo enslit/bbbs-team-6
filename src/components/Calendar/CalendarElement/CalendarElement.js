@@ -21,33 +21,35 @@ function CalendarElement({ event }) {
   const dateStart = new Date(startAt);
   const dateEnd = new Date(endAt);
 
-  const elementClasses = classnames('calendar-element', {
-    'calendar-element_booked': booked,
+  const elementClasses = classnames('calendar', {
+    calendar_onclick: booked,
   });
 
   return (
     <li className={elementClasses}>
-      <div className="calendar-element__header">
-        <span>Волонтёры + дети</span>
-        <span>
+      <div className="calendar__about">
+        <p className="calendar__participants">Волонтёры + дети</p>
+        <p className="calendar__date">
           {format(dateStart, 'MMMM')} / {format(dateStart, 'eeee')}
-        </span>
-      </div>
-      <div className="calendar-element__main">
-        <h3 className="calendar-element__title">{title}</h3>
-        <span className="calendar-element__date">
-          {format(dateStart, 'dd')}
-        </span>
-      </div>
-      <div className="calendar-element__details">
-        <p className="calendar-element__paragraph">
-          {format(dateStart, 'HH:mm')} - {format(dateEnd, 'HH:mm')}
         </p>
-        <p className="calendar-element__paragraph">{address}</p>
-        <p className="calendar-element__paragraph">{contact}</p>
+        <h2 className="calendar__event">{title}</h2>
+        <p className="calendar__day">{format(dateStart, 'dd')}</p>
       </div>
-      <div className="calendar-element__menu">
-        <div className="calendar-element__join">
+      <ul className="calendar__contacts">
+        <li className="calendar__contacts-item">
+          <p className="calendar__time">
+            {format(dateStart, 'HH:mm')} - {format(dateEnd, 'HH:mm')}
+          </p>
+        </li>
+        <li className="calendar__contacts-item">
+          <p className="calendar__adress">{address}</p>
+        </li>
+        <li className="calendar__contacts-item">
+          <p className="calendar__phone">{contact}</p>
+        </li>
+      </ul>
+      <div className="calendar__sign-up">
+        <div className="calendar__sign-up_flex">
           <Button
             style="light"
             disabled={seats - takenSeats === 0}
@@ -56,7 +58,7 @@ function CalendarElement({ event }) {
           >
             {booked ? 'Отменить запись' : 'Записаться'}
           </Button>
-          <p className="join__places-left">
+          <p className="calendar__sign-up__type_text">
             {seats - takenSeats === 0
               ? 'Запись закрыта'
               : `Осталось ${

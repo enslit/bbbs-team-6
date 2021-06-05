@@ -56,7 +56,7 @@ function CalendarList({ events }) {
             </Button>
           ))}
       </div>
-      <ul className="calendar__list">
+      <ul className="grid-calendar__grid">
         {filteredEvents.map((event) => (
           <CalendarElement key={event.id} event={event} />
         ))}

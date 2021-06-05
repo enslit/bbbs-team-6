@@ -21,7 +21,7 @@ function CalendarPage() {
 
   return (
     <section className="main__section">
-      <h1 className="calendar__title">Календарь</h1>
+      <h1 className="heading">Календарь</h1>
       {isFetching ? (
         <h2>Loading...</h2>
       ) : (
