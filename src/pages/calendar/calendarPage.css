@@ -31,7 +31,7 @@
   text-align: center;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1280px) {
   .calendar__list {
     grid-template-columns: repeat(auto-fit, 370px);
   }
