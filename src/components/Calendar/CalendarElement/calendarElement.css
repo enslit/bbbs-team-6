@@ -1,6 +1,7 @@
 .calendar-element {
   display: flex;
   padding: 30px;
+  min-width: 290px;
   box-sizing: border-box;
   flex-direction: column;
   border-radius: 30px;
