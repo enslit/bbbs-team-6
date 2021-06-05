@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { bbbsApi } from '../../utils/api';
 import { useAuth } from '../../hooks/useAuth';
 import CalendarList from '../../components/Calendar/CalendarList';
+import Loader from '../../components/Loader/Loader';
 import './calendarPage.css';
 
 function CalendarPage() {
@@ -20,12 +21,16 @@ function CalendarPage() {
   }, [user]);
 
   return (
-    <section className="main__section">
-      <h1 className="heading">Календарь</h1>
+    <section className="grid-calendar main__section">
       {isFetching ? (
-        <h2>Loading...</h2>
+        <div className="content_loading">
+          <Loader />
+        </div>
       ) : (
-        <CalendarList events={calendarElements} />
+        <>
+          <h1 className="heading">Календарь</h1>
+          <CalendarList events={calendarElements} />
+        </>
       )}
     </section>
   );

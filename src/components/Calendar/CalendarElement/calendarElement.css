@@ -1,4 +1,3 @@
-/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/calendar.css */
 .calendar {
   margin: 0;
   padding: 30px;
@@ -12,6 +11,7 @@
   position: relative;
   box-sizing: border-box;
 }
+
 .calendar__about {
   margin: 0;
   padding: 0;
@@ -22,6 +22,7 @@
   align-items: flex-start;
   width: 100%;
 }
+
 .calendar__participants {
   width: 50%;
   margin: 0;
@@ -35,6 +36,7 @@
   text-align: left;
   align-self: flex-start;
 }
+
 .calendar__date {
   margin: 0;
   margin-bottom: 10px;
@@ -45,6 +47,7 @@
   line-height: 19px;
   text-align: right;
 }
+
 .calendar__event {
   max-width: 320px;
   margin: 0;
@@ -55,6 +58,7 @@
   line-height: 30px;
   text-align: left;
 }
+
 .calendar__day {
   margin: 0;
   padding: 0;
@@ -65,6 +69,7 @@
   letter-spacing: -2px;
   text-align: right;
 }
+
 .calendar__contacts {
   min-width: 100%;
   margin: 0;
@@ -77,16 +82,19 @@
   line-height: 19px;
   list-style-type: none;
 }
+
 .calendar__contacts-item {
   margin: 0;
   padding: 0;
   color: #1a1a1a;
   border-bottom: 1px solid rgba(167, 166, 166, 1);
 }
+
 .calendar__contacts-item:last-child {
   margin-bottom: 0;
   border: none;
 }
+
 .calendar__time {
   max-width: 100%;
   margin: 0;
@@ -94,6 +102,7 @@
   padding: 0;
   text-align: left;
 }
+
 .calendar__adress {
   max-width: 100%;
   margin: 0;
@@ -109,6 +118,7 @@
   text-align: left;
   color: black;
 }
+
 .calendar__sign-up {
   min-width: 100%;
   display: flex;
@@ -116,6 +126,7 @@
   justify-content: space-between;
   align-items: center;
 }
+
 .calendar__sign-up__type_text {
   margin: 0;
   margin-left: 15px;
@@ -125,6 +136,7 @@
   font-size: 14px;
   line-height: 19px;
 }
+
 .calendar__sign-up_flex {
   margin: 0;
   padding: 0;
@@ -132,67 +144,83 @@
   justify-content: flex-start;
   align-items: center;
 }
+
 .calendar__btn {
   width: 48px;
   height: 48px;
   padding: 0;
 }
+
 .calendar_onclick {
   background-color: #c8d1ff;
 }
+
 @media (max-width: 1620px) {
   .calendar__event {
     max-width: 320px;
   }
 }
+
 @media (max-width: 1250px) {
   .calendar {
     padding-left: 15px;
     padding-right: 15px;
   }
+
   .calendar__participants {
     font-size: 12px;
     line-height: 17px;
   }
+
   .calendar__date {
     font-size: 12px;
     line-height: 17px;
   }
+
   .calendar__event {
     max-width: 246px;
     font-size: 19px;
     line-height: 23px;
   }
+
   .calendar__day {
     font-size: 60px;
     line-height: 60px;
   }
+
   .calendar__contacts {
     font-size: 12px;
     line-height: 17px;
   }
+
   .calendar__sign-up__type_text {
     font-size: 12px;
     line-height: 17px;
   }
+
   .calendar__sign-up__type_text {
     margin-left: 10px;
   }
+
   .calendar__time {
     margin-bottom: 5px;
   }
+
   .calendar__adress {
     margin-bottom: 5px;
     margin-top: 5px;
   }
+
   .calendar__phone {
     margin-top: 5px;
   }
+
   .calendar__btn {
     width: 40px;
     height: 40px;
   }
 }
+
 @media (max-width: 440px) {
   .calendar__event {
     max-width: 166px;

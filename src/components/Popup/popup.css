@@ -1,5 +1,3 @@
-/*! CSS Used from: https://charity-project-bbbs.github.io/bbbs-project/pages/index.css */
-/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/popup.css */
 .popup {
   display: flex;
   position: fixed;
@@ -19,4 +17,3 @@
 .popup_type_video {
   overflow-y: hidden;
 }
-/*! end @import */

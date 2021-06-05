@@ -1,67 +1,41 @@
-/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/logo.css */
-.logo {
-  text-decoration: none;
-  display: flex;
-}
-.logo__img {
-  width: 100%;
-  height: 100%;
-}
-.logo_place_mainpage {
-  width: 252px;
-  height: 46px;
-  margin: 40px 0 70px 30px;
-}
-@media (max-width: 1440px) {
-  .logo_place_mainpage {
-    margin-top: 35px;
-    margin-bottom: 43px;
-  }
-}
-@media (max-width: 1230px) {
-  .logo_place_mainpage {
-    width: 164px;
-    height: 30px;
-    margin: 27px 0 33px 15px;
-  }
-}
-@media (max-width: 860px) {
-  .logo_place_mainpage {
-    margin-top: 22px;
-    margin-bottom: 26px;
-  }
-}
-/*! end @import */
-/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/mainpage.css */
 .mainpage {
+  margin: 80px auto 120px;
   display: grid;
   gap: 30px;
   box-sizing: border-box;
 }
+
 .mainpage__intro {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
 }
+
 .mainpage__blocks {
   display: flex;
 }
+
 .mainpage__blocks-col {
   display: flex;
 }
-@media (max-width: 860px) {
-  .mainpage__blocks-col {
-    flex-direction: column;
-  }
+
+.logo {
+  text-decoration: none;
+  display: flex;
 }
-@media (max-width: 980px) {
-  .mainpage__intro {
-    grid-template-columns: 1fr;
-  }
+
+.logo__img {
+  width: 100%;
+  height: 100%;
 }
-/*! end @import */
-/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/movies.css */
+
+.logo_place_mainpage {
+  width: 252px;
+  height: 46px;
+  margin: 40px 0 70px 30px;
+}
+
 .movies {
   margin: 0;
   padding: 0;
@@ -70,194 +44,7 @@
   gap: 30px;
   list-style: none;
 }
-@media (max-width: 1440px) {
-  .movies {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media (max-width: 1024px) {
-  .movies {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 640px) {
-  .movies {
-    grid-template-columns: 1fr;
-  }
-}
-/*! end @import */
-/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/movie.css */
-.movie {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff;
-  border-radius: 30px;
-  position: relative;
-}
-.movie__img {
-  border-radius: 30px 30px 0 0;
-  position: relative;
-}
-.movie__poster {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.movie__tags {
-  display: flex;
-  flex-wrap: wrap;
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translate(-50%);
-}
-.movie__descriprion {
-  padding: 15px 30px;
-  min-height: 169px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-.movie__name {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 17px;
-}
-.movie__title {
-  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
-  font-weight: 300;
-  font-size: 23px;
-  line-height: 30px;
-  text-align: center;
-  margin: 0 0 5px 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.movie__caption {
-  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  text-align: center;
-  letter-spacing: 0.2px;
-  color: #464646;
-  margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.movie__link {
-  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
-  font-weight: 300;
-  font-size: 15px;
-  line-height: 19px;
-  letter-spacing: 0.2px;
-  color: #224cff;
-  margin: 0;
-  text-decoration: none;
-  z-index: 4;
-}
-.movie__link:hover {
-  color: #2e2468;
-}
-@media screen and (max-width: 1024px) {
-  .movie__descriprion {
-    min-height: 147px;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  .movie__name {
-    margin-bottom: 15px;
-  }
-  .movie__title {
-    font-size: 19px;
-    line-height: 23px;
-  }
-  .movie__caption {
-    font-size: 12px;
-    line-height: 17px;
-  }
-  .movie__link {
-    font-size: 12px;
-    line-height: 17px;
-  }
-}
-/*! end @import */
-/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/preview-article.css */
-.preview-article {
-  padding: 120px 22.6% 30px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  background: #c8d1ff;
-  border-radius: 30px;
-  position: relative;
-  text-decoration: none;
-}
-.preview-article_color_green {
-  background: #8cdd94;
-}
-.preview-article__title {
-  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
-  font-weight: 300;
-  font-size: 44px;
-  line-height: 50px;
-  text-align: center;
-  color: #1a1a1a;
-  margin: 0 0 71px 0;
-}
-.preview-article__link {
-  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
-  font-weight: 300;
-  font-size: 15px;
-  line-height: 19px;
-  letter-spacing: 0.2px;
-  color: #224cff;
-  text-decoration: none;
-  z-index: 3;
-}
-.preview-article__link:hover {
-  color: #2e2468;
-}
-@media (max-width: 1440px) {
-  .preview-article {
-    padding-right: 8.548%;
-    padding-left: 8.548%;
-  }
-}
-@media (max-width: 1024px) {
-  .preview-article {
-    padding: 30px 39.83px 15px;
-    min-height: 312px;
-  }
-  .preview-article__title {
-    font-size: 19px;
-    line-height: 23px;
-    margin-bottom: 66px;
-  }
-  .preview-article__link {
-    font-size: 12px;
-    line-height: 17px;
-  }
-}
-@media (max-width: 640px) {
-  .preview-article {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-/*! end @import */
-/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/questions.css */
+
 .questions {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
@@ -266,270 +53,11 @@
   padding: 0;
   list-style: none;
 }
+
 .questions_place_maipage {
   width: calc(100% - 450px);
 }
-@media (max-width: 1440px) {
-  .questions_place_maipage {
-    width: calc(100% - 400px);
-  }
-}
-@media (max-width: 1024px) {
-  .questions {
-    grid-template-rows: repeat(2, max-content);
-  }
-  .questions_place_maipage {
-    width: calc(100% - 400px);
-  }
-}
-@media (max-width: 860px) {
-  .questions {
-    width: 100%;
-  }
-}
-/*! end @import */
-/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/profile-grid.css */
-.profile-grid {
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-  grid-row-gap: 0;
-}
-.profile-grid__column_size_wide {
-  grid-column-start: span 8;
-}
-.profile-grid__column_size_thin {
-  grid-column-start: span 4;
-}
-@media (max-width: 1500px) {
-  .profile-grid__column_size_wide {
-    grid-column-start: span 6;
-  }
-  .profile-grid__column_size_thin {
-    grid-column-start: span 6;
-  }
-}
-@media (max-width: 1280px) {
-  .profile-grid {
-    grid-template-columns: repeat(8, minmax(0, 1fr));
-  }
-  .profile-grid__column_size_wide {
-    grid-column-start: span 8;
-  }
-  .profile-grid__column_size_thin {
-    grid-column-start: span 8;
-  }
-}
-@media (max-width: 870px) {
-  .profile-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .profile-grid__column_size_wide {
-    grid-column-start: span 2;
-  }
-  .profile-grid__column_size_thin {
-    grid-column-start: span 2;
-  }
-}
-/*! end @import */
-/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/event-soon.css */
-.event-soon {
-  width: 100%;
-}
-.event-soon__content-wrapper {
-  display: flex;
-}
-.event-soon__description {
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  padding: 15px 30px 30px;
-  border-radius: 30px;
-  background-color: #f8d162;
-}
-.event-soon__description_size_big {
-  max-height: 629px;
-  overflow: hidden;
-}
-.event-soon__caption {
-  margin: 15px auto 70px;
-  font-family: 'PT-Root-UI', Arial, Helvetica, sans-serif;
-  font-size: 10px;
-  line-height: 13px;
-  font-weight: 400;
-}
-.event-soon__title {
-  font-family: 'Proto Grotesk-Light', Arial, Helvetica, sans-serif;
-  font-size: 23px;
-  line-height: 30px;
-  font-weight: 300;
-  text-align: center;
-  color: #000000;
-}
-.event-soon__subtitle {
-  font-family: 'PT-Root-UI', Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  line-height: 19px;
-  font-weight: 400;
-  text-align: center;
-  letter-spacing: 0.2px;
-  color: #464646;
-  margin-top: 5px;
-}
-.event-soon__img {
-  object-fit: cover;
-  border-radius: 15px;
-  margin-bottom: 15px;
-}
-.event-soon__link {
-  font-family: 'Proto Grotesk-Light', Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  line-height: 19px;
-  font-weight: 300;
-  text-align: center;
-  letter-spacing: 0.2px;
-  color: #224cff;
-  text-decoration: none;
-}
-.event-soon__link:hover {
-  color: #2e2468;
-}
-.event-soon__about-wrapper {
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  border-radius: 30px;
-  max-height: 629px;
-  background-color: #ffffff;
-}
-.event-soon__about-wrapper_size_big {
-  max-height: 629px;
-}
-@media (max-width: 1280px) {
-  .event-soon__about-wrapper {
-    max-height: 188px;
-  }
-}
-@media (max-width: 1024px) {
-  .event-soon__description {
-    padding: 15px;
-  }
-  .event-soon__caption {
-    margin: 5px auto 62px;
-  }
-  .event-soon__title {
-    font-size: 19px;
-    line-height: 23px;
-  }
-  .event-soon__subtitle {
-    font-size: 12px;
-    line-height: 17px;
-  }
-  .event-soon__link {
-    font-size: 12px;
-    line-height: 17px;
-  }
-  .event-soon__img {
-    height: 346px;
-  }
-}
-@media (max-width: 640px) {
-  .event-soon__caption {
-    margin-bottom: 39px;
-  }
-  .event-soon__img {
-    height: auto;
-  }
-}
-@media (max-width: 320px) {
-  .event-soon__img {
-    height: 142px;
-  }
-}
-/*! end @import */
-/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/event-article.css */
-.event-article {
-  margin: 47px 15px 69px 30px;
-  overflow-x: hidden;
-  scrollbar-color: #e8e6e6 transparent;
-  scrollbar-width: thin;
-}
 
-.event-article::-webkit-scrollbar {
-  width: 3px;
-  background-size: cover;
-}
-
-.event-article::-webkit-scrollbar-thumb {
-  background-color: #e8e6e6;
-  border-radius: 5px;
-}
-
-.event-article::-webkit-scrollbar-button {
-  height: 15px;
-}
-
-.event-article_size_big {
-  margin: 47px 15px 69px 30px;
-}
-
-.event-article__title {
-  font-family: 'PT-Root-UI', Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  line-height: 19px;
-  font-weight: 400;
-  letter-spacing: 0.2px;
-  color: #464646;
-}
-.event-article__title_size_big {
-  margin-bottom: 105px;
-}
-.event-article__paragraph {
-  font-family: 'PT-Root-UI', Arial, Helvetica, sans-serif;
-  font-size: 18px;
-  line-height: 26px;
-  font-weight: 400;
-  color: #000000;
-  margin-bottom: 38px;
-  margin-top: 0;
-  padding-right: 15px;
-}
-.event-article__paragraph:last-child {
-  margin-bottom: 0;
-}
-@media (max-width: 1400px) {
-  .event-article_size_big {
-    overflow-y: scroll;
-  }
-}
-@media (max-width: 1024px) {
-  .event-article__paragraph {
-    font-size: 15px;
-    line-height: 21px;
-    padding-right: 5px;
-  }
-}
-@media (max-width: 1280px) {
-  .event-article_size_big {
-    margin: 30px 15px;
-  }
-  .event-article__title {
-    font-size: 12px;
-    line-height: 17px;
-    margin-bottom: 5px;
-  }
-  .event-article__paragraph_size_big {
-    margin-left: 24.83px;
-    font-size: 15px;
-    line-height: 21px;
-  }
-}
-@media (max-width: 320px) {
-  .event-article__paragraph {
-    margin-left: 0;
-  }
-}
-/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/mainlink.css */
 .mainlink {
   position: absolute;
   width: 100%;
@@ -539,4 +67,67 @@
   text-decoration: none;
   z-index: 1;
 }
-/*! end @import */
+
+@media (max-width: 1440px) {
+  .logo_place_mainpage {
+    margin-top: 35px;
+    margin-bottom: 43px;
+  }
+
+  .movies {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .questions_place_maipage {
+    width: calc(100% - 400px);
+  }
+}
+
+@media (max-width: 1230px) {
+  .logo_place_mainpage {
+    width: 164px;
+    height: 30px;
+    margin: 27px 0 33px 15px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .movies {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .questions {
+    grid-template-rows: repeat(2, max-content);
+  }
+
+  .questions_place_maipage {
+    width: calc(100% - 400px);
+  }
+}
+
+@media (max-width: 980px) {
+  .mainpage__intro {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .logo_place_mainpage {
+    margin-top: 22px;
+    margin-bottom: 26px;
+  }
+
+  .mainpage__blocks-col {
+    flex-direction: column;
+  }
+
+  .questions {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .movies {
+    grid-template-columns: 1fr;
+  }
+}

@@ -158,7 +158,6 @@
 @media (max-width: 1360px) {
   .footer__wrapper {
     width: calc(100% - 270px);
-    margin-top: 40px;
     grid-template-columns: 1fr;
     grid-template-areas:
       'logo'

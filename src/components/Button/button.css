@@ -56,7 +56,8 @@
   letter-spacing: 0;
 }
 
-.button_disabled, .button_disabled:hover {
+.button_disabled,
+.button_disabled:hover {
   cursor: default;
   border-color: #a7a6a6;
   background-color: transparent;

@@ -24,7 +24,6 @@ body {
 }
 
 .main__section {
-  margin: 80px auto 120px;
   flex: 1;
   width: calc(100% - 150px);
   max-width: 1770px;
@@ -32,7 +31,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
 }
 
 .heading {

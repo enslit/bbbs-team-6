@@ -1,0 +1,418 @@
+.personal-account {
+  margin: 30px auto 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  overflow: visible;
+}
+
+.personal-account__buttons {
+  margin: 0;
+  margin-bottom: 30px;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+}
+
+.personal-account__text {
+  margin: 0;
+  margin-right: 30px;
+  padding: 0;
+  font-family: 'PT-Root-UI', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  text-align: right;
+  color: #a7a6a6;
+  cursor: pointer;
+}
+
+.personal-account__text:hover {
+  color: #224cff;
+}
+
+.personal-account__text:last-of-type {
+  margin-right: 0;
+}
+
+.personal-account__events {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #464646;
+}
+
+.personal-account__title {
+  margin: 0;
+  padding: 0;
+  font-family: 'Proto Grotesk-Light', sans-serif;
+  font-weight: 300;
+  font-size: 23px;
+  line-height: 30px;
+  text-align: center;
+  color: #1a1a1a;
+}
+
+.personal-account__title_type_content {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.personal-account__form {
+  width: 100%;
+  height: 472px;
+  margin: 0;
+  margin-bottom: 80px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(1, 40% 60%);
+}
+
+.personal-account__photo {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.personal-account__button {
+  width: 100px;
+  height: 100px;
+  margin: 0;
+  margin-bottom: 15px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0;
+  line-height: 0;
+  opacity: 0;
+  background-image: url(https://charity-project-bbbs.github.io/bbbs-project/images/personal-account-btn-add-photo.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.personal-account__photo-text {
+  margin: 0;
+  padding: 0;
+  font-family: 'Proto Grotesk-Light', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 19px;
+  color: #a7a6a6;
+  cursor: pointer;
+  position: relative;
+}
+
+.personal-account__photo-text::before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 33px;
+  left: 7px;
+  width: 100px;
+  height: 100px;
+  background-image: url(https://charity-project-bbbs.github.io/bbbs-project/images/personal-account-btn-add-photo.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.personal-account__inputs {
+  margin: 0;
+  padding: 30px;
+  background-color: white;
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: auto 30px auto;
+  grid-template-rows: 1fr 286px;
+  font-size: 0;
+  line-height: 0;
+}
+
+.personal-account__input {
+  margin-bottom: 20px;
+  padding: 13px 20px 16px 20px;
+  background-color: #f3f2f2;
+  border: none;
+  border-radius: 30px;
+  color: #000;
+  font-family: 'Proto Grotesk-Light', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 19px;
+  text-align: left;
+}
+
+.personal-account__input_type_place {
+  grid-column: 1/2;
+}
+
+.personal-account__input_type_date {
+  grid-column: 3/4;
+}
+
+.personal-account__textarea {
+  display: block;
+  margin: 0;
+  padding: 13px 20px 16px 20px;
+  background-color: #f3f2f2;
+  border: none;
+  border-radius: 30px;
+  color: #000;
+  font-family: 'Proto Grotesk-Light', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 19px;
+  text-align: left;
+  grid-column: 1/4;
+}
+
+.personal-account__feedback {
+  margin: 0;
+  margin-top: 30px;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  grid-column: 1/2;
+}
+
+.personal-account__radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.personal-account__feedback-button {
+  width: 26px;
+  height: 26px;
+  margin: 0;
+  margin-right: 15px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.personal-account__feedback-button_good {
+  background-image: url(https://charity-project-bbbs.github.io/bbbs-project/images/feedback-good-black.svg);
+}
+
+.personal-account__feedback-button_normal {
+  background-image: url(https://charity-project-bbbs.github.io/bbbs-project/images/feedback-normal-black.svg);
+}
+
+.personal-account__feedback-button_bad {
+  background-image: url(https://charity-project-bbbs.github.io/bbbs-project/images/feedback-bad-black.svg);
+}
+
+.personal-account__radio:checked + .personal-account__feedback-button_good {
+  background-image: url(https://charity-project-bbbs.github.io/bbbs-project/images/feedback-good-color.svg);
+}
+
+.personal-account__radio:checked + .personal-account__feedback-button_normal {
+  background-image: url(https://charity-project-bbbs.github.io/bbbs-project/images/feedback-normal-color.svg);
+}
+
+.personal-account__radio:checked + .personal-account__feedback-button_bad {
+  background-image: url(https://charity-project-bbbs.github.io/bbbs-project/images/feedback-bad-color.svg);
+}
+
+.personal-account__label {
+  cursor: pointer;
+}
+
+.personal-account__feedback-text {
+  margin: 0;
+  padding: 0;
+  font-family: 'PT-Root-UI', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #a7a6a6;
+  text-align: left;
+}
+
+.personal-account__feedback-text_type_good {
+  color: #8cdd94;
+}
+
+.personal-account__feedback-btn {
+  margin: 0;
+  margin-right: 20px;
+  padding: 0;
+  font-family: 'Proto Grotesk-Light', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 19px;
+  color: #a7a6a6;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.personal-account__feedback-btn:hover {
+  color: #000000;
+}
+
+.personal-account__submit {
+  margin: 0;
+  margin-top: 30px;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  grid-column: 3/4;
+}
+
+@media (max-width: 1440px) {
+  .personal-account__title_type_content {
+    max-width: 770px;
+  }
+}
+
+@media (max-width: 1150px) {
+  .personal-account__form {
+    height: 100%;
+    grid-template-columns: 70%;
+    grid-template-rows: 400px 600px;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .personal-account__inputs {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .personal-account__textarea {
+    height: 286px;
+  }
+
+  .personal-account__submit {
+    max-width: 100%;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .personal-account__feedback-btn:nth-of-type(1) {
+    grid-column: 1/2;
+    margin-right: 0;
+    justify-self: start;
+    position: relative;
+  }
+}
+
+@media (max-width: 1024px) {
+  .personal-account__title {
+    font-size: 19px;
+    line-height: 23px;
+  }
+
+  .personal-account__text {
+    display: none;
+  }
+
+  .personal-account__events {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 860px) {
+  .personal-account__title_type_content {
+    margin-bottom: 20px;
+  }
+
+  .personal-account__button {
+    width: 80px;
+    height: 80px;
+  }
+
+  .personal-account__photo-text::before {
+    left: 16px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .personal-account__feedback-text {
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .personal-account__feedback-btn {
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .personal-account__feedback-button {
+    width: 23px;
+    height: 23px;
+  }
+}
+
+@media (max-width: 490px) {
+  .personal-account {
+    margin-top: 10px;
+  }
+
+  .personal-account__form {
+    grid-template-columns: 290px;
+    grid-template-rows: 291px 404px;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .personal-account__textarea {
+    height: 120px;
+    padding: 10px 20px 10px 20px;
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .personal-account__inputs {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .personal-account__input {
+    margin-bottom: 10px;
+  }
+
+  .personal-account__feedback {
+    margin-top: 20px;
+  }
+
+  .personal-account__feedback-button {
+    margin-right: 10px;
+  }
+
+  .personal-account__photo-text {
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .personal-account__input {
+    font-size: 12px;
+    line-height: 17px;
+  }
+}

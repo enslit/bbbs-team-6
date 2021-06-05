@@ -1,34 +1,7 @@
-.calendar {
-  width: 100%;
+.grid-calendar {
+  margin: 80px auto 120px;
 }
 
-.calendar__list {
-  display: grid;
-  padding: 0;
-  max-width: 1900px;
-  width: 100%;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, 570px);
-  grid-gap: 30px 30px;
-}
-
-.grid-calendar__buttons {
-  width: 100%;
-  height: 100%;
-  margin: 0 auto 80px;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
-@media screen and (max-width: 1280px) {
-  .calendar__list {
-    grid-template-columns: repeat(auto-fit, 370px);
-  }
-}
-
-/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/grid-calendar.css */
 .grid-calendar__buttons {
   width: 100%;
   height: 100%;
@@ -39,6 +12,7 @@
   justify-content: center;
   text-align: center;
 }
+
 .grid-calendar__grid {
   width: 100%;
   margin: 0 auto;
@@ -49,45 +23,54 @@
   column-gap: 30px;
   row-gap: 30px;
 }
+
 @media (max-width: 1900px) {
   .grid-calendar__grid {
     grid-template-columns: repeat(2, 570px);
   }
 }
+
 @media (max-width: 1439px) {
   .grid-calendar {
     width: 100%;
   }
 }
-@media (max-width: 1024px) {
-  .grid-calendar {
-    margin-top: 45px;
-    margin-bottom: 100px;
-  }
-  .grid-calendar__buttons {
-    margin-bottom: 50px;
-  }
-}
+
 @media (max-width: 1250px) {
   .grid-calendar__grid {
     grid-template-columns: repeat(2, 370px);
   }
 }
+
+@media (max-width: 1024px) {
+  .grid-calendar {
+    margin-top: 45px;
+    margin-bottom: 100px;
+  }
+
+  .grid-calendar__buttons {
+    margin-bottom: 50px;
+  }
+}
+
 @media (max-width: 850px) {
   .grid-calendar {
     width: calc(100% - 30px);
     margin-top: 25px;
     margin-bottom: 50px;
   }
+
   .grid-calendar__buttons {
     margin-bottom: 30px;
   }
+
   .grid-calendar__grid {
     grid-template-columns: 470px;
     row-gap: 30px;
     column-gap: 0;
   }
 }
+
 @media (max-width: 530px) {
   .grid-calendar__grid {
     grid-template-columns: 1fr;

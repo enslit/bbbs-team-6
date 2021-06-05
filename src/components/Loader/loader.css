@@ -1,16 +1,16 @@
 .loader {
-    position: relative;
-    display: inline-block;
-    padding: 15px;
+  position: relative;
+  display: inline-block;
+  padding: 15px;
 }
 
 .loader__percent {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'PT-Root-UI', sans-serif;
-    font-size: 18px;
-    line-height: 26px;
-    color: #2E2468;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'PT-Root-UI', sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+  color: #2e2468;
 }

@@ -1,4 +1,3 @@
-/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/tag.css */
 .tag {
   background: rgba(255, 255, 255, 0.6);
   border-radius: 15px;
@@ -23,4 +22,3 @@
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.3);
 }
-/*! end @import */

@@ -1,4 +1,3 @@
-/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/story.css */
 .story {
   max-width: 870px;
   height: auto;
@@ -15,6 +14,7 @@
   justify-content: center;
   text-decoration: none;
 }
+
 .story::after {
   content: '';
   position: absolute;
@@ -26,31 +26,39 @@
   opacity: 0.8;
   mix-blend-mode: multiply;
   border-radius: 30px;
-  z-index: 1;
+  z-index: -1;
+  display: none;
 }
+
+.story:hover::after {
+  display: block;
+}
+
 .story__title {
   margin: 0;
   padding: 0;
   color: white;
-  font-family: 'Proto', Arial, sans-serif;
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
   font-weight: 300;
   font-size: 23px;
-  line-height: 30px;
-  text-align: center;
   z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
 }
-@media (max-width: 1440px) {
-  .story::after {
-    display: none;
-  }
-  .story__title {
-    display: none;
-  }
+
+.story:hover .story__title {
+  display: flex;
 }
+
 @media (max-width: 980px) {
   .story {
     width: 100%;
     min-height: 290px;
   }
 }
-/*! end @import */
