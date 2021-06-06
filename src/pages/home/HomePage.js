@@ -34,57 +34,55 @@ function HomePage({ videoClick, eventClick }) {
       .finally(() => setIsFetching(false));
   }, []);
 
-  return (
+  return isFetching ? (
+    <Loader />
+  ) : (
     <section className="mainpage main__section">
-      {isFetching ? (
-        <div className="content_loading">
-          <Loader />
-        </div>
-      ) : (
-        <>
-          <section className="mainpage__intro">
-            {user && mainData ? (
-              <CalendarElement event={mainData.event} eventClick={eventClick} />
-            ) : (
-              <Intro />
-            )}
-            {mainData && <History history={mainData.history} />}
-          </section>
+      <section className="mainpage__intro">
+        {user && mainData ? (
+          <CalendarElement
+            event={mainData.event}
+            eventClick={eventClick}
+            fromMain={true}
+          />
+        ) : (
+          <Intro />
+        )}
+        {mainData && <History history={mainData.history} />}
+      </section>
 
-          <section className="mainpage__blocks">
-            {mainData && <Place place={mainData.place} />}
-          </section>
+      <section className="mainpage__blocks">
+        {mainData && <Place place={mainData.place} />}
+      </section>
 
-          <section className="mainpage__block">
-            {mainData && <Article article={mainData.articles[0]} />}
-          </section>
+      <section className="mainpage__block">
+        {mainData && <Article article={mainData.articles[0]} />}
+      </section>
 
-          <section className="mainpage__block">
-            <ul className="movies">
-              {mainData?.movies.map((movie) => (
-                <Movie key={movie.id} movie={movie} />
-              ))}
-            </ul>
-          </section>
+      <section className="mainpage__block">
+        <ul className="movies">
+          {mainData?.movies.map((movie) => (
+            <Movie key={movie.id} movie={movie} />
+          ))}
+        </ul>
+      </section>
 
-          <section className="mainpage__blocks">
-            {mainData && <Video video={mainData.video} onClick={videoClick} />}
-          </section>
+      <section className="mainpage__blocks">
+        {mainData && <Video video={mainData.video} onClick={videoClick} />}
+      </section>
 
-          <section className="mainpage__blocks-col">
-            <FacebookWidget />
-            <ul className="questions questions_place_maipage">
-              {mainData?.questions.map((question) => (
-                <Question key={question.id} question={question} />
-              ))}
-            </ul>
-          </section>
+      <section className="mainpage__blocks-col">
+        <FacebookWidget />
+        <ul className="questions questions_place_maipage">
+          {mainData?.questions.map((question) => (
+            <Question key={question.id} question={question} />
+          ))}
+        </ul>
+      </section>
 
-          <section className="mainpage__block">
-            {mainData && <Article article={mainData.articles[1]} />}
-          </section>
-        </>
-      )}
+      <section className="mainpage__block">
+        {mainData && <Article article={mainData.articles[1]} />}
+      </section>
     </section>
   );
 }

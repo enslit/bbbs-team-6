@@ -25,18 +25,12 @@ function CalendarPage({ eventClick }) {
       .finally(() => setIsFetching(false));
   }, [user]);
 
-  return (
+  return isFetching ? (
+    <Loader />
+  ) : (
     <section className="grid-calendar main__section">
-      {isFetching ? (
-        <div className="content_loading">
-          <Loader />
-        </div>
-      ) : (
-        <>
-          <h1 className="heading">Календарь</h1>
-          <CalendarList events={calendarElements} eventClick={eventClick} />
-        </>
-      )}
+      <h1 className="heading">Календарь</h1>
+      <CalendarList events={calendarElements} eventClick={eventClick} />
     </section>
   );
 }

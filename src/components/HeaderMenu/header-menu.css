@@ -9,11 +9,8 @@
 }
 
 .header-menu__item {
+  margin: 0 15px;
   position: relative;
-}
-
-.header-menu__item {
-  margin-right: 30px;
 }
 
 .header-menu__item:last-child {
@@ -24,7 +21,7 @@
   text-decoration: none;
   text-transform: uppercase;
   color: #000;
-  font-family: 'Proto', Arial, sans-serif;
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
   font-size: 14px;
   line-height: 17px;
   letter-spacing: 0.2px;
@@ -40,6 +37,13 @@
   color: #224cff;
 }
 
+@media (min-width: 1024px) {
+  .header-menu__list {
+    max-height: 24px;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 1024px) {
   .header-menu_type_desktop {
     display: none;
@@ -52,8 +56,7 @@
   }
 
   .header-menu__item {
-    margin-bottom: 15px;
-    margin-right: 0;
+    margin: 0 0 15px;
   }
 
   .header-menu__item:last-child {

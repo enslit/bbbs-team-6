@@ -14,10 +14,12 @@
 
 .mainpage__blocks {
   display: flex;
+  width: 100%;
 }
 
 .mainpage__blocks-col {
   display: flex;
+  width: 100%;
 }
 
 .logo {

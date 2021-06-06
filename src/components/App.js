@@ -17,6 +17,7 @@ import VideoPopup from '../components/VideoPopup/VideoPopup';
 import AuthPopup from './AuthPopup/AuthPopup';
 import CalendarPopup from './CalendarPopup/CalendarPopup';
 import Error from '../pages/Error/Error';
+
 function App() {
   const history = useHistory();
   const location = useLocation();
@@ -39,7 +40,6 @@ function App() {
 
   function handleEventClick(event) {
     setSelectedPopupEvent(event);
-    location.pathname !== '/calendar' && history.push('/calendar');
   }
 
   function closeAllPopups() {

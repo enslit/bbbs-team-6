@@ -8,6 +8,7 @@
   transition: all 200ms ease-in-out;
   cursor: pointer;
   background-color: transparent;
+  z-index: 1;
 }
 
 .button_style_dark {

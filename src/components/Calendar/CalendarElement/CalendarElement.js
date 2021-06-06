@@ -1,11 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import { bool, number, shape, string, element, func } from 'prop-types';
 import classnames from 'classnames';
 import './calendarElement.css';
 import Button from '../../Button/Button';
 
-function CalendarElement({ event, eventClick, isPopup, closeButton }) {
+function CalendarElement({
+  event,
+  eventClick,
+  isPopup,
+  closeButton,
+  fromMain,
+}) {
   const {
     booked,
     address,
@@ -33,6 +40,7 @@ function CalendarElement({ event, eventClick, isPopup, closeButton }) {
 
   return (
     <li className={elementClasses}>
+      {fromMain && <Link className="mainlink" to="/calendar" />}
       {isPopup && closeButton}
       <div className="calendar__about">
         <p className="calendar__participants">Волонтёры + дети</p>
@@ -101,6 +109,7 @@ CalendarElement.propTypes = {
   isPopup: bool,
   closeButton: element,
   eventClick: func,
+  fromMain: bool,
 };
 
 export default CalendarElement;

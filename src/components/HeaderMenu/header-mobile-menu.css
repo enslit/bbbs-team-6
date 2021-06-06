@@ -53,6 +53,10 @@
 }
 
 @media (min-width: 1024px) {
+  .mobile-menu {
+    display: none;
+  }
+
   .mobile-menu__panel {
     display: none;
   }

@@ -44,15 +44,17 @@ function Loader(props) {
 
   return (
     <div className="loader">
-      <svg
-        className="loader__svg"
-        width={`${size}px`}
-        height={`${size}px`}
-        preserveAspectRatio="xMidYMid"
-      >
-        {buildParts()}
-      </svg>
-      {percent && <span className="loader__percent">{percent}%</span>}
+      <div className="loader__wrapper">
+        <svg
+          className="loader__svg"
+          width={`${size}px`}
+          height={`${size}px`}
+          preserveAspectRatio="xMidYMid"
+        >
+          {buildParts()}
+        </svg>
+        {percent && <span className="loader__percent">{percent}%</span>}
+      </div>
     </div>
   );
 }

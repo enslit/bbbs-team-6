@@ -8,6 +8,7 @@
   max-width: 770px;
   align-items: center;
   box-sizing: border-box;
+  position: relative;
 }
 
 .auth-popup__information {

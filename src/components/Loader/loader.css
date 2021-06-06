@@ -1,7 +1,11 @@
 .loader {
+  position: absolute;
+  top: calc(50vh - 70px);
+  left: calc(50vw - 70px);
+}
+
+.loader__wrapper {
   position: relative;
-  display: inline-block;
-  padding: 15px;
 }
 
 .loader__percent {
