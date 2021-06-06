@@ -45,7 +45,7 @@ body {
 }
 
 @media (max-width: 1440px) {
-  .main-section {
+  .main__section {
     width: calc(100% - 270px);
   }
 }

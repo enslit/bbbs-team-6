@@ -47,8 +47,8 @@ function AboutPage() {
             нуждается
           </p>
         </blockquote>
-        <div className="about__tabs">
-          <div className="about__tab">
+        <ul className="about__tabs">
+          <li className="about__tab">
             <h2 className="rectangle rectangle_light-blue">Пожертвования</h2>
             <div className="rectangle__information">
               <p className="about__paragraph about__paragraph_height_rectangle-light-blue">
@@ -65,9 +65,9 @@ function AboutPage() {
                 Сделать пожертвование
               </a>
             </div>
-          </div>
+          </li>
 
-          <div className="about__tab">
+          <li className="about__tab">
             <h2 className="rectangle rectangle_red">Наставничество</h2>
             <div className="rectangle__information">
               <p className="about__paragraph about__paragraph_height_rectangle-red">
@@ -86,9 +86,9 @@ function AboutPage() {
                 Подробнее
               </a>
             </div>
-          </div>
+          </li>
 
-          <div className="about__tab">
+          <li className="about__tab">
             <h2 className="rectangle rectangle_green">Партнерство</h2>
             <div className="rectangle__information">
               <p className="about__paragraph about__paragraph_height_rectangle-green">
@@ -107,8 +107,8 @@ function AboutPage() {
                 Подробнее
               </a>
             </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </section>
     </>
   );
