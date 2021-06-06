@@ -26,6 +26,7 @@
 
 .button_style_light:hover {
   background-color: #c8d1ff;
+  mix-blend-mode: multiply;
 }
 
 .button_active_dark {

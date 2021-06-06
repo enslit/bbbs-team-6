@@ -10,13 +10,6 @@
   box-sizing: border-box;
 }
 
-.auth-popup__close {
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  align-self: flex-end;
-}
-
 .auth-popup__information {
   max-width: 547px;
   text-align: center;

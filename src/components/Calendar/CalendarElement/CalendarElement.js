@@ -1,11 +1,11 @@
 import React from 'react';
 import { format } from 'date-fns';
-import { bool, number, shape, string } from 'prop-types';
+import { bool, number, shape, string, element, func } from 'prop-types';
 import classnames from 'classnames';
 import './calendarElement.css';
 import Button from '../../Button/Button';
 
-function CalendarElement({ event }) {
+function CalendarElement({ event, eventClick, isPopup, closeButton }) {
   const {
     booked,
     address,
@@ -16,6 +16,7 @@ function CalendarElement({ event }) {
     seats,
     takenSeats,
     remainSeats,
+    description,
   } = event;
 
   const dateStart = new Date(startAt);
@@ -23,10 +24,16 @@ function CalendarElement({ event }) {
 
   const elementClasses = classnames('calendar', {
     calendar_onclick: booked,
+    calendar__popup: isPopup,
   });
+
+  function handleClick() {
+    eventClick(event);
+  }
 
   return (
     <li className={elementClasses}>
+      {isPopup && closeButton}
       <div className="calendar__about">
         <p className="calendar__participants">Волонтёры + дети</p>
         <p className="calendar__date">
@@ -48,6 +55,7 @@ function CalendarElement({ event }) {
           <p className="calendar__phone">{contact}</p>
         </li>
       </ul>
+      {isPopup && <p className="calendar__text_popup">{description}</p>}
       <div className="calendar__sign-up">
         <div className="calendar__sign-up_flex">
           <Button
@@ -66,7 +74,11 @@ function CalendarElement({ event }) {
                 } мест`}
           </p>
         </div>
-        <Button type="round">...</Button>
+        {!isPopup && (
+          <Button type="round" onClickAction={handleClick}>
+            ...
+          </Button>
+        )}
       </div>
     </li>
   );
@@ -86,6 +98,9 @@ CalendarElement.propTypes = {
     takenSeats: number,
     city: number,
   }),
+  isPopup: bool,
+  closeButton: element,
+  eventClick: func,
 };
 
 export default CalendarElement;

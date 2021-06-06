@@ -42,7 +42,7 @@ function AuthPopup({ onClose }) {
   return (
     <Popup onClose={onClose}>
       <div className="auth-popup ">
-        <img onClick={onClose} className="auth-popup__close" src={close} />
+        <img onClick={onClose} className="popup__close" src={close} />
         <h3 className="title auth-popup__title">Вход</h3>
         <div className="auth-popup__information">
           <p className="auth-popup__paragraph">

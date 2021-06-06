@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { bbbsApi } from '../../utils/api';
 import { useAuth } from '../../hooks/useAuth';
+import { func } from 'prop-types';
 import CalendarList from '../../components/Calendar/CalendarList';
 import Loader from '../../components/Loader/Loader';
 import './calendarPage.css';
 
-function CalendarPage() {
+CalendarPage.propTypes = {
+  eventClick: func,
+};
+
+function CalendarPage({ eventClick }) {
   const { user } = useAuth();
   const [calendarElements, setCalendarElements] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
@@ -29,7 +34,7 @@ function CalendarPage() {
       ) : (
         <>
           <h1 className="heading">Календарь</h1>
-          <CalendarList events={calendarElements} />
+          <CalendarList events={calendarElements} eventClick={eventClick} />
         </>
       )}
     </section>

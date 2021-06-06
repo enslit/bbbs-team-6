@@ -16,9 +16,10 @@ import Loader from '../../components/Loader/Loader';
 
 HomePage.propTypes = {
   videoClick: func,
+  eventClick: func,
 };
 
-function HomePage({ videoClick }) {
+function HomePage({ videoClick, eventClick }) {
   const [mainData, setMainData] = useState();
   const [isFetching, setIsFetching] = useState(true);
   const { user } = useAuth();
@@ -43,7 +44,7 @@ function HomePage({ videoClick }) {
         <>
           <section className="mainpage__intro">
             {user && mainData ? (
-              <CalendarElement event={mainData.event} />
+              <CalendarElement event={mainData.event} eventClick={eventClick} />
             ) : (
               <Intro />
             )}

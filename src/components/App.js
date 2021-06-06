@@ -15,6 +15,7 @@ import HistoriesPage from '../pages/histories/HistoriesPage';
 import { useAuth } from '../hooks/useAuth';
 import VideoPopup from '../components/VideoPopup/VideoPopup';
 import AuthPopup from './AuthPopup/AuthPopup';
+import CalendarPopup from './CalendarPopup/CalendarPopup';
 import Error from '../pages/Error/Error';
 function App() {
   const history = useHistory();
@@ -25,21 +26,28 @@ function App() {
   const offset = useRef(0);
   const [isAuthModalOpen, setAuthModalOpen] = useState(false);
   const [selectedPopupVideo, setSelectedPopupVideo] = useState(null);
+  const [selectedPopupEvent, setSelectedPopupEvent] = useState(null);
+
+  function handleAuthModalOpen() {
+    setAuthModalOpen(true);
+  }
 
   function handleMainVideoClick(video) {
     setSelectedPopupVideo(video);
     history.push('/read-and-watch/video');
   }
 
-  function handleAuthModalOpen() {
-    setAuthModalOpen(true);
+  function handleEventClick(event) {
+    setSelectedPopupEvent(event);
+    location.pathname !== '/calendar' && history.push('/calendar');
   }
 
   function closeAllPopups() {
     setSelectedPopupVideo(null);
+    setSelectedPopupEvent(null);
     setAuthModalOpen(false);
     if (
-      location.pathname === '/calendar' ||
+      (isAuthModalOpen && location.pathname === '/calendar') ||
       location.pathname === '/user-account'
     ) {
       history.push('/');
@@ -95,7 +103,10 @@ function App() {
       <main className="main">
         <Switch>
           <Route path="/" exact>
-            <HomePage videoClick={handleMainVideoClick} />
+            <HomePage
+              videoClick={handleMainVideoClick}
+              eventClick={handleEventClick}
+            />
           </Route>
           <Route path="/about">
             <AboutPage />
@@ -105,7 +116,7 @@ function App() {
             handleAuthModalOpen={handleAuthModalOpen}
             path="/calendar"
           >
-            <CalendarPage />
+            <CalendarPage eventClick={handleEventClick} />
           </PrivateRoute>
           <Route path="/questions">
             <QuestionsPage />
@@ -135,10 +146,13 @@ function App() {
       </main>
       <Footer />
 
+      {isAuthModalOpen && <AuthPopup onClose={closeAllPopups} />}
       {selectedPopupVideo && (
         <VideoPopup video={selectedPopupVideo} onClose={closeAllPopups} />
       )}
-      {isAuthModalOpen && <AuthPopup onClose={closeAllPopups} />}
+      {selectedPopupEvent && (
+        <CalendarPopup event={selectedPopupEvent} onClose={closeAllPopups} />
+      )}
     </div>
   );
 }
