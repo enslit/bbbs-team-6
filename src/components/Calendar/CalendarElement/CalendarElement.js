@@ -8,8 +8,9 @@ import Button from '../../Button/Button';
 
 function CalendarElement({
   event,
+  popupStatus,
   eventClick,
-  isPopup,
+  onClose,
   closeButton,
   fromMain,
 }) {
@@ -28,20 +29,85 @@ function CalendarElement({
 
   const dateStart = new Date(startAt);
   const dateEnd = new Date(endAt);
+  const popupDateString = `${format(dateStart, 'dd')} ${format(
+    dateStart,
+    'MMMM'
+  )} с ${format(dateStart, 'HH:mm')} - ${format(dateEnd, 'HH:mm')}`;
+
+  const [isBooked, setIsBooked] = React.useState(booked);
+  const [isPopup, setIsPopup] = React.useState(popupStatus);
 
   const elementClasses = classnames('calendar', {
-    calendar_onclick: booked,
+    calendar_onclick: isBooked,
     calendar__popup: isPopup,
   });
 
-  function handleClick() {
-    eventClick(event);
+  function handleClickEvent(status) {
+    eventClick(event, status);
+  }
+
+  function handleClickBooking() {
+    isBooked
+      ? setIsBooked(!isBooked)
+      : isPopup
+      ? setIsPopup('success')
+      : handleClickEvent('confirm');
   }
 
   return (
     <li className={elementClasses}>
       {fromMain && <Link className="mainlink" to="/calendar" />}
       {isPopup && closeButton}
+
+      {isPopup === 'confirm' && (
+        <div className="calendar calendar__popup calendar__popup_confirm">
+          <p className="calendar__popup-text">
+            Подтвердить запись на мероприятие
+          </p>
+          <p className="calendar__popup-text">{`"${title}"`}</p>
+          <p className="calendar__popup-text calendar__popup-text_bottom">
+            {popupDateString}
+          </p>
+          <div className="calendar__popup-button-wrapper">
+            <Button
+              style="light"
+              addClassName="calendar-element__join-button"
+              onClickAction={handleClickBooking}
+            >
+              Подтвердить запись
+            </Button>
+            <Button
+              style="dark"
+              addClassName="calendar-element__join-button"
+              onClickAction={onClose}
+            >
+              Отменить
+            </Button>
+          </div>
+        </div>
+      )}
+
+      {isPopup === 'success' && (
+        <div className="calendar calendar__popup calendar__popup_confirm">
+          <div className="calendar__popup-success-image"></div>
+          <p className="calendar__popup-text">Вы записаны на мероприятие</p>
+          <p className="calendar__popup-text">{`"${title}"`}</p>
+          <p className="calendar__popup-text calendar__popup-text_bottom">
+            {popupDateString}
+          </p>
+          <p className="calendar__popup-text calendar__popup-text_bottom">
+            Если у вас не получится прийти — отмените, пожалуйста, запись.
+          </p>
+          <Button
+            style="dark"
+            addClassName="calendar-element__join-button"
+            onClickAction={onClose}
+          >
+            Вернуться к календарю
+          </Button>
+        </div>
+      )}
+
       <div className="calendar__about">
         <p className="calendar__participants">Волонтёры + дети</p>
         <p className="calendar__date">
@@ -50,6 +116,7 @@ function CalendarElement({
         <h2 className="calendar__event">{title}</h2>
         <p className="calendar__day">{format(dateStart, 'dd')}</p>
       </div>
+
       <ul className="calendar__contacts">
         <li className="calendar__contacts-item">
           <p className="calendar__time">
@@ -63,16 +130,19 @@ function CalendarElement({
           <p className="calendar__phone">{contact}</p>
         </li>
       </ul>
+
       {isPopup && <p className="calendar__text_popup">{description}</p>}
+
       <div className="calendar__sign-up">
         <div className="calendar__sign-up_flex">
           <Button
             style="light"
-            disabled={seats - takenSeats === 0}
-            isActive={booked}
+            disabled={seats - takenSeats === 0 || remainSeats === 0}
+            isActive={isBooked}
             addClassName="calendar-element__join-button"
+            onClickAction={handleClickBooking}
           >
-            {booked ? 'Отменить запись' : 'Записаться'}
+            {isBooked ? 'Отменить запись' : 'Записаться'}
           </Button>
           <p className="calendar__sign-up__type_text">
             {seats - takenSeats === 0
@@ -82,8 +152,9 @@ function CalendarElement({
                 } мест`}
           </p>
         </div>
+
         {!isPopup && (
-          <Button type="round" onClickAction={handleClick}>
+          <Button type="round" onClickAction={() => handleClickEvent('more')}>
             ...
           </Button>
         )}
@@ -108,8 +179,10 @@ CalendarElement.propTypes = {
   }),
   isPopup: bool,
   closeButton: element,
+  onClose: func,
   eventClick: func,
   fromMain: bool,
+  popupStatus: string,
 };
 
 export default CalendarElement;

@@ -28,6 +28,7 @@ function App() {
   const [isAuthModalOpen, setAuthModalOpen] = useState(false);
   const [selectedPopupVideo, setSelectedPopupVideo] = useState(null);
   const [selectedPopupEvent, setSelectedPopupEvent] = useState(null);
+  const [popupEventStatus, setPopupEventStatus] = useState(null);
 
   function handleAuthModalOpen() {
     setAuthModalOpen(true);
@@ -38,13 +39,15 @@ function App() {
     history.push('/read-and-watch/video');
   }
 
-  function handleEventClick(event) {
+  function handleEventClick(event, status) {
+    status && setPopupEventStatus(status);
     setSelectedPopupEvent(event);
   }
 
   function closeAllPopups() {
     setSelectedPopupVideo(null);
     setSelectedPopupEvent(null);
+    setPopupEventStatus(null);
     setAuthModalOpen(false);
     if (
       (isAuthModalOpen && location.pathname === '/calendar') ||
@@ -151,7 +154,11 @@ function App() {
         <VideoPopup video={selectedPopupVideo} onClose={closeAllPopups} />
       )}
       {selectedPopupEvent && (
-        <CalendarPopup event={selectedPopupEvent} onClose={closeAllPopups} />
+        <CalendarPopup
+          event={selectedPopupEvent}
+          popupStatus={popupEventStatus}
+          onClose={closeAllPopups}
+        />
       )}
     </div>
   );

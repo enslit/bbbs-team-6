@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { func, object } from 'prop-types';
+import { func, object, string } from 'prop-types';
 import Popup from '../Popup/Popup';
 import CalendarElement from '../Calendar/CalendarElement/CalendarElement';
 import IconButton from '../IconButton/IconButton';
@@ -8,9 +8,10 @@ import closeIcon from '../../assets/icons/close.svg';
 CalendarPopup.propTypes = {
   event: object,
   onClose: func,
+  popupStatus: string,
 };
 
-function CalendarPopup({ event, onClose }) {
+function CalendarPopup({ event, onClose, popupStatus }) {
   const closeButton = (
     <IconButton
       type="button"
@@ -22,7 +23,12 @@ function CalendarPopup({ event, onClose }) {
 
   return (
     <Popup onClose={onClose} mod="__meet">
-      <CalendarElement event={event} isPopup={true} closeButton={closeButton} />
+      <CalendarElement
+        event={event}
+        popupStatus={popupStatus}
+        closeButton={closeButton}
+        onClose={onClose}
+      />
     </Popup>
   );
 }

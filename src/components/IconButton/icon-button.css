@@ -8,4 +8,5 @@
   background-size: cover;
   background-color: transparent;
   cursor: pointer;
+  z-index: 3;
 }

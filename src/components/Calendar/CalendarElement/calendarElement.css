@@ -173,6 +173,45 @@
   box-sizing: border-box;
 }
 
+.calendar__popup_confirm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+.calendar__popup-success-image {
+  margin-bottom: 30px;
+  width: 413px;
+  height: 169px;
+  background-image: url('../../../assets/images/figures-success.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.calendar__popup-text {
+  font-family: 'Proto Grotesk-Light', sans-serif;
+  margin: 0;
+  font-size: 23px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.calendar__popup-text_bottom {
+  margin-bottom: 30px;
+}
+
+.calendar__popup-button-wrapper {
+  display: flex;
+  gap: 15px;
+}
+
 @media (max-width: 1620px) {
   .calendar__event {
     max-width: 320px;
@@ -251,6 +290,17 @@
 
   .calendar__popup {
     padding: 60px 15px 30px;
+  }
+
+  .calendar__popup-success-image {
+    margin-bottom: 30px;
+    width: 290px;
+    height: 152px;
+  }
+
+  .calendar__popup-text {
+    font-size: 19px;
+    line-height: 23px;
   }
 }
 
