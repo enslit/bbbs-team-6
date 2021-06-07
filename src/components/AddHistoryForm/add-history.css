@@ -81,6 +81,7 @@
     font-size: 15px;
     line-height: 19px;
     text-align: left;
+    resize: none;
 }
 
 .add-history__field_type_textarea {

@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import './user-account.css';
 import { useHistory } from 'react-router-dom';
 import AddHistoryForm from '../../components/AddHistoryForm/AddHistoryForm';
+import AddedHistory from '../../components/AddedHistory/AddedHistory';
 
 function UserAccountPage() {
   const { signOut } = useAuth();
   const history = useHistory();
+  const [stories, setStories] = useState([]);
 
   const handleClickLogout = () => {
     signOut(() => history.push('/'));
@@ -17,9 +19,17 @@ function UserAccountPage() {
   };
 
   const onAddNewHistory = (form) => {
-    console.log({ form });
+    setStories([...stories, form]);
+    console.log(stories);
   };
-
+  useEffect(() => {
+    console.log(stories);
+  }, [stories]);
+  const FullFilledStory = () => {
+    return stories.map((event) => (
+      <AddedHistory key={event.id} event={event} />
+    ));
+  };
   return (
     <main className="main">
       <section className="personal-account content main__section">
@@ -48,8 +58,12 @@ function UserAccountPage() {
           Составьте историю вашей дружбы с младшим. Эта страница доступна только
           вам.
         </h2>
-
-        <AddHistoryForm onSubmit={onAddNewHistory} />
+        {stories.length >= 1 ? (
+          <FullFilledStory />
+        ) : (
+          <AddHistoryForm onSubmit={onAddNewHistory} />
+        )}
+        )
       </section>
     </main>
   );

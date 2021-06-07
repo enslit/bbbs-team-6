@@ -1,4 +1,5 @@
 import React from 'react';
+import { v4 as uuid } from 'uuid';
 import { Form, Formik } from 'formik';
 import FeedbackRadioButton from './FeedbackRadioButton';
 import addPhotoIcon from '../../assets/icons/personal-account-btn-add-photo.svg';
@@ -16,6 +17,10 @@ AddHistoryForm.propTypes = {
 };
 
 function AddHistoryForm({ onSubmit }) {
+  function addNewHistory(form) {
+    form.id = uuid();
+    onSubmit(form);
+  }
   return (
     <Formik
       initialValues={{
@@ -25,7 +30,7 @@ function AddHistoryForm({ onSubmit }) {
         description: '',
         feedback: '',
       }}
-      onSubmit={onSubmit}
+      onSubmit={addNewHistory}
     >
       {({
         errors,
@@ -111,7 +116,9 @@ function AddHistoryForm({ onSubmit }) {
               <button className="add-history__remove" type="button">
                 Удалить
               </button>
-              <button type="submit">Добавить</button>
+              <button className="add-history__remove" type="submit">
+                Добавить
+              </button>
             </div>
           </div>
         </Form>
