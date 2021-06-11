@@ -1,26 +1,20 @@
 .auth-popup {
   display: flex;
   flex-direction: column;
-  padding: 30px 30px 50px;
+  padding: 50px 30px;
   background-color: #fff;
   border-radius: 30px;
   width: calc(100% - 150px);
   max-width: 770px;
   align-items: center;
   box-sizing: border-box;
-}
-
-.auth-popup__close {
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  align-self: flex-end;
+  position: relative;
 }
 
 .auth-popup__information {
   max-width: 547px;
   text-align: center;
-  font-family: PT Root UI, Arial, sans-serif;
+  font-family: 'PT-Root-UI', Arial, sans-serif;
   font-size: 18px;
   line-height: 26px;
   margin-bottom: 50px;
@@ -28,7 +22,8 @@
 }
 
 .auth-popup__title {
-  font-family: Proto Grotesk Web Light, Arial, sans-serif;
+  margin: 0 0 17px;
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 23px;
@@ -74,7 +69,7 @@
 
 .auth-popup__error_visible {
   font-style: normal;
-  font-family: PT Root UI, Arial, sans-serif;
+  font-family: 'PT-Root-UI', Arial, sans-serif;
   font-weight: normal;
   font-size: 12px;
   line-height: 15px;
@@ -88,7 +83,7 @@
 
 @media (max-width: 780px) {
   .auth-popup {
-    padding: 15px 15px 15px;
+    padding: 60px 15px 50px;
     max-width: 620px;
   }
 

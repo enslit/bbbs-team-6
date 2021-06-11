@@ -18,15 +18,15 @@
 }
 
 .mobile-menu__panel {
+  padding: 40px 15px 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 15px 30px;
   border-radius: 0 0 30px 30px;
   position: absolute;
   top: 74px;
-  left: 0;
-  width: 100%;
+  left: 127px;
+  right: 127px;
   background-color: rgba(243, 242, 242, 1);
   z-index: 3;
 }
@@ -52,6 +52,16 @@
   z-index: 2;
 }
 
+@media (min-width: 1024px) {
+  .mobile-menu {
+    display: none;
+  }
+
+  .mobile-menu__panel {
+    display: none;
+  }
+}
+
 @media (max-width: 1024px) {
   .mobile-menu__icon {
     display: inline-block;
@@ -61,6 +71,8 @@
 @media (max-width: 640px) {
   .mobile-menu__panel {
     top: 44px;
+    left: 15px;
+    right: 15px;
   }
 
   .mobile-menu__wrapper {

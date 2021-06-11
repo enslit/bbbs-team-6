@@ -6,9 +6,10 @@ import Button from '../Button/Button';
 
 CalendarList.propTypes = {
   events: PropTypes.array,
+  eventClick: PropTypes.func,
 };
 
-function CalendarList({ events }) {
+function CalendarList({ events, eventClick }) {
   const [selectedMonth, setSelectedMonth] = useState(null);
   const [filteredEvents, setFilteredEvents] = useState([]);
 
@@ -56,9 +57,13 @@ function CalendarList({ events }) {
             </Button>
           ))}
       </div>
-      <ul className="calendar__list">
+      <ul className="grid-calendar__grid">
         {filteredEvents.map((event) => (
-          <CalendarElement key={event.id} event={event} />
+          <CalendarElement
+            key={event.id}
+            event={event}
+            eventClick={eventClick}
+          />
         ))}
       </ul>
     </>

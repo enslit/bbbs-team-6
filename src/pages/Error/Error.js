@@ -4,7 +4,7 @@ import './error.css';
 
 export default function Error() {
   return (
-    <div className="error">
+    <section className="error main__section">
       <div className="error__image-container"></div>
       <h2 className="error__title">404</h2>
       <p className="error__subtitle">
@@ -14,6 +14,6 @@ export default function Error() {
       <NavLink className="error__link" to="/">
         <Button>Вернуться на главную</Button>
       </NavLink>
-    </div>
+    </section>
   );
 }

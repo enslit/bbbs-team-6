@@ -1,16 +1,18 @@
-/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/bbbs.css */
 .bbbs {
   max-width: 870px;
   background: #8cdd94;
   border-radius: 30px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
+
 .bbbs__logo {
   width: 61.5%;
   background-color: #ff8585;
   border-radius: 30px 3px 200px 3px;
 }
+
 .bbbs__about {
   background-color: #ff8585;
   border-radius: 400px;
@@ -19,8 +21,9 @@
   align-items: center;
   padding: 122px 17.24%;
 }
+
 .bbbs__text {
-  font-family: 'Proto', Arial, sans-serif;
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
   font-weight: 300;
   font-size: 23px;
   line-height: 30px;
@@ -28,47 +31,55 @@
   color: #000000;
   margin: 0;
 }
+
 @media (max-width: 1760px) {
   .bbbs__about {
     padding-left: 9%;
     padding-right: 9%;
   }
 }
+
 @media (max-width: 1440px) {
   .bbbs__logo {
     width: 69.298%;
   }
+
   .bbbs__about {
     padding: 70px 5.26%;
   }
 }
+
 @media (max-width: 1024px) {
   .bbbs__logo {
     width: 72.16%;
   }
+
   .bbbs__about {
     padding: 89px 4.055% 88px;
     border-radius: 70px 70px 30px 30px;
   }
+
   .bbbs__text {
     font-size: 19px;
     line-height: 23px;
   }
 }
+
 @media (max-width: 1010px) {
   .bbbs__about {
     padding-top: 80px;
     padding-bottom: 80px;
   }
 }
+
 @media (max-width: 860px) {
   .bbbs__logo {
     width: 78.9655%;
   }
+
   .bbbs__about {
     padding: 70px 5.177%;
     padding-top: 35px;
     padding-bottom: 36px;
   }
 }
-/*! end @import */

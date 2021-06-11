@@ -39,7 +39,7 @@
   border: 1px solid #f3f2f2;
   color: #f3f2f2;
   border-radius: 100px;
-  font-family: 'Proto', Arial, sans-serif;
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
   font-weight: 300;
   font-size: 15px;
   line-height: 19px;
@@ -88,7 +88,7 @@
   text-decoration: none;
   text-transform: uppercase;
   color: #f3f2f2;
-  font-family: 'Proto', Arial, sans-serif;
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
   font-size: 14px;
   line-height: 17px;
   letter-spacing: 0.2px;
@@ -110,7 +110,7 @@
   grid-area: copy;
   margin: 0 0 12px 0;
   padding: 0;
-  font-family: 'PT Proto', Arial, sans-serif;
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
   font-size: 18px;
   line-height: 26px;
   font-weight: 400;
@@ -128,7 +128,7 @@
 .footer__develop-text {
   margin: 0 30px 0 0;
   padding: 0;
-  font-family: 'PT Proto', Arial, sans-serif;
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
   font-size: 18px;
   line-height: 26px;
   font-weight: 400;
@@ -158,7 +158,6 @@
 @media (max-width: 1360px) {
   .footer__wrapper {
     width: calc(100% - 270px);
-    margin-top: 40px;
     grid-template-columns: 1fr;
     grid-template-areas:
       'logo'

@@ -15,7 +15,9 @@ import HistoriesPage from '../pages/histories/HistoriesPage';
 import { useAuth } from '../hooks/useAuth';
 import VideoPopup from '../components/VideoPopup/VideoPopup';
 import AuthPopup from './AuthPopup/AuthPopup';
+import CalendarPopup from './CalendarPopup/CalendarPopup';
 import Error from '../pages/Error/Error';
+
 function App() {
   const history = useHistory();
   const location = useLocation();
@@ -25,21 +27,30 @@ function App() {
   const offset = useRef(0);
   const [isAuthModalOpen, setAuthModalOpen] = useState(false);
   const [selectedPopupVideo, setSelectedPopupVideo] = useState(null);
+  const [selectedPopupEvent, setSelectedPopupEvent] = useState(null);
+  const [popupEventStatus, setPopupEventStatus] = useState(null);
+
+  function handleAuthModalOpen() {
+    setAuthModalOpen(true);
+  }
 
   function handleMainVideoClick(video) {
     setSelectedPopupVideo(video);
     history.push('/read-and-watch/video');
   }
 
-  function handleAuthModalOpen() {
-    setAuthModalOpen(true);
+  function handleEventClick(event, status) {
+    status && setPopupEventStatus(status);
+    setSelectedPopupEvent(event);
   }
 
   function closeAllPopups() {
     setSelectedPopupVideo(null);
+    setSelectedPopupEvent(null);
+    setPopupEventStatus(null);
     setAuthModalOpen(false);
     if (
-      location.pathname === '/calendar' ||
+      (isAuthModalOpen && location.pathname === '/calendar') ||
       location.pathname === '/user-account'
     ) {
       history.push('/');
@@ -71,6 +82,10 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   /* Когда мы перезагружаем страницу на защищенном роуте, нас выбрасывает на страницу логина. Это происходит потому,
   что проверка JWT выполняется асинхронно и пока она не закончена, состояние loggedIn в значении false.
   Рендер страницы продолжается и защищенный роут нас отбрасывает согласно логике.
@@ -88,51 +103,63 @@ function App() {
         fixed={isHeaderFixed}
         handleAuthModalOpen={handleAuthModalOpen}
       />
-      <Switch>
-        <Route path="/" exact>
-          <HomePage videoClick={handleMainVideoClick} />
-        </Route>
-        <Route path="/about">
-          <AboutPage />
-        </Route>
-        {/* Вернуть приватный роут по окончанию работы */}
-        <PrivateRoute
-          handleAuthModalOpen={handleAuthModalOpen}
-          path="/calendar"
-        >
-          <CalendarPage />
-        </PrivateRoute>
-        <Route path="/questions">
-          <QuestionsPage />
-        </Route>
-        <Route path="/read-and-watch">
-          <ReadAndWatchPage />
-        </Route>
-        <Route path="/where-to-go">
-          <WhereToGoPage />
-        </Route>
-        <Route path="/children-is-rights">
-          <ChildrenIsRightsPage />
-        </Route>
-        <Route path="/histories">
-          <HistoriesPage />
-        </Route>
-        <PrivateRoute
-          handleAuthModalOpen={handleAuthModalOpen}
-          path="/user-account"
-        >
-          <UserAccountPage />
-        </PrivateRoute>
-        <Route path="*">
-          <Error />
-        </Route>
-      </Switch>
+      <main className="main">
+        <Switch>
+          <Route path="/" exact>
+            <HomePage
+              videoClick={handleMainVideoClick}
+              eventClick={handleEventClick}
+            />
+          </Route>
+          <Route path="/about">
+            <AboutPage />
+          </Route>
+          {/* Вернуть приватный роут по окончанию работы */}
+          <PrivateRoute
+            handleAuthModalOpen={handleAuthModalOpen}
+            path="/calendar"
+          >
+            <CalendarPage eventClick={handleEventClick} />
+          </PrivateRoute>
+          <Route path="/questions">
+            <QuestionsPage />
+          </Route>
+          <Route path="/read-and-watch">
+            <ReadAndWatchPage />
+          </Route>
+          <Route path="/where-to-go">
+            <WhereToGoPage />
+          </Route>
+          <Route path="/children-is-rights">
+            <ChildrenIsRightsPage />
+          </Route>
+          <Route path="/histories">
+            <HistoriesPage />
+          </Route>
+          <PrivateRoute
+            handleAuthModalOpen={handleAuthModalOpen}
+            path="/user-account"
+          >
+            <UserAccountPage />
+          </PrivateRoute>
+          <Route path="*">
+            <Error />
+          </Route>
+        </Switch>
+      </main>
       <Footer />
 
+      {isAuthModalOpen && <AuthPopup onClose={closeAllPopups} />}
       {selectedPopupVideo && (
         <VideoPopup video={selectedPopupVideo} onClose={closeAllPopups} />
       )}
-      {isAuthModalOpen && <AuthPopup onClose={closeAllPopups} />}
+      {selectedPopupEvent && (
+        <CalendarPopup
+          event={selectedPopupEvent}
+          popupStatus={popupEventStatus}
+          onClose={closeAllPopups}
+        />
+      )}
     </div>
   );
 }

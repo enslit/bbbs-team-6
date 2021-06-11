@@ -1,16 +1,20 @@
 .loader {
-    position: relative;
-    display: inline-block;
-    padding: 15px;
+  position: absolute;
+  top: calc(50vh - 70px);
+  left: calc(50vw - 70px);
+}
+
+.loader__wrapper {
+  position: relative;
 }
 
 .loader__percent {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'PT-Root-UI', sans-serif;
-    font-size: 18px;
-    line-height: 26px;
-    color: #2E2468;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'PT-Root-UI', sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+  color: #2e2468;
 }

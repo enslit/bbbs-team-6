@@ -1,11 +1,12 @@
 import React, { memo, useEffect } from 'react';
 import { func } from 'prop-types';
-import Popup from '../Popup/Popup';
-import './authPopup.css';
-import close from '../../assets/icons/close.svg';
 import { Formik } from 'formik';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
+import Popup from '../Popup/Popup';
+import IconButton from '../IconButton/IconButton';
+import closeIcon from '../../assets/icons/close.svg';
+import './authPopup.css';
 
 AuthPopup.propTypes = {
   onClose: func,
@@ -41,8 +42,13 @@ function AuthPopup({ onClose }) {
 
   return (
     <Popup onClose={onClose}>
-      <div className="auth-popup ">
-        <img onClick={onClose} className="auth-popup__close" src={close} />
+      <div className="auth-popup">
+        <IconButton
+          type="button"
+          className="popup__close"
+          handleClick={onClose}
+          icon={closeIcon}
+        />
         <h3 className="title auth-popup__title">Вход</h3>
         <div className="auth-popup__information">
           <p className="auth-popup__paragraph">

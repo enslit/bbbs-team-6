@@ -8,6 +8,7 @@
   transition: all 200ms ease-in-out;
   cursor: pointer;
   background-color: transparent;
+  z-index: 1;
 }
 
 .button_style_dark {
@@ -26,6 +27,7 @@
 
 .button_style_light:hover {
   background-color: #c8d1ff;
+  mix-blend-mode: multiply;
 }
 
 .button_active_dark {
@@ -56,7 +58,8 @@
   letter-spacing: 0;
 }
 
-.button_disabled, .button_disabled:hover {
+.button_disabled,
+.button_disabled:hover {
   cursor: default;
   border-color: #a7a6a6;
   background-color: transparent;

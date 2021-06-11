@@ -1,10 +1,10 @@
-/*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/mainvideo.css */
 .mainvideo {
   display: flex;
   border-radius: 30px;
   width: 100%;
   cursor: pointer;
 }
+
 .mainvideo__description {
   background: #f8d162;
   padding: 30px 50px;
@@ -17,11 +17,13 @@
   position: relative;
   box-sizing: border-box;
 }
+
 .mainvideo__name {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .mainvideo__title {
   font-family: 'Proto Grotesk-Light', Arial, sans-serif;
   font-weight: 300;
@@ -30,6 +32,7 @@
   text-align: center;
   margin: 0 0 5px 0;
 }
+
 .mainvideo__caption {
   font-family: 'PT-Root-UI', Arial, sans-serif;
   font-weight: 400;
@@ -40,6 +43,7 @@
   color: #464646;
   margin: 0;
 }
+
 .mainvideo__link {
   font-family: 'Proto Grotesk-Light', Arial, sans-serif;
   font-weight: 300;
@@ -49,29 +53,36 @@
   color: #224cff;
   margin: 0;
   text-decoration: none;
+  z-index: 1;
 }
+
 .mainvideo__link:hover {
   color: #2e2468;
 }
+
 .mainvideo__video {
   border-radius: 30px;
   width: 67.74%;
   height: auto;
 }
+
 @media (max-width: 1440px) {
   .mainvideo__video {
     width: 68.376%;
   }
+
   .mainvideo__description {
     padding-left: 30px;
     padding-right: 30px;
     width: 31.624%;
   }
 }
+
 @media (max-width: 1024px) {
   .mainvideo {
     flex-direction: column;
   }
+
   .mainvideo__description {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -79,31 +90,36 @@
     width: 100%;
     order: 2;
   }
+
   .mainvideo__video {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     width: 100%;
     order: 1;
   }
+
   .mainvideo__name {
     margin-bottom: 55px;
   }
+
   .mainvideo__title {
     font-size: 19px;
     line-height: 23px;
   }
+
   .mainvideo__caption {
     font-size: 12px;
     line-height: 17px;
   }
+
   .mainvideo__link {
     font-size: 12px;
     line-height: 17px;
   }
 }
+
 @media (max-width: 640px) {
   .mainvideo__name {
     margin-bottom: 32px;
   }
 }
-/*! end @import */
