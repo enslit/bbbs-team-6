@@ -22,7 +22,7 @@
     "startAt": "2021-06-10T06:00:00Z",
     "endAt": "2021-06-10T08:00:00Z",
     "seats": 20,
-    "takenSeats": 4,
+    "takenSeats": 20,
     "city": 1
   },
   {

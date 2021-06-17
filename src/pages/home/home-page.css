@@ -21,6 +21,11 @@
   width: calc(100% - 150px);
   max-width: 1770px;
 }
+
+.content_loading {
+  text-align: center;
+}
+
 @media (max-width: 1440px) {
   .content {
     width: calc(100% - 270px);
@@ -74,7 +79,6 @@
 /*! @import https://charity-project-bbbs.github.io/bbbs-project/blocks/mainpage.css */
 .mainpage {
   display: grid;
-  grid-template-columns: 1;
   gap: 30px;
   box-sizing: border-box;
 }
@@ -167,7 +171,7 @@
   margin-bottom: 17px;
 }
 .movie__title {
-  font-family: 'Proto', Arial, sans-serif;
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
   font-weight: 300;
   font-size: 23px;
   line-height: 30px;
@@ -179,7 +183,7 @@
   overflow: hidden;
 }
 .movie__caption {
-  font-family: 'PT Proto', Arial, sans-serif;
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 19px;
@@ -193,7 +197,7 @@
   overflow: hidden;
 }
 .movie__link {
-  font-family: 'Proto', Arial, sans-serif;
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
   font-weight: 300;
   font-size: 15px;
   line-height: 19px;
@@ -246,7 +250,7 @@
   background: #8cdd94;
 }
 .preview-article__title {
-  font-family: 'Proto', Arial, sans-serif;
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
   font-weight: 300;
   font-size: 44px;
   line-height: 50px;
@@ -255,7 +259,7 @@
   margin: 0 0 71px 0;
 }
 .preview-article__link {
-  font-family: 'Proto', Arial, sans-serif;
+  font-family: 'Proto Grotesk-Light', Arial, sans-serif;
   font-weight: 300;
   font-size: 15px;
   line-height: 19px;
@@ -391,13 +395,13 @@
 }
 .event-soon__caption {
   margin: 15px auto 70px;
-  font-family: 'PT Root', Arial, Helvetica, sans-serif;
+  font-family: 'PT-Root-UI', Arial, Helvetica, sans-serif;
   font-size: 10px;
   line-height: 13px;
   font-weight: 400;
 }
 .event-soon__title {
-  font-family: 'Proto', Arial, Helvetica, sans-serif;
+  font-family: 'Proto Grotesk-Light', Arial, Helvetica, sans-serif;
   font-size: 23px;
   line-height: 30px;
   font-weight: 300;
@@ -405,7 +409,7 @@
   color: #000000;
 }
 .event-soon__subtitle {
-  font-family: 'PT Root', Arial, Helvetica, sans-serif;
+  font-family: 'PT-Root-UI', Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 19px;
   font-weight: 400;
@@ -420,7 +424,7 @@
   margin-bottom: 15px;
 }
 .event-soon__link {
-  font-family: 'Proto', Arial, Helvetica, sans-serif;
+  font-family: 'Proto Grotesk-Light', Arial, Helvetica, sans-serif;
   font-size: 15px;
   line-height: 19px;
   font-weight: 300;
@@ -492,22 +496,27 @@
   scrollbar-color: #e8e6e6 transparent;
   scrollbar-width: thin;
 }
+
 .event-article::-webkit-scrollbar {
   width: 3px;
-  background-color: cover;
+  background-size: cover;
 }
+
 .event-article::-webkit-scrollbar-thumb {
   background-color: #e8e6e6;
   border-radius: 5px;
 }
+
 .event-article::-webkit-scrollbar-button {
   height: 15px;
 }
+
 .event-article_size_big {
   margin: 47px 15px 69px 30px;
 }
+
 .event-article__title {
-  font-family: 'PT Root', Arial, Helvetica, sans-serif;
+  font-family: 'PT-Root-UI', Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 19px;
   font-weight: 400;
@@ -518,7 +527,7 @@
   margin-bottom: 105px;
 }
 .event-article__paragraph {
-  font-family: 'PT Root', Arial, Helvetica, sans-serif;
+  font-family: 'PT-Root-UI', Arial, Helvetica, sans-serif;
   font-size: 18px;
   line-height: 26px;
   font-weight: 400;

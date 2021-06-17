@@ -14,23 +14,15 @@ HeaderMobileMenu.propTypes = {
 };
 
 function HeaderMobileMenu({ onOpen, onClose, isOpened }) {
-  const handleClickBackdrop = (e) => {
-    // Если кликнули мимо меню, то закроем его
-    if (e.target.classList.contains('backdrop')) {
-      onClose();
-    }
-  };
-
   return (
     <div className="mobile-menu">
       <IconButton
         type="button"
         className="mobile-menu__icon"
         aria-label="Меню"
-        handleClick={onOpen}
+        handleClick={isOpened ? onClose : onOpen}
         icon={isOpened ? closeIcon : menuIcon}
       />
-      {isOpened && <div className="backdrop" onClick={handleClickBackdrop} />}
       <div
         className={`mobile-menu__panel ${
           isOpened ? '' : 'mobile-menu__panel_hidden'

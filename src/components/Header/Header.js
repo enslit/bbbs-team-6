@@ -8,15 +8,16 @@ import searchIcon from '../../assets/icons/search.svg';
 import userIcon from '../../assets/icons/login.svg';
 import authorizedUserIcon from '../../assets/icons/lk.svg';
 import { menuHeaderDesktop } from '../../menus';
-import { bool } from 'prop-types';
+import { bool, func } from 'prop-types';
 import './header.css';
 
 Header.propTypes = {
   hidden: bool,
   fixed: bool,
+  handleAuthModalOpen: func,
 };
 
-function Header({ hidden, fixed }) {
+function Header({ hidden, fixed, handleAuthModalOpen }) {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const { user } = useAuth();
 
@@ -33,7 +34,8 @@ function Header({ hidden, fixed }) {
   };
 
   const handleClickUserIcon = () => {
-    console.log('user');
+    setIsMenuOpened(false);
+    handleAuthModalOpen();
   };
 
   return (
@@ -42,7 +44,11 @@ function Header({ hidden, fixed }) {
         fixed ? ' header_fixed' : ''
       }`}
     >
-      <Link to="/" className="header__logo">
+      <Link
+        to="/"
+        className="header__logo"
+        onClick={() => setIsMenuOpened(false)}
+      >
         наставники.про
       </Link>
       <HeaderMobileMenu

@@ -67,37 +67,7 @@
 }
 
 .calendar-element__join-button {
-  height: 48px;
-  font-size: 15px;
-  line-height: 19px;
-  color: #224cff;
-  border-radius: 100px;
-  border: 1px solid #224cff;
-  box-sizing: border-box;
-  padding: 0 20px;
-  text-align: center;
-  cursor: pointer;
   margin-right: 15px;
-}
-
-.calendar-element__join-button_booked {
-  color: #fff;
-  border-color: #224CFF;
-  background-color: #224CFF;
-}
-
-.menu-button {
-  width: 48px;
-  height: 48px;
-  border: 1px solid #224cff;
-  box-sizing: border-box;
-  padding-bottom: 13px;
-  border-radius: 50%;
-  font-size: 25px;
-  text-align: center;
-  color: #224cff;
-  cursor: pointer;
-  background-color: transparent;
 }
 
 @media screen and (max-width: 1024px) {
@@ -119,15 +89,7 @@
     margin-bottom: 41px;
   }
 
-  .join__button {
-    width: 100px;
-    height: 40px;
-    padding: 11px 15px 8px;
+  .calendar-element__join-button {
     margin-right: 10px;
-  }
-
-  .menu-button {
-    width: 40px;
-    height: 40px;
   }
 }

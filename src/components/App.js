@@ -8,13 +8,13 @@ import CalendarPage from '../pages/calendar/CalendarPage';
 import QuestionsPage from '../pages/questions/QuestionsPage';
 import ReadAndWatchPage from '../pages/read-and-watch/ReadAndWatchPage';
 import WhereToGoPage from '../pages/where-to-go/WhereToGoPage';
-import Login from '../pages/login/Login';
 import PrivateRoute from '../hocs/PrivateRoute';
 import UserAccountPage from '../pages/user-account/UserAccountPage';
 import ChildrenIsRightsPage from '../pages/children-is-rights/ChildrenIsRightsPage';
 import HistoriesPage from '../pages/histories/HistoriesPage';
 import { useAuth } from '../hooks/useAuth';
 import VideoPopup from '../components/VideoPopup/VideoPopup';
+import AuthPopup from './AuthPopup/AuthPopup';
 
 function App() {
   const history = useHistory();
@@ -22,7 +22,7 @@ function App() {
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
   const [isHeaderFixed, setIsHeaderFixed] = useState(false);
   const offset = useRef(0);
-
+  const [isAuthModalOpen, setAuthModalOpen] = useState(false);
   const [selectedPopupVideo, setSelectedPopupVideo] = useState(null);
 
   function handleMainVideoClick(video) {
@@ -30,8 +30,13 @@ function App() {
     history.push('/read-and-watch/video');
   }
 
+  function handleAuthModalOpen() {
+    setAuthModalOpen(true);
+  }
+
   function closeAllPopups() {
     setSelectedPopupVideo(null);
+    setAuthModalOpen(false);
   }
 
   const hideHeaderOnScroll = () => {
@@ -71,7 +76,11 @@ function App() {
 
   return (
     <div className={`app ${isHeaderFixed ? 'app_header-offset' : ''}`}>
-      <Header hidden={isHeaderHidden} fixed={isHeaderFixed} />
+      <Header
+        hidden={isHeaderHidden}
+        fixed={isHeaderFixed}
+        handleAuthModalOpen={handleAuthModalOpen}
+      />
       <Switch>
         <Route path="/" exact>
           <HomePage videoClick={handleMainVideoClick} />
@@ -98,9 +107,6 @@ function App() {
         <Route path="/histories">
           <HistoriesPage />
         </Route>
-        <Route path="/sign-in">
-          <Login />
-        </Route>
         <PrivateRoute path="/user-account">
           <UserAccountPage />
         </PrivateRoute>
@@ -113,6 +119,7 @@ function App() {
       {selectedPopupVideo && (
         <VideoPopup video={selectedPopupVideo} onClose={closeAllPopups} />
       )}
+      {isAuthModalOpen && <AuthPopup onClose={closeAllPopups} />}
     </div>
   );
 }

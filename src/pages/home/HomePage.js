@@ -12,6 +12,7 @@ import Video from '../../components/Video/Video';
 import FacebookWidget from '../../components/FacebookWidget/FacebookWidget';
 import Question from '../../components/Question/Question';
 import './home-page.css';
+import Loader from '../../components/Loader/Loader';
 
 HomePage.propTypes = {
   videoClick: func,
@@ -19,6 +20,7 @@ HomePage.propTypes = {
 
 function HomePage({ videoClick }) {
   const [mainData, setMainData] = useState();
+  const [isFetching, setIsFetching] = useState(true);
   const { user } = useAuth();
 
   useEffect(() => {
@@ -27,8 +29,17 @@ function HomePage({ videoClick }) {
       .then((res) => {
         setMainData(res);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => setIsFetching(false));
   }, []);
+
+  if (isFetching) {
+    return (
+      <div className="content root__section content_loading">
+        <Loader />
+      </div>
+    );
+  }
 
   return (
     <main className="content root__section">
